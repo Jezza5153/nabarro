@@ -16,7 +16,7 @@ export default function Footer() {
           </p>
         </div>
         <p className="text-center text-sm text-muted-foreground md:text-right">
-          © {currentYear} Nabarrocoaching. All rights reserved. {' '}
+          © {currentYear} swimwith ease. All rights reserved. {' '}
           <Link href="/contact" className="underline underline-offset-4 hover:text-primary">
             Get in touch
           </Link>.

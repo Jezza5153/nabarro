@@ -19,7 +19,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Nabarrocoaching | Calm Adult Swimming Lessons in Zeeland',
+  title: 'SwimSafe Coaching | Calm Adult Swimming Lessons in Zeeland',
   description:
     'A calm, welcoming, and low-pressure place to learn how to swim as an adult. Serving international adults in the Middelburg and Vlissingen region.',
 };

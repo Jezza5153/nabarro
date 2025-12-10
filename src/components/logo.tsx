@@ -20,7 +20,7 @@ const Logo = ({ className, ...props }: SVGProps<SVGSVGElement>) => {
         <path d="M4 16.5C4 16.5 6.5 14 12 14C17.5 14 20 16.5 20 16.5" />
         <path d="M4 8.5C4 8.5 6.5 6 12 6C17.5 6 20 8.5 20 8.5" />
       </svg>
-      <span className="font-headline text-lg tracking-wide">Nabarrocoaching</span>
+      <span className="font-headline text-lg tracking-wide">swimwith ease</span>
     </div>
   );
 };
