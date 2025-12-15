@@ -5,7 +5,7 @@ export function DataTable<T extends Record<string, any>>({
   rows,
 }: {
   columns: Array<Col<T>>;
-  rows: T[];
+  rows: readonly T[];
 }) {
   return (
     <div className="w-full overflow-x-auto rounded-2xl bg-white/80">
