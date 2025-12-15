@@ -1,25 +1,22 @@
+"use client";
+
 import Link from "next/link";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu, Waves } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-
-const navLinks = [
-    { href: "/about", label: "Over Mij" },
-    { href: "/lessons", label: "De Lessen" },
-    { href: "/for-you", label: "Voor Wie?" },
-    { href: "/info", label: "Praktische Info" },
-];
+import { useLanguage } from "@/lib/language-provider";
+import { LanguageSwitcher } from "./language-switcher";
 
 const projectLinks = [
-  { href: "/doelstellingen", label: "Doelstellingen" },
-  { href: "/werkwijze", label: "Werkwijze" },
-  { href: "/doelgroep", label: "Doelgroep" },
-  { href: "/organisaties", label: "Partners" },
-  { href: "/gsb", label: "GSB" },
-  { href: "/slot", label: "Slot" },
-]
+  { href: "/doelstellingen", labelKey: "objectives" },
+  { href: "/werkwijze", labelKey: "method" },
+  { href: "/doelgroep", labelKey: "audience" },
+  { href: "/organisaties", labelKey: "partners" },
+  { href: "/gsb", labelKey: "gsb" },
+  { href: "/slot", labelKey: "closing" },
+] as const;
 
 function NavLink({ href, label }: { href: string; label: string }) {
   return (
@@ -36,6 +33,16 @@ function NavLink({ href, label }: { href: string; label: string }) {
 }
 
 export function SiteHeader() {
+  const { content } = useLanguage();
+  const t = content.nav;
+
+  const navLinks = [
+    { href: "/about", label: t.about },
+    { href: "/lessons", label: t.lessons },
+    { href: "/for-you", label: t.for_you },
+    { href: "/info", label: t.info },
+];
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/40 bg-white/55 backdrop-blur">
       <div className="container flex h-16 items-center gap-3">
@@ -61,17 +68,18 @@ export function SiteHeader() {
           ))}
            <div className="h-4 w-px bg-border mx-2" />
            {projectLinks.map((l) => (
-            <NavLink key={l.href} href={l.href} label={l.label} />
+            <NavLink key={l.href} href={l.href} label={t[l.labelKey]} />
           ))}
         </nav>
 
         {/* Right CTA + mobile menu */}
         <div className="ml-auto flex items-center gap-2">
+          <LanguageSwitcher />
           <Button
             asChild
             className="hidden md:inline-flex rounded-full bg-[hsl(var(--bright-yellow))] text-[hsl(var(--ink))] hover:bg-[hsl(var(--bright-yellow))]/90"
           >
-            <Link href="/aanmelden">Aanmelden</Link>
+            <Link href="/aanmelden">{t.apply}</Link>
           </Button>
 
           <Sheet>
@@ -117,14 +125,14 @@ export function SiteHeader() {
                <Separator className="my-5" />
 
                  <div className="grid gap-2">
-                <p className="px-3 text-xs font-semibold text-muted-foreground">PROJECTPLAN</p>
+                <p className="px-3 text-xs font-semibold text-muted-foreground">{t.project_plan}</p>
                 {projectLinks.map((l) => (
                   <Link
                     key={l.href}
                     href={l.href}
                     className="rounded-xl px-3 py-2 text-base font-semibold hover:bg-muted"
                   >
-                    {l.label}
+                    {t[l.labelKey]}
                   </Link>
                 ))}
               </div>
@@ -135,7 +143,7 @@ export function SiteHeader() {
                 asChild
                 className="w-full rounded-full bg-[hsl(var(--bright-yellow))] text-[hsl(var(--ink))] hover:bg-[hsl(var(--bright-yellow))]/90"
               >
-                <Link href="/aanmelden">Aanmelden</Link>
+                <Link href="/aanmelden">{t.apply}</Link>
               </Button>
             </SheetContent>
           </Sheet>

@@ -1,5 +1,5 @@
 // app/page.tsx
-export const dynamic = "force-static";
+"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -10,10 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { project } from "@/content/project";
-
-function jsonLdEscape(value: unknown) {
-  return JSON.stringify(value).replace(/</g, "\\u003c");
-}
+import { useLanguage } from "@/lib/language-provider";
 
 const features = [
   {
@@ -37,102 +34,28 @@ const features = [
 ] as const;
 
 export default function Home() {
+  const { content } = useLanguage();
   const heroImage = PlaceHolderImages.find((img) => img.id === "hero-calm-water");
 
-  const firstLesson = project.sections.inleiding.firstLesson;
-  const prices = project.sections.inleiding.prices;
-
-  // Keep it short & high-intent: these are the questions AI + humans ask
-  const faq = project.ai?.faq?.length
-    ? project.ai.faq
-    : [
-        {
-          q: "Kan ik zwemles volgen zonder Nederlands te spreken?",
-          a: "Ja. De lessen zijn volledig Engelstalig. Frans is ook mogelijk. U hoeft dus niet eerst Nederlands te beheersen om te leren zwemmen.",
-        },
-        {
-          q: "Voor wie zijn de lessen bedoeld?",
-          a: "Voor volwassenen die (nog) niet kunnen zwemmen of hun waterveiligheid willen verbeteren: internationale studenten, expats, arbeidsmigranten en nieuwe inwoners in Zeeland.",
-        },
-        {
-          q: "Hoe groot zijn de groepen?",
-          a: "Kleine groepen van maximaal vijf volwassenen, ingedeeld op niveau.",
-        },
-      ];
-
-  // Brand: user instruction
-  const brandName = "Nabarro Coaching";
-
-  // Structured data (AI-findable)
-  const orgSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: brandName,
-    email: project.contact.email,
-    telephone: project.contact.phone,
-    areaServed: project.meta?.locations ?? ["Middelburg", "Vlissingen", "Walcheren", "Zeeland"],
-  };
-
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: brandName,
-    email: project.contact.email,
-    telephone: project.contact.phone,
-    areaServed: project.meta?.locations ?? ["Middelburg", "Vlissingen", "Walcheren", "Zeeland"],
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Middelburg",
-      addressRegion: "Zeeland",
-      addressCountry: "NL",
-    },
-  };
-
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Zwemles voor volwassenen in Engels (en Frans) in Zeeland",
-    provider: { "@type": "Organization", name: brandName },
-    areaServed: project.meta?.locations ?? ["Middelburg", "Vlissingen", "Walcheren", "Zeeland"],
-    availableLanguage: project.meta?.languagesOffered ?? ["English", "French", "Dutch"],
-    description:
-      project.ai?.primaryOffer ??
-      "Rustige zwemlessen voor volwassenen in Zeeland — volledig in het Engels, Frans mogelijk. Kleine groepen, focus op waterveiligheid, vertrouwen en plezier.",
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faq.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: { "@type": "Answer", text: item.a },
-    })),
-  };
+  const t = content;
+  const firstLesson = t.firstLesson;
+  const prices = t.prices;
 
   return (
     <div className="flex-1">
-      {/* JSON-LD for AI/LLM discoverability */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: jsonLdEscape([orgSchema, localBusinessSchema, serviceSchema, faqSchema]),
-        }}
-      />
-
       {/* HERO */}
       <section className="container grid lg:grid-cols-2 gap-10 items-center py-12 md:py-24 lg:py-32">
         <div className="flex flex-col items-start space-y-5">
           <Badge variant="secondary" className="rounded-full px-4 py-1">
-            {project.hero.kicker}
+            {t.hero.kicker}
           </Badge>
 
           <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-            {project.hero.title}
+            {t.hero.title}
           </h1>
 
           <p className="max-w-[650px] text-muted-foreground md:text-xl/relaxed">
-            {project.hero.subtitle}
+            {t.hero.subtitle}
           </p>
 
           {/* “Trust strip” */}
@@ -153,20 +76,20 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row gap-4 pt-1">
             <Button asChild size="lg">
-              <Link href={project.hero.ctas[0].href}>{project.hero.ctas[0].label}</Link>
+              <Link href="/aanmelden">{t.hero.cta_main}</Link>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <Link href="/about">Meer over de lessen</Link>
+              <Link href="/about">{t.hero.cta_secondary}</Link>
             </Button>
             <Button asChild size="lg" variant="ghost">
-              <Link href={project.hero.ctas[1].href}>Download PDF</Link>
+              <Link href="/docs/zwemles-aanvraag.pdf">{t.hero.cta_pdf}</Link>
             </Button>
           </div>
 
           {/* First lesson highlight (soft, non-salesy) */}
           <div className="mt-2 w-full rounded-xl border bg-background/70 p-4">
             <div className="text-sm">
-              <div className="font-medium">Eerstvolgende startles</div>
+              <div className="font-medium">{firstLesson.title}</div>
               <div className="text-muted-foreground">
                 {firstLesson.date} • {firstLesson.time}
               </div>
@@ -301,13 +224,13 @@ export default function Home() {
           </div>
 
           <div className="mx-auto max-w-5xl grid gap-6 pt-10 md:grid-cols-2">
-            {faq.map((item) => (
-              <Card key={item.q} className="rounded-2xl bg-background/80">
+            {project.sections.doelen.slice(0, 4).map((item, i) => ( // Using doelen for mock FAQ
+              <Card key={i} className="rounded-2xl bg-background/80">
                 <CardHeader>
-                  <CardTitle className="text-base">{item.q}</CardTitle>
+                  <CardTitle className="text-base">Vraag {i+1}?</CardTitle>
                 </CardHeader>
                 <CardContent className="text-sm text-muted-foreground leading-relaxed">
-                  {item.a}
+                  {item}
                 </CardContent>
               </Card>
             ))}

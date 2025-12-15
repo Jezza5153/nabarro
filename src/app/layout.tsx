@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
 import { Shell } from "@/components/shell";
 import { SiteHeader } from "@/components/site-header";
+import { LanguageProvider } from "@/lib/language-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -47,22 +48,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="nl" className={cn("scroll-smooth", inter.variable, lexendDeca.variable)}>
-      <body className="font-sans">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:text-black focus:shadow-lg"
-        >
-          Ga naar inhoud
-        </a>
+      <body>
+        <LanguageProvider>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:text-black focus:shadow-lg"
+          >
+            Ga naar inhoud
+          </a>
 
-        <Shell>
-          <SiteHeader />
-          <main id="main-content">
-            {children}
-          </main>
-        </Shell>
+          <Shell>
+            <SiteHeader />
+            <main id="main-content">
+              {children}
+            </main>
+          </Shell>
 
-        <Toaster />
+          <Toaster />
+        </LanguageProvider>
       </body>
     </html>
   );

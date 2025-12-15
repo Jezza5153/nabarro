@@ -20,6 +20,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardHeader } from "./ui/card";
+import { useLanguage } from "@/lib/language-provider";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -37,6 +38,8 @@ export default function ContactForm() {
   const [isPending, startTransition] = useTransition();
   const [submitted, setSubmitted] = useState(false);
   const { toast } = useToast();
+  const { content } = useLanguage();
+  const t = content.contact;
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -71,9 +74,9 @@ export default function ContactForm() {
                 </div>
             </CardHeader>
             <CardContent>
-                <h3 className="text-xl font-semibold">Thank you!</h3>
+                <h3 className="text-xl font-semibold">{t.success_title}</h3>
                 <p className="mt-2 text-muted-foreground">
-                    Your message has been sent. Nathalie will get back to you shortly.
+                    {t.success_message}
                 </p>
             </CardContent>
         </Card>
@@ -88,9 +91,9 @@ export default function ContactForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>{t.form_name}</FormLabel>
               <FormControl>
-                <Input placeholder="Your name" {...field} />
+                <Input placeholder={t.form_name_placeholder} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -101,9 +104,9 @@ export default function ContactForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{t.form_email}</FormLabel>
               <FormControl>
-                <Input placeholder="your@email.com" {...field} />
+                <Input placeholder={t.form_email_placeholder} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -114,10 +117,10 @@ export default function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Your Message or Question</FormLabel>
+              <FormLabel>{t.form_message}</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Feel free to ask anything..."
+                  placeholder={t.form_message_placeholder}
                   className="min-h-[120px]"
                   {...field}
                 />
@@ -130,10 +133,10 @@ export default function ContactForm() {
           {isPending ? (
             <>
               <LoaderCircle className="mr-2 h-4 w-4 animate-spin" />
-              Sending...
+              {t.form_button_sending}
             </>
           ) : (
-            "Send a message"
+            t.form_button
           )}
         </Button>
       </form>
