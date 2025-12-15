@@ -35,7 +35,7 @@ export default function GSBPage() {
             </h1>
             <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed">
                 Met de GSB vraag ik niet per se om een financiële bijdrage, maar om ondersteuning in zichtbaarheid en netwerk, zodat het project kan groeien.
-            p>
+            </p>
         </div>
 
         <div className="mx-auto grid max-w-5xl gap-6 pt-12 sm:grid-cols-2 lg:grid-cols-3">
