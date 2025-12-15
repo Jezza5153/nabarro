@@ -3,19 +3,19 @@
     {
       "id": "hero-calm-water",
       "description": "Calm, clear water in a swimming pool, with gentle ripples on the surface.",
-      "imageUrl": "https://images.unsplash.com/photo-1621519997950-158b631341b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjYWxtJTIwd2F0ZXJ8ZW58MHx8fHwxNzY1NzMxNDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/pics/hero-calm-water.jpg",
       "imageHint": "calm water"
     },
     {
       "id": "nathalie-profile",
       "description": "A friendly and professional portrait of Nathalie, the swimming instructor, smiling warmly.",
-      "imageUrl": "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHNtaWxpbmd8ZW58MHx8fHwxNzY1ODM0NTA0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/pics/nathalie-profile.jpg",
       "imageHint": "woman smiling"
     },
     {
       "id": "lessons-detail",
       "description": "A person gently floating in calm pool water, representing safety and trust.",
-      "imageUrl": "https://images.unsplash.com/photo-1650409905754-8360b38a34ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwZXJzb24lMjBzd2ltbWluZ3xlbnwwfHx8fDE3NjU4MzYyMTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/pics/lessons-detail.jpg",
       "imageHint": "person swimming"
     }
   ]
