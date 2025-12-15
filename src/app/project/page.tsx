@@ -123,7 +123,8 @@ export default function ProjectPage() {
                 </tbody>
             </table>
             <div className="space-y-4">
-                {project.sections.partners.map(partner => (
+                <p className="text-gray-700 italic">{project.sections.partners.intro}</p>
+                {project.sections.partners.items.map(partner => (
                     <div key={partner.title}>
                         <h4 className="font-bold text-lg">{partner.title}</h4>
                         <p className="text-gray-700">{partner.description}</p>
