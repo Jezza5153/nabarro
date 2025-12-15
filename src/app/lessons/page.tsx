@@ -10,27 +10,27 @@ import Image from 'next/image';
 const lessonDetails = [
   {
     value: 'item-1',
-    trigger: 'Our Gentle Approach',
+    trigger: 'Onze Zachte Aanpak',
     content:
-      "Our teaching philosophy is built on patience and trust. We understand that learning to swim as an adult is a unique journey. We start by helping you feel comfortable in the water, focusing on breathing and balance. There is no rush; every step is taken at a pace that feels right for you.",
+      "Onze onderwijsfilosofie is gebaseerd op geduld en vertrouwen. We begrijpen dat leren zwemmen als volwassene een unieke reis is. We beginnen met u te helpen zich comfortabel in het water te voelen, met de nadruk op ademhaling en balans. Er is geen haast; elke stap wordt gezet in een tempo dat voor u goed voelt.",
   },
   {
     value: 'item-2',
-    trigger: 'What to Expect in Your First Lesson',
+    trigger: 'Wat te verwachten in uw eerste les',
     content:
-      "Your first lesson is a gentle introduction. We'll talk about your goals and any concerns you may have. In the water, we'll begin in the shallow end, simply getting used to the sensation and learning how to control your breath. The focus is on safety and comfort, not performance.",
+      "Uw eerste les is een zachte kennismaking. We bespreken uw doelen en eventuele zorgen. In het water beginnen we in het ondiepe gedeelte, wennen we aan het gevoel en leren we hoe u uw ademhaling onder controle kunt houden. De focus ligt op veiligheid en comfort, niet op prestaties.",
   },
   {
     value: 'item-3',
-    trigger: 'Building Your Skills, Step by Step',
+    trigger: 'Bouw uw vaardigheden stapsgewijs op',
     content:
-      "Once you feel secure, we slowly introduce fundamental swimming skills. This includes floating, gentle propulsion, and basic strokes. Each skill builds on the last, ensuring you develop a solid foundation and growing confidence with every lesson.",
+      "Zodra u zich zeker voelt, introduceren we langzaam fundamentele zwemvaardigheden. Dit omvat drijven, zachte voortstuwing en basiszwemslagen. Elke vaardigheid bouwt voort op de vorige, zodat u bij elke les een solide basis en groeiend zelfvertrouwen ontwikkelt.",
   },
   {
     value: 'item-4',
-    trigger: 'A Private, Focused Environment',
+    trigger: 'Een privé, gerichte omgeving',
     content:
-      "All lessons are conducted in a calm and private setting to ensure you can learn without distraction or self-consciousness. This allows for personalized attention and a curriculum tailored specifically to your needs and progress.",
+      "Alle lessen worden gegeven in een rustige en privé-omgeving om ervoor te zorgen dat u kunt leren zonder afleiding of zelfbewustzijn. Dit zorgt voor persoonlijke aandacht en een lesprogramma dat specifiek is afgestemd op uw behoeften en vooruitgang.",
   },
 ];
 
@@ -42,13 +42,13 @@ export default function LessonsPage() {
         <div className="grid gap-10 md:grid-cols-2 md:gap-16">
           <div className="flex flex-col items-start justify-center space-y-4">
             <div className="inline-block rounded-lg bg-accent px-3 py-1 text-sm font-medium text-accent-foreground">
-              Our Method
+              Onze Methode
             </div>
             <h1 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              How The Lessons Work
+              Hoe de lessen werken
             </h1>
             <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
-              Our lessons are designed to be a calm, clear, and supportive experience. We focus on building a foundation of trust and safety, allowing your confidence to grow naturally.
+              Onze lessen zijn ontworpen om een kalme, duidelijke en ondersteunende ervaring te zijn. We richten ons op het opbouwen van een basis van vertrouwen en veiligheid, waardoor uw zelfvertrouwen op natuurlijke wijze kan groeien.
             </p>
             <Accordion type="single" collapsible className="w-full">
               {lessonDetails.map((item) => (

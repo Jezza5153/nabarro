@@ -1,22 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { project } from "@/content/project";
 import { Clock, MapPin, Euro } from "lucide-react";
 import Link from "next/link";
 
-
-const pricing = [
-    {
-        item: "Single Private Lesson",
-        duration: "45 minutes",
-        price: "€50"
-    },
-    {
-        item: "Package of 5 Private Lessons",
-        duration: "5 x 45 minutes",
-        price: "€225"
-    }
-];
 
 export default function InfoPage() {
     return (
@@ -27,10 +15,10 @@ export default function InfoPage() {
                         Details
                     </div>
                     <h1 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                        Practical Information
+                        Praktische Informatie
                     </h1>
                     <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-                        Here you can find all the details about pricing, location, and scheduling. Everything is presented clearly and transparently.
+                        Hier vindt u alle details over prijzen, locatie en planning. Alles wordt duidelijk en transparant gepresenteerd.
                     </p>
                 </div>
 
@@ -38,26 +26,25 @@ export default function InfoPage() {
                     <Card>
                         <CardHeader className="flex flex-row items-center gap-4">
                             <Euro className="h-8 w-8" />
-                            <CardTitle className="font-headline text-2xl">Pricing</CardTitle>
+                            <CardTitle className="font-headline text-2xl">Prijzen</CardTitle>
                         </CardHeader>
                         <CardContent>
                            <CardDescription>
-                            Prices are inclusive of VAT and pool entrance fees. Packages are valid for 6 months.
+                            Prijzen zijn inclusief BTW en toegang tot het zwembad. Pakketten zijn een beperkte tijd geldig.
                            </CardDescription>
                            <Table className="mt-4">
                             <TableHeader>
                                 <TableRow>
-                                    <TableHead>Lesson Type</TableHead>
-                                    <TableHead className="text-right">Price</TableHead>
+                                    <TableHead>Product</TableHead>
+                                    <TableHead>Geldigheid</TableHead>
+                                    <TableHead className="text-right">Prijs</TableHead>
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
-                                {pricing.map(p => (
-                                    <TableRow key={p.item}>
-                                        <TableCell>
-                                            <p className="font-medium">{p.item}</p>
-                                            <p className="text-sm text-muted-foreground">{p.duration}</p>
-                                        </TableCell>
+                                {project.sections.inleiding.prices.map(p => (
+                                    <TableRow key={p.product}>
+                                        <TableCell className="font-medium">{p.product}</TableCell>
+                                        <TableCell>{p.validity}</TableCell>
                                         <TableCell className="text-right font-medium">{p.price}</TableCell>
                                     </TableRow>
                                 ))}
@@ -69,11 +56,11 @@ export default function InfoPage() {
                     <Card>
                         <CardHeader className="flex flex-row items-center gap-4">
                             <MapPin className="h-8 w-8" />
-                            <CardTitle className="font-headline text-2xl">Location</CardTitle>
+                            <CardTitle className="font-headline text-2xl">Locatie</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-2">
                            <CardDescription>
-                             Lessons are held at a calm and modern swimming facility in the Zeeland region, easily accessible from Middelburg and Vlissingen. The exact location is provided upon booking to ensure privacy.
+                             De lessen worden gegeven in een rustige en moderne zwemfaciliteit in de regio Zeeland, gemakkelijk bereikbaar vanuit Middelburg en Vlissingen. De exacte locatie wordt bij boeking verstrekt om de privacy te waarborgen.
                            </CardDescription>
                         </CardContent>
                     </Card>
@@ -81,15 +68,15 @@ export default function InfoPage() {
                      <Card>
                         <CardHeader className="flex flex-row items-center gap-4">
                             <Clock className="h-8 w-8" />
-                            <CardTitle className="font-headline text-2xl">Scheduling</CardTitle>
+                            <CardTitle className="font-headline text-2xl">Planning</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-2">
                            <CardDescription>
-                            Lessons are available on weekdays, with flexible time slots in the morning and evening to accommodate different schedules. To find a time that works for you, please get in touch.
+                            De lessen zijn beschikbaar op weekdagen, met flexibele tijdslots in de ochtend en avond om aan verschillende schema's te voldoen. Neem contact op om een tijd te vinden die voor u werkt.
                            </CardDescription>
                              <div className="pt-4">
                                 <Button asChild>
-                                    <Link href="/contact">Inquire about availability</Link>
+                                    <Link href="/contact">Informeer naar beschikbaarheid</Link>
                                 </Button>
                            </div>
                         </CardContent>

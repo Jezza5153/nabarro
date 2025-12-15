@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { project } from '@/content/project';
 
 export default function AboutPage() {
   const profileImage = PlaceHolderImages.find((img) => img.id === 'nathalie-profile');
@@ -12,24 +13,18 @@ export default function AboutPage() {
         <div className="grid gap-10 md:grid-cols-2 md:gap-16">
           <div className="flex flex-col items-start justify-center space-y-4">
             <div className="inline-block rounded-lg bg-accent px-3 py-1 text-sm font-medium text-accent-foreground">
-              About Your Instructor
+              Over de Instructeur
             </div>
             <h1 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Meet Nathalie Nabarro
+              Maak kennis met Nathalie Nabarro
             </h1>
-            <div className="space-y-4 text-muted-foreground md:text-lg">
+            <div className="space-y-4 text-muted-foreground md:text-lg whitespace-pre-line">
               <p>
-                Hello, I'm Nathalie. For many years, I've had the privilege of guiding adults on their journey to becoming comfortable and confident swimmers. My own experience taught me that learning to swim as an adult is not about speed or technique alone—it's about building trust, first with your instructor, and then with the water itself.
-              </p>
-              <p>
-                My mission is to create a calm, patient, and encouraging space for everyone, especially those who feel anxious or have had difficult experiences with water in the past. I believe that with the right guidance, anyone can find joy and safety in swimming.
-              </p>
-              <p>
-                As a certified instructor living in Zeeland, I understand the needs of our international community. Lessons are provided in clear, simple English, and I'm happy to communicate in French as well. There is no pressure here, only support.
+                {project.sections.inleiding.who}
               </p>
             </div>
              <Button asChild size="lg" className="mt-4">
-                <Link href="/contact">Ask a question</Link>
+                <Link href="/contact">Stel een vraag</Link>
             </Button>
           </div>
           <div className="flex items-center justify-center">

@@ -2,13 +2,15 @@ import Link from "next/link"
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { Menu, Waves } from "lucide-react"
+import { Separator } from "./ui/separator"
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/lessons", label: "Lessons" },
-  { href: "/for-you", label: "Is It For You?" },
-  { href: "/info", label: "Info & Pricing" },
+  { href: "/doelstellingen", label: "Doelstellingen" },
+  { href: "/werkwijze", label: "Werkwijze" },
+  { href: "/doelgroep", label: "Doelgroep" },
+  { href: "/organisaties", label: "Partners" },
+  { href: "/contact", label: "Contact" },
 ]
 
 export function SiteHeader() {
@@ -37,7 +39,7 @@ export function SiteHeader() {
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-2">
             <Button asChild className="hidden md:inline-flex">
-              <Link href="/contact">Contact</Link>
+              <Link href="/aanmelden">Aanmelden</Link>
             </Button>
             <Sheet>
               <SheetTrigger asChild>
@@ -63,7 +65,7 @@ export function SiteHeader() {
                   ))}
                    <Separator className="my-2" />
                    <Button asChild>
-                    <Link href="/contact">Contact</Link>
+                    <Link href="/aanmelden">Aanmelden</Link>
                   </Button>
                 </div>
               </SheetContent>
@@ -74,8 +76,3 @@ export function SiteHeader() {
     </header>
   )
 }
-
-// Dummy separator for mobile nav, can be replaced by shadcn one if available
-const Separator = ({ className }: { className?: string }) => (
-  <div className={`shrink-0 bg-border h-[1px] w-full ${className}`} />
-);
