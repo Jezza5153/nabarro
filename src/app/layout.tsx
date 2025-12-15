@@ -1,3 +1,4 @@
+
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Lexend_Deca } from "next/font/google";
@@ -20,21 +21,21 @@ const lexendDeca = Lexend_Deca({
 })
 
 export const metadata: Metadata = {
-  title: "Swim with Ease — Zwemles voor volwassenen in Engels",
+  title: "Nabarro Coaching — Zwemles voor volwassenen in Engels",
   description:
     "Veilige, rustige en toegankelijke zwemlessen voor volwassenen in het Engels (en Frans) in Zeeland.",
   openGraph: {
-    title: "Swim with Ease — Zwemles voor volwassenen in Engels",
+    title: "Nabarro Coaching — Zwemles voor volwassenen in Engels",
     description:
       "Veilige, rustige en toegankelijke zwemlessen voor volwassenen in Zeeland.",
-    url: "https://swimwithease.com",
-    siteName: "Swim with Ease",
+    url: "https://nabarrocoaching.com",
+    siteName: "Nabarro Coaching",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Swim with Ease",
+        alt: "Nabarro Coaching",
       },
     ],
     locale: "nl_NL",

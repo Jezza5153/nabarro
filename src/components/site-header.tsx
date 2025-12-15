@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -54,7 +55,7 @@ export function SiteHeader() {
           </span>
           <div className="leading-tight">
             <div className="text-sm font-semibold text-[hsl(var(--foreground))]">
-              Swim with Ease
+              Nabarro Coaching
             </div>
             <div className="text-xs text-[hsl(var(--muted-foreground))]">
               Zwemles voor volwassenen in Engels
@@ -101,7 +102,7 @@ export function SiteHeader() {
                   <Waves className="h-5 w-5" />
                 </span>
                 <div>
-                  <div className="font-semibold">Swim with Ease</div>
+                  <div className="font-semibold">Nabarro Coaching</div>
                   <div className="text-sm text-muted-foreground">
                     Zwemles in het Engels
                   </div>

@@ -1,3 +1,4 @@
+
 "use client";
 
 import { BlobCard } from "@/components/blob-card";
@@ -5,12 +6,13 @@ import { PillLabel } from "@/components/pill-label";
 import Link from "next/link";
 import { useLanguage } from "@/lib/language-provider";
 import { getCopy } from "@/lib/i18n";
+import { project } from "@/content/project";
 
 export default function AanmeldenPage() {
   const { locale } = useLanguage();
   const t = getCopy(locale).aanmelden;
   
-  const mailtoLink = `mailto:swimwithease@gmail.com?subject=${encodeURIComponent(t.mailto_subject)}&body=${t.mailto_body}`;
+  const mailtoLink = `mailto:${project.contact.email}?subject=${encodeURIComponent(t.mailto_subject)}&body=${t.mailto_body}`;
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
