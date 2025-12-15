@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { project } from "@/content/project";
 import { useLanguage } from "@/lib/language-provider";
+import { getCopy } from "@/lib/i18n";
 
 const features = [
   {
@@ -34,10 +35,10 @@ const features = [
 ] as const;
 
 export default function Home() {
-  const { content } = useLanguage();
+  const { locale } = useLanguage();
+  const t = getCopy(locale);
   const heroImage = PlaceHolderImages.find((img) => img.id === "hero-calm-water");
-
-  const t = content;
+  
   const firstLesson = t.firstLesson;
   const prices = t.prices;
 

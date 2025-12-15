@@ -3,6 +3,7 @@
 
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 import { project, Locale } from '@/content/project';
+import { getCopy } from './i18n';
 
 // Define the shape of the context
 interface LanguageContextType {
@@ -21,7 +22,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const value = {
     locale,
     setLocale,
-    content: project.i18n[locale],
+    content: getCopy(locale),
   };
 
   return (

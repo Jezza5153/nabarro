@@ -7,10 +7,11 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Button } from "@/components/ui/button";
 import { project } from "@/content/project";
 import { useLanguage } from "@/lib/language-provider";
+import { getCopy } from "@/lib/i18n";
 
 export default function AboutPage() {
-  const { content } = useLanguage();
-  const t = content.about;
+  const { locale } = useLanguage();
+  const t = getCopy(locale).about;
   const profileImage = PlaceHolderImages.find((img) => img.id === "nathalie-profile");
   const contact = project.contact;
 

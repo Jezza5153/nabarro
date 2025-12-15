@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Shell } from "@/components/shell";
 import { SiteHeader } from "@/components/site-header";
 import { LanguageProvider } from "@/lib/language-provider";
+import { LocaleMetadata } from "@/components/locale-metadata";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -50,6 +51,7 @@ export default function RootLayout({
     <html lang="nl" className={cn("scroll-smooth", inter.variable, lexendDeca.variable)}>
       <body>
         <LanguageProvider>
+          <LocaleMetadata />
           <a
             href="#main-content"
             className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:text-black focus:shadow-lg"

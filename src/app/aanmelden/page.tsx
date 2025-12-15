@@ -4,10 +4,11 @@ import { BlobCard } from "@/components/blob-card";
 import { PillLabel } from "@/components/pill-label";
 import Link from "next/link";
 import { useLanguage } from "@/lib/language-provider";
+import { getCopy } from "@/lib/i18n";
 
 export default function AanmeldenPage() {
-  const { content } = useLanguage();
-  const t = content.aanmelden;
+  const { locale } = useLanguage();
+  const t = getCopy(locale).aanmelden;
   
   const mailtoLink = `mailto:swimwithease@gmail.com?subject=${encodeURIComponent(t.mailto_subject)}&body=${t.mailto_body}`;
 

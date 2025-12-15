@@ -21,6 +21,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { useLanguage } from "@/lib/language-provider";
+import { getCopy } from "@/lib/i18n";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -38,8 +39,8 @@ export default function ContactForm() {
   const [isPending, startTransition] = useTransition();
   const [submitted, setSubmitted] = useState(false);
   const { toast } = useToast();
-  const { content } = useLanguage();
-  const t = content.contact;
+  const { locale } = useLanguage();
+  const t = getCopy(locale).contact;
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

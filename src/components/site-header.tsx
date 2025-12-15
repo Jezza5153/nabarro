@@ -8,6 +8,7 @@ import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/language-provider";
 import { LanguageSwitcher } from "./language-switcher";
+import { getCopy } from "@/lib/i18n";
 
 const projectLinks = [
   { href: "/doelstellingen", labelKey: "objectives" },
@@ -33,8 +34,8 @@ function NavLink({ href, label }: { href: string; label: string }) {
 }
 
 export function SiteHeader() {
-  const { content } = useLanguage();
-  const t = content.nav;
+  const { locale } = useLanguage();
+  const t = getCopy(locale).nav;
 
   const navLinks = [
     { href: "/about", label: t.about },

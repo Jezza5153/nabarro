@@ -10,7 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { project, Locale } from "@/content/project";
+import type { Locale } from "@/content/project";
 
 const languageOptions: { value: Locale; label: string }[] = [
   { value: "nl", label: "Nederlands" },
@@ -24,7 +24,11 @@ export function LanguageSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="rounded-full bg-white/70 hover:bg-white border border-white/50">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="rounded-full bg-white/70 hover:bg-white border border-white/50"
+        >
           <Languages className="h-5 w-5" />
           <span className="sr-only">Change language</span>
         </Button>
