@@ -18,12 +18,12 @@ const config = {
       },
     },
     extend: {
-      fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"],
+       fontFamily: {
+        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui"],
         headline: ["var(--font-lexend-deca)", "sans-serif"],
       },
       colors: {
-        border: "hsl(var(--border))",
+        border: "hsl(var(--border) / 0.4)",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
@@ -69,7 +69,7 @@ const config = {
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
