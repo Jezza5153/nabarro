@@ -3,7 +3,7 @@ import { PillLabel } from "@/components/pill-label";
 import Link from "next/link";
 
 export default function AanmeldenPage() {
-  const mailtoLink = `mailto:nabarrocoaching@gmail.com?subject=Aanmelding%20zwemles&body=Naam:%0A%0AEmail:%0A%0ATelefoon (optioneel):%0A%0ABericht:%0A`;
+  const mailtoLink = `mailto:swimwithease@gmail.com?subject=Aanmelding%20zwemles&body=Naam:%0A%0AEmail:%0A%0ATelefoon (optioneel):%0A%0ABericht:%0A`;
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4">

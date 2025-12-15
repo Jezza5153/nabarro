@@ -13,7 +13,7 @@ export const project = {
     name: "Nathalie Nabarro",
     role: "Zweminstructeur (NRZ)",
     phone: "06-81106113",
-    email: "nabarrocoaching@gmail.com",
+    email: "swimwithease@gmail.com",
   },
   sections: {
     inleiding: {

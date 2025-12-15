@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { Shell } from "@/components/shell";
 import { cn } from "@/lib/utils";
 import { Inter } from "next/font/google";
+import { Toaster } from "@/components/ui/toaster";
+import { SiteHeader } from "@/components/site-header";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,13 +19,13 @@ export const metadata: Metadata = {
     description: "Veilige, rustige en toegankelijke zwemlessen voor volwassenen in Zeeland.",
     url: "https://swimwithease.com", // Replace with your actual domain
     siteName: "swimwith ease",
-    // images: [ // Add a link to your OG image
-    //   {
-    //     url: 'https://swimwithease.com/og-image.png',
-    //     width: 1200,
-    //     height: 630,
-    //   },
-    // ],
+    images: [
+      {
+        url: '/og-image.png', // Make sure to add an og-image.png to your public folder
+        width: 1200,
+        height: 630,
+      },
+    ],
     locale: "nl_NL",
     type: "website",
   },
@@ -36,7 +38,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
          <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:z-50 top-4 left-4 bg-white text-black p-3 rounded-lg shadow-lg">
           Skip to main content
         </a>
-        <Shell>{children}</Shell>
+        <Shell>
+          <SiteHeader />
+          <main id="main-content">{children}</main>
+        </Shell>
+        <Toaster />
       </body>
     </html>
   );
