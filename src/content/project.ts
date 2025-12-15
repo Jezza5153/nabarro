@@ -1,3 +1,4 @@
+
 export const project = {
   hero: {
     kicker: "Zwemles voor volwassenen in Engels",
@@ -17,8 +18,8 @@ export const project = {
   },
   sections: {
     inleiding: {
-      who: `Mijn naam is Nathalie Nabarro Koene. Sinds jaar en dag ben ik met veel plezier zwemonderwijzer. Door mijn eigen ervaringen met water en het overwinnen van angst, ben ik extra gemotiveerd en gedreven om volwassenen op een rustige, veilige en humorvolle manier te leren zwemmen. Het opbouwen van vertrouwen in de lesgever en in het water staat voorop. Ik ben ervan overtuigd dat met de juiste aanpak en een veilige omgeving iedereen kan leren zwemmen.`,
-      idee: `Met dit idee/project wil ik volwassenen die de Nederlandse taal nog niet (voldoende) beheersen, een veilige en laagdrempelige mogelijkheid bieden om te leren zwemmen. De voertaal is Engels en er wordt rekening gehouden met culturele verschillen. Het project richt zich specifiek op internationale studenten, expats, arbeidsmigranten en nieuwe inwoners van Zeeland.`,
+      who: `Mijn naam is Nathalie Nabarro Koene. Ik ben 60 jaar en woon sinds 10 maanden met veel plezier in Middelburg, dicht bij mijn schoonfamilie die verspreid over Walcheren woont. Na een lange carrière bij internationale bedrijven, bracht de coronaperiode iets onverwachts, maar heel moois terug op mijn pad: mijn eerste liefde, zwemmen. Ik ontdekte hoeveel behoefte er was aan zweminstructeurs en ik besloot om terug naar school te gaan om mijn diploma te behalen( gediplomeerd zweminstructeur via de NRZ), en vanaf dat moment is het snel gegaan. Ik gaf met veel plezier zwemlessen aan volwassenen in het Engels op een internationale privéschool( in Amsterdam/Utrecht), maar ook kinderlessen, lessen voor mensen met beperkingen en schoolzwemmen. Ik merkte hoe bijzonder het is om mensen van alle achtergronden te begeleiden in iets wat tegelijk spannend én levensveranderend kan zijn. Nu werk ik als zzp’er zweminstructeur in Zeeland, is me opgevalt dat volledig Engelstalige zwemlessen voor volwassenen bestaan niet. (en Frans, mijn moedertaal, kan ik uiteraard ook aanbieden) Het gaat mij er niet om dat mensen de Nederlandse taal niet gaan studeren, integendeel. Maar integreren kost tijd en energie, en het is simpelweg fijn als je óók iets kunt doen in een taal die je al beheerst. Je hoeft niet eerst perfect Nederlands te spreken voordat je kunt leren zwemmen, vooral hier in Zeeland, waar water overal om ons heen is. Mijn motivatie is daarom uitgegroeid tot een echte missie: volwassenen op een rustige, positieve en toegankelijke manier leren zwemmen, zonder schaamte en zonder druk, in een taal die hen meer zelfvertrouwen geeft. Met humor als gereedschap, geduld als methode en vertrouwen als basis.`,
+      idee: `Met dit idee/ project wil ik volwassenen die de Nederlandse taal nog onvoldoende of niet beheersen; zoals internationale studenten, arbeidsmigranten, expats en nieuwe inwoners, de kans geven om in een veilige en toegankelijke omgeving zwemlessen te volgen in het Engels. Voor de startfase van dit project vraag ik de gemeente Middelburg om wat ik noem de GSB( Gun & Support Budget) geen per se financiële bijdrage, maar ondersteuning in zichtbaarheid, verbinding en bereik. Wat dit precies inhoudt, licht ik toe in paragraaf 7. Ik spring alvast in het diepe met mijn eerste les op: Dinsdag 2 december van 10.15–11.00 uur. Aanmelden van tevoren is wel nodig De Zeeuwse Zwemschool, Stroomweg 22, Vlissingen. Als er genoeg aanmeldingen komen, kan ik daarna meer uren openen. Ik sta open voor samenwerking met zwembaden in Middelburg/Vlissingen en de omliggende gemeenten, met als gezamenlijke doelen: waterveiligheid, verbinding, gezondheid en gemeenschapsvorming. Om de kosten te kunnen dekken start elke lesgroep met minimaal twee/ drie* deelnemers. Het project begint zonder winstoogmerk, maar heeft wel de ambitie om later winstgevend en zelfstandig te worden. * (afhankelijk van het bad prijs)`,
       firstLesson: {
         date: "Dinsdag 2 december 2025",
         time: "10.15 – 11.00 uur",
@@ -33,18 +34,19 @@ export const project = {
       ],
     },
     doelen: [
-      "Verbeteren van waterveiligheid onder volwassenen die niet kunnen zwemmen en de Nederlandse taal niet machtig zijn.",
-      "Creëren van een veilige, laagdrempelige en vertrouwde leeromgeving.",
-      "Versterken van zelfvertrouwen en zelfredzaamheid in en rondom het water.",
-      "Bijdragen aan integratie en participatie door het aanbieden van een sociale en sportieve activiteit.",
-      "Nieuw talent en werkgelegenheid richting zwemonderwijs en badpersoneel creëren.",
+      "Verbeteren van waterveiligheid onder volwassenen die de Nederlandse taal nog niet of onvoldoende beheersen, met aandacht voor zwemvaardigheid, inclusie en gezondheid.",
+      "Creëren van een veilige leeromgeving waarin angst en schaamte worden verminderd.",
+      "Versterken van zelfvertrouwen in en rondom het water én in het dagelijks leven. Want: als je dit kunt overwinnen, kun je alles!",
+      "Bijdragen aan integratie, door taalbarrières te verlagen, ontspanning te bieden en verbinding te stimuleren binnen de lokale gemeenschap.",
+      "Het mogelijk aanwakkeren van nieuw talent en werkgelegenheid richting zwemonderwijs, bijvoorbeeld voor studenten of nieuwkomers die in hun land van herkomst al ervaring hebben met zwemles of sport.",
+      "De lessen worden verzorgd door een gediplomeerd NRZ-zweminstructeur, met ervaring in diverse doelgroepen en een aanpak gebaseerd op humor, inlevingsvermogen en respect.",
     ],
     werkwijze: [
       "Kleine groepen van maximaal vijf volwassenen, ingedeeld op niveau.",
-      "Lessen van 45 minuten, wekelijks op een vast tijdstip.",
-      "Volledig Engelstalig, met aandacht voor eenvoudige en duidelijke instructies. Frans is ook een optie.",
-      "Methodiek gericht op spel, veiligheid, vertrouwen en plezier, waarbij het individuele tempo van de deelnemer centraal staat.",
-      "Toekomstige uitbreidingen met samenwerkingen met lokale (sport)verenigingen en activiteiten gericht op sociale cohesie.",
+      "Lessen van 45 minuten in een gehuurde zwemruimte, startend in het ondiepe bad en geleidelijk uitbreidend naar dieper water.",
+      "Volledig Engelstalig, zodat deelnemers direct kunnen deelnemen zonder eerst Nederlands te moeten beheersen.",
+      "Een methodiek gericht op spel, veiligheid, vertrouwen en plezier, speciaal ontworpen voor volwassen beginners.",
+      "Mogelijke toekomstige uitbreidingen, zoals nieuwe niveaus en lessen in andere talen.",
     ],
     doelgroepRows: [
       { doelgroep: "Internationale studenten", toelichting: "Studenten die tijdelijk of langdurig in Zeeland studeren." },
@@ -62,37 +64,50 @@ export const project = {
       { onderdeel: "Capaciteit", details: "Jaarlijkse capaciteit wordt nog uitgewerkt" },
     ],
      betrokkenheidRows: [
-      { wijze: "Financiële bijdrage", toelichting: "Ondersteuning in de vorm van een startkapitaal, sponsoring of subsidie om de opstartkosten te dekken." },
-      { wijze: "Netwerk en promotie", toelichting: "Hulp bij het bereiken van de doelgroep via communicatiekanalen en netwerken." },
-      { wijze: "Expertise en advies", toelichting: "Delen van kennis op het gebied van integratie, onderwijs en sportparticipatie." },
-      { wijze: "Facilitaire ondersteuning", toelichting: "Beschikbaar stellen van middelen, zoals zwemmaterialen of vergaderruimtes." },
+        { wijze: "Directe aanmeldingen", toelichting: "Via e-mail, sociale media en doorverwijzingen van organisaties of particulieren." },
+        { wijze: "Bereiken van internationale gemeenschappen", toelichting: "Promotie binnen expatnetwerken, internationale groepen en lokale initiatieven waar nieuwkomers samenkomen." },
+        { wijze: "Samenwerking met sport- en welzijnsorganisaties", toelichting: "Partnerschappen met organisaties die werken aan gezondheid, integratie en participatie." },
+        { wijze: "Een veilige en warme ontmoetingsplek creëren", toelichting: "Een omgeving bieden waar nieuwe én bestaande inwoners elkaar kunnen ontmoeten en zich welkom voelen." },
     ],
     betrokkenOrganisaties: [
-        { organisatie: 'University College Roosevelt (UCR)', status: 'In gesprek' },
-        { organisatie: 'HZ University of Applied Sciences', status: 'In gesprek' },
-        { organisatie: 'Gemeente Vlissingen & Middelburg', status: 'Contact gelegd' },
-        { organisatie: 'Werkgevers van arbeidsmigranten', status: 'Te benaderen' },
-        { organisatie: 'Orionis Walcheren', status: 'Te benaderen' },
+        { organisatie: 'Zwembad Arnemuiden / Bestuur Julianabad', status: 'Interesse voor lente/zomer. Afspraak volgt.' },
+        { organisatie: 'Optisport Kapelle', status: 'Mogelijkheden voor verhuur van badwater: € 56 per 45 min(momenteel niet haalbaar).' },
+        { organisatie: 'Zeeuwse Zwemschool (Vlissingen)', status: 'Mogelijkheid tot verhuur van badwater. Per direct beschikbaar. €35 per 45 min' },
+        { organisatie: 'Zwembad De Goudvijver (Gemeente Veere)', status: 'Contactpersoon is met vakantie. Wordt vervolgd voor verhuur van badwater in lente/zomer.' },
+        { organisatie: 'SportZeeland', status: 'Interesse in het initiatief. Wacht op regionale besluitvorming over doelgroepen. Wordt vervolgd.' },
+        { organisatie: 'University College Roosevelt (Middelburg)', status: 'Interesse. Wordt besproken binnen het bestuur van de sportcommissie en met studenten.' },
+        { organisatie: 'Rode Kruis – Studentendesk', status: 'Contact met Madieke Kleinhans (secretaris) en Lou Riemersma (PR). Ook connecties met HZ.' },
+        { organisatie: 'Volksuniversiteiten van Zeeland', status: 'Voorstel om de cursus in 2026 aan te bieden, tweetalig.' },
+        { organisatie: 'Vizita', status: 'Afspraken gemaakt met Ilona de Groote (buurt-/sportcoach) en Marjan Ouwerkerk (opbouwwerker).' },
+        { organisatie: 'AquaHappy', status: 'Vragen over mogelijke samenwerking in begeleiding. Reactie verwacht na de feestdagen.' },
     ],
-    partners: [
-        { title: 'Taalcentra & Scholen', description: 'Samenwerken om anderstaligen te bereiken en het belang van zwemveiligheid te benadrukken.' },
-        { title: 'Lokale media', description: 'Het project onder de aandacht brengen via lokale kranten, radio en online platforms.' },
-        { title: 'Integratie-organisaties', description: 'Verbinden met organisaties die nieuwkomers ondersteunen bij hun integratie in Zeeland.' },
-        { title: 'Internationale bedrijven', description: 'Bedrijven met veel expats en internationale werknemers informeren over dit aanbod.' },
-    ],
+    partners: {
+        intro: "De onderstaande organisaties zijn nog niet gecontacteerd. Hiervoor wil ik eerst mijn marketing versterken, bijvoorbeeld door betere e-mails te sturen en folders te verspreiden. De planning is om hiermee na de feestdagen te starten, wanneer bedrijven en organisaties doorgaans weer meer aandacht hebben voor nieuwe initiatieven. Een uitzondering is gemeente Middelburg, waar ik al steun heb ontvangen om mijn project op papier te zetten. Ik hoop op vervolgsamenwerking via een GSB (Gun Support Budget). Hiermee kan ik mijn missie op een rustige, duurzame manier verder ontwikkelen: mensen watervrij maken, zwemplezier vergroten en meer verbinden, zowel sociaal als sportief, voor fysieke én mentale gezondheid.",
+        items: [
+            { title: 'Gemeente Middelburg', description: 'Al gecontacteerd en eerste steun ontvangen. Mogelijkheid tot GSB-aanvraag voor verdere ontwikkeling van het project.' },
+            { title: 'Taalcentra en onderwijsinstellingen', description: 'Nog niet gecontacteerd. Na de feestdagen starten met gerichte marketing en informatiemateriaal.' },
+            { title: 'Regionale Media (De Bode, PZC, Omroep Zeeland, ...)', description: 'Nog niet benaderd. Geschikt voor promotie na de feestdagen.' },
+            { title: 'Integratie- en participatieprojecten', description: 'Nog niet gecontacteerd. Kansrijke partners voor regionale samenwerking en doorverwijzing.' },
+            { title: 'Internationale bedrijven (Dow, Yara, Lineage Logistics, Katoen natie, Ravago, Sligro, Vopak, Lamb Weston, Limagrain, Damen shipbuilding)', description: 'Nog niet benaderd. Interessant voor interne communicatie, welzijnsprogramma’s en expat-ondersteuning.' },
+        ]
+    },
     gsb: [
-        "Verhogen van sport- en beweegdeelname onder volwassenen die nu nog niet of nauwelijks actief zijn.",
-        "Aanbieden van een veilige en inclusieve sportomgeving waar iedereen zich welkom voelt.",
-        "Versterken van de sociale cohesie door mensen met verschillende achtergronden samen te brengen.",
-        "Bijdragen aan een gezonde en actieve leefstijl, wat de fysieke en mentale gezondheid ten goede komt.",
+        "Bekendheid: het project delen via nieuwsbrieven, wijkplatforms en regionale of lokale media.",
+        "Verbinding: introducties naar relevante partners, internationale groepen en gemeentelijke netwerken.",
+        "Praktische steun: toestemming om flyers via gemeentelijke kanalen zichtbaar te maken voor internationale inwoners.",
+        "Daarnaast laat ik de gemeente volledig vrij om een bijdrage te leveren aan de marketing, zoals het ontwerp en drukwerk van flyers. Dit zou enorm gewaardeerd worden.",
+        "Mijn vraag richt zich volledig op gunfactor, samenwerking en versterking van de gemeenschap. Ik bespreek dit graag in een persoonlijk gesprek om te onderzoeken welke vormen van ondersteuning passend en haalbaar zijn.",
     ],
     slot: {
         bullets: [
-            "Een laagdrempelige, veilige en leuke manier om te leren zwemmen.",
-            "Een investering in waterveiligheid, zelfvertrouwen en integratie.",
-            "Een uniek aanbod in Zeeland dat een belangrijke maatschappelijke behoefte vervult.",
+            "Integratie en participatie van nieuwe inwoners",
+            "Waterveiligheid voor volwassenen die nog niet zwemvaardig zijn",
+            "Gezondheid, ontspanning en welzijn",
+            "Verbinding binnen de gemeenschap van Middelburg en breder binnen Walcheren en Zeeland",
         ],
-        closing: "Ik ben ervan overtuigd dat dit project een waardevolle bijdrage kan leveren aan de Zeeuwse samenleving. Ik nodig u van harte uit om deel te nemen of dit project te ondersteunen."
+        closing: "Het biedt een veilige, laagdrempelige en warme leeromgeving waarin volwassenen, ongeacht achtergrond, taal of eerdere ervaringen kunnen deelnemen aan een essentieel onderdeel van de Nederlandse cultuur en zeker in Zeeland: waterveiligheid. Ik hoop dat de gemeente Middelburg dit initiatief project wil ondersteunen, zodat we samen kunnen investeren in een inclusieve, gezonde en veilige samenleving waarin iedereen de mogelijkheid krijgt om te leren zwemmen en zich thuis te voelen in onze regio."
     }
   },
 } as const;
+
+    
