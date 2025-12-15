@@ -1,22 +1,9 @@
-import { cn } from '@/lib/utils';
-import React from 'react';
+import { cn } from "@/lib/utils";
 
-type SectionTitleProps = {
-  children: React.ReactNode;
-  className?: string;
-};
-
-const SectionTitle = ({ children, className }: SectionTitleProps) => {
+export function SectionTitle({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <h2
-      className={cn(
-        'font-headline text-4xl font-bold tracking-tight text-accent sm:text-5xl md:text-6xl',
-        className
-      )}
-    >
+    <h2 className={cn("text-4xl md:text-5xl font-extrabold tracking-tight text-white", className)}>
       {children}
     </h2>
   );
-};
-
-export default SectionTitle;
+}

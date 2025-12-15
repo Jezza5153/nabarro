@@ -1,43 +1,33 @@
-import { cn } from '@/lib/utils';
-import { cva, type VariantProps } from 'class-variance-authority';
-import React from 'react';
+import { cn } from "@/lib/utils";
 
-const blobCardVariants = cva(
-  'p-8 md:p-10 lg:p-12 shadow-lg transition-all duration-300',
-  {
-    variants: {
-      variant: {
-        blue: 'bg-primary text-primary-foreground',
-        white: 'bg-accent text-accent-foreground',
-        yellow: 'bg-secondary text-secondary-foreground',
-      },
-      size: {
-        default: 'rounded-[3rem]',
-        large: 'rounded-[4rem]',
-      },
-    },
-    defaultVariants: {
-      variant: 'white',
-      size: 'default',
-    },
-  }
-);
+type Variant = "blue" | "white" | "yellow";
 
-interface BlobCardProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof blobCardVariants> {}
+const styles: Record<Variant, string> = {
+  blue: "bg-[hsl(var(--deep-blue))] text-white",
+  white: "bg-white text-[hsl(var(--ink))]",
+  yellow: "bg-[hsl(var(--bright-yellow))] text-[hsl(var(--ink))]",
+};
 
-const BlobCard = React.forwardRef<HTMLDivElement, BlobCardProps>(
-  ({ className, variant, size, ...props }, ref) => {
-    return (
-      <div
-        ref={ref}
-        className={cn(blobCardVariants({ variant, size, className }))}
-        {...props}
-      />
-    );
-  }
-);
-BlobCard.displayName = 'BlobCard';
-
-export default BlobCard;
+export function BlobCard({
+  variant = "white",
+  className,
+  children,
+}: {
+  variant?: Variant;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section
+      className={cn(
+        "relative overflow-hidden rounded-[2.25rem] p-6 md:p-10 shadow-[0_18px_50px_rgba(0,0,0,.10)]",
+        styles[variant],
+        className
+      )}
+    >
+      {/* decorative corner */}
+      <div className="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rounded-[3rem] bg-white/10" />
+      {children}
+    </section>
+  );
+}

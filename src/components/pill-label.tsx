@@ -1,22 +1,15 @@
-import { cn } from '@/lib/utils';
-import React from 'react';
+import { cn } from "@/lib/utils";
 
-type PillLabelProps = {
-  children: React.ReactNode;
-  className?: string;
-};
-
-const PillLabel = ({ children, className }: PillLabelProps) => {
+export function PillLabel({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <div
+    <span
       className={cn(
-        'inline-block rounded-full bg-secondary px-4 py-1.5 text-sm font-bold uppercase tracking-wider text-secondary-foreground',
+        "inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold",
+        "bg-[hsl(var(--bright-yellow))] text-[hsl(var(--ink))] shadow-sm",
         className
       )}
     >
       {children}
-    </div>
+    </span>
   );
-};
-
-export default PillLabel;
+}

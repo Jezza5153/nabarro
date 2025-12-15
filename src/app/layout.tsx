@@ -1,48 +1,42 @@
-import type { Metadata } from 'next';
-import { PT_Sans, Playfair_Display } from 'next/font/google';
-import './globals.css';
-import { Toaster } from '@/components/ui/toaster';
-import { cn } from '@/lib/utils';
-import Shell from '@/components/shell';
-import TopNav from '@/components/top-nav';
+import "./globals.css";
+import type { Metadata } from "next";
+import { Shell } from "@/components/shell";
+import { cn } from "@/lib/utils";
+import { Inter } from "next/font/google";
 
-const ptSans = PT_Sans({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-pt-sans',
-});
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-playfair',
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
-  title: 'swimwith ease | Calm Adult Swimming Lessons in Zeeland',
-  description:
-    'A calm, welcoming, and low-pressure place to learn how to swim as an adult. Serving international adults in the Middelburg and Vlissingen region.',
+  title: "swimwith ease — Zwemles voor volwassenen in Engels",
+  description: "Veilige, rustige en toegankelijke zwemlessen voor volwassenen in het Engels (en Frans) in Zeeland.",
+   openGraph: {
+    title: "swimwith ease — Zwemles voor volwassenen in Engels",
+    description: "Veilige, rustige en toegankelijke zwemlessen voor volwassenen in Zeeland.",
+    url: "https://swimwithease.com", // Replace with your actual domain
+    siteName: "swimwith ease",
+    // images: [ // Add a link to your OG image
+    //   {
+    //     url: 'https://swimwithease.com/og-image.png',
+    //     width: 1200,
+    //     height: 630,
+    //   },
+    // ],
+    locale: "nl_NL",
+    type: "website",
+  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body
-        className={cn(
-          'min-h-screen bg-background font-body antialiased',
-          ptSans.variable,
-          playfair.variable
-        )}
-      >
-        <Shell>
-          <TopNav />
-          <main className="flex-1">{children}</main>
-        </Shell>
-        <Toaster />
+    <html lang="nl" className="scroll-smooth">
+      <body className={cn(inter.variable, "font-sans")}>
+         <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:z-50 top-4 left-4 bg-white text-black p-3 rounded-lg shadow-lg">
+          Skip to main content
+        </a>
+        <Shell>{children}</Shell>
       </body>
     </html>
   );

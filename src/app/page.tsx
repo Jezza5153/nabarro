@@ -1,102 +1,184 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { HeartHandshake, ShieldCheck, Waves } from 'lucide-react';
+import { TopNav } from "@/components/top-nav";
+import { BlobCard } from "@/components/blob-card";
+import { SectionTitle } from "@/components/section-title";
+import { Section } from "@/components/section";
+import { DataTable } from "@/components/data-table";
+import { project } from "@/content/project";
+import { Check } from "lucide-react";
 
-import { Button } from '@/components/ui/button';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
-import BlobCard from '@/components/blob-card';
-import PillLabel from '@/components/pill-label';
-import SectionTitle from '@/components/section-title';
-
-const features = [
-  {
-    icon: <Waves className="h-10 w-10 text-primary" />,
-    title: 'Calm & Patient Instruction',
-    description:
-      'Lessons are adapted to your pace. The goal is comfort and confidence, not speed. There is no pressure.',
-  },
-  {
-    icon: <HeartHandshake className="h-10 w-10 text-primary" />,
-    title: 'Focus on Adult Learners',
-    description:
-      'Nathalie specializes in teaching adults, understanding the unique anxieties and challenges they may face.',
-  },
-  {
-    icon: <ShieldCheck className="h-10 w-10 text-primary" />,
-    title: 'Private & Safe Environment',
-    description:
-      'Learn in a quiet, supportive setting where you can feel at ease and focus on your progress without judgment.',
-  },
-];
-
-export default function HomePage() {
-  const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-calm-water');
-
+export default function Page() {
   return (
-    <div className="flex flex-col">
-      <section id="home" className="relative w-full py-24 md:py-32 lg:py-48 min-h-[80vh] flex items-center justify-center">
-        {heroImage && (
-          <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            data-ai-hint={heroImage.imageHint}
-            fill
-            className="object-cover"
-            priority
-          />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/30 to-transparent" />
-        <div className="container relative z-10 px-4 md:px-6">
-          <div className="mx-auto max-w-4xl text-center">
-            <SectionTitle>
-              Find Your Confidence in the Water
-            </SectionTitle>
-            <p className="mt-6 text-lg text-accent/90 md:text-xl max-w-3xl mx-auto">
-              Welcome to swimwith ease — a calm, welcoming, and low-pressure place for adults to learn how to swim in the Zeeland region.
-            </p>
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/80">
-                <Link href="/#method">Learn About the Lessons</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="bg-transparent border-accent text-accent hover:bg-accent hover:text-accent-foreground">
-                <Link href="/#contact">Ask a Question</Link>
-              </Button>
+    <>
+      <TopNav />
+      <main id="main-content" className="mx-auto max-w-6xl px-4 py-10 space-y-14">
+        {/* HERO */}
+        <BlobCard variant="blue" className="pt-10">
+          <div className="max-w-3xl space-y-4">
+            <p className="text-white/80 font-semibold">{project.hero.kicker}</p>
+            <SectionTitle>{project.hero.title}</SectionTitle>
+            <p className="text-white/90 text-lg leading-relaxed">{project.hero.subtitle}</p>
+            <div className="flex flex-wrap gap-3 pt-2">
+              {project.hero.ctas.map((c) => (
+                <a
+                  key={c.label}
+                  href={c.href}
+                  target={c.href.startsWith("http") ? "_blank" : "_self"}
+                  rel={c.href.startsWith("http") ? "noopener noreferrer" : ""}
+                  className="rounded-full px-5 py-2.5 font-semibold bg-white text-[hsl(var(--ink))] hover:bg-white/90"
+                >
+                  {c.label}
+                </a>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </BlobCard>
 
-      <section className="w-full bg-primary py-16 md:py-24 lg:py-32">
-        <div className="container px-4 md:px-6">
-          <div className="mx-auto mb-12 max-w-2xl text-center">
-             <PillLabel>A New Approach</PillLabel>
-            <h2 className="mt-6 font-headline text-3xl font-bold tracking-tight text-accent sm:text-4xl">
-              Swimming is for Everyone
-            </h2>
-            <p className="mt-4 text-accent/80 md:text-lg">
-             It's never too late to learn. Our method is built on trust, patience, and the belief that anyone can find joy in the water.
-            </p>
-          </div>
-          <div className="mx-auto grid max-w-5xl gap-8 sm:grid-cols-1 md:grid-cols-3">
-            {features.map((feature) => (
-              <BlobCard key={feature.title} variant="white" className="flex flex-col items-center text-center">
-                   <div className="rounded-full bg-secondary/20 p-4">
-                    {feature.icon}
-                   </div>
-                  <h3 className="mt-6 text-xl font-bold font-headline">{feature.title}</h3>
-                <p className="mt-2 text-muted-foreground">{feature.description}</p>
-              </BlobCard>
-            ))}
-          </div>
-        </div>
-      </section>
+        {/* 1. INLEIDING */}
+        <Section id="inleiding" label="1. Inleiding">
+          <div className="grid md:grid-cols-2 gap-6">
+            <BlobCard>
+              <h3 className="text-2xl font-bold mb-3">Wie ben ik</h3>
+              <p className="text-[hsl(var(--muted))] whitespace-pre-line leading-relaxed">{project.sections.inleiding.who}</p>
+            </BlobCard>
 
-      {/* Placeholder sections to allow anchor links to work */}
-      <div id="about" className="h-1"></div>
-      <div id="method" className="h-1"></div>
-      <div id="for-you" className="h-1"></div>
-      <div id="info" className="h-1"></div>
-      <div id="contact" className="h-1"></div>
-    </div>
+            <BlobCard variant="blue">
+              <h3 className="text-2xl font-bold mb-3 text-white">Het idee</h3>
+              <p className="text-white/90 whitespace-pre-line leading-relaxed">{project.sections.inleiding.idee}</p>
+            </BlobCard>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 mt-6">
+            <BlobCard variant="yellow">
+              <h3 className="text-xl font-bold mb-3">Eerste les</h3>
+              <ul className="space-y-1 font-medium">
+                <li><b>Datum:</b> {project.sections.inleiding.firstLesson.date}</li>
+                <li><b>Tijd:</b> {project.sections.inleiding.firstLesson.time}</li>
+                <li><b>Locatie:</b> {project.sections.inleiding.firstLesson.location}</li>
+                <li className="pt-2">{project.sections.inleiding.firstLesson.note}</li>
+              </ul>
+            </BlobCard>
+
+            <BlobCard>
+              <h3 className="text-xl font-bold mb-3">Prijzen</h3>
+              <DataTable
+                columns={[
+                  { key: "product", label: "Product" },
+                  { key: "price", label: "Prijs" },
+                  { key: "validity", label: "Geldigheid" },
+                ]}
+                rows={project.sections.inleiding.prices}
+              />
+            </BlobCard>
+          </div>
+        </Section>
+        
+        {/* 2. DOELSTELLINGEN */}
+        <Section id="doelen" label="2. Doelstellingen">
+            <BlobCard>
+                <ul className="space-y-4">
+                    {project.sections.doelen.map((doel, i) => (
+                        <li key={i} className="flex gap-3">
+                            <Check className="h-5 w-5 mt-0.5 text-[hsl(var(--deep-blue))]" />
+                            <span className="flex-1 text-[hsl(var(--muted))]">{doel}</span>
+                        </li>
+                    ))}
+                </ul>
+            </BlobCard>
+        </Section>
+
+        {/* 3. WERKWIJZE */}
+        <Section id="werkwijze" label="3. Werkwijze">
+             <BlobCard variant="blue">
+                <ul className="space-y-4 text-white/90">
+                    {project.sections.werkwijze.map((item, i) => (
+                        <li key={i} className="flex gap-3">
+                            <Check className="h-5 w-5 mt-0.5 text-[hsl(var(--bright-yellow))]" />
+                            <span className="flex-1">{item}</span>
+                        </li>
+                    ))}
+                </ul>
+            </BlobCard>
+        </Section>
+
+        {/* 4. DOELGROEP, PERIODE & OMVANG */}
+        <Section id="doelgroep" label="4. Doelgroep, periode & omvang">
+            <div className="space-y-6">
+                 <DataTable columns={[{key: 'doelgroep', label: 'Doelgroep'}, {key: 'toelichting', label: 'Toelichting'}]} rows={project.sections.doelgroepRows} />
+                 <DataTable columns={[{key: 'onderdeel', label: 'Onderdeel'}, {key: 'details', label: 'Details'}]} rows={project.sections.planning} />
+            </div>
+        </Section>
+
+        {/* 5. BETROKKENHEID */}
+        <Section id="betrokkenheid" label="5. Betrokkenheid">
+            <DataTable columns={[{key: 'wijze', label: 'Wijze'}, {key: 'toelichting', label: 'Toelichting'}]} rows={project.sections.betrokkenheidRows} />
+        </Section>
+        
+        {/* 6. BETROKKEN ORGANISATIES */}
+        <Section id="organisaties" label="6. Betrokken organisaties">
+            <div className="space-y-6">
+                <DataTable columns={[{key: 'organisatie', label: 'Organisatie'}, {key: 'status', label: 'Status'}]} rows={project.sections.betrokkenOrganisaties} />
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {project.sections.partners.map(partner => (
+                        <BlobCard key={partner.title}>
+                            <h4 className="font-bold mb-2">{partner.title}</h4>
+                            <p className="text-sm text-[hsl(var(--muted))]">{partner.description}</p>
+                        </BlobCard>
+                    ))}
+                </div>
+            </div>
+        </Section>
+
+        {/* 7. GSB */}
+        <Section id="gsb" label="7. Gezonde Stad in Beweging">
+            <BlobCard>
+                 <ul className="space-y-4">
+                    {project.sections.gsb.map((item, i) => (
+                        <li key={i} className="flex gap-3">
+                            <Check className="h-5 w-5 mt-0.5 text-[hsl(var(--deep-blue))]" />
+                            <span className="flex-1 text-[hsl(var(--muted))]">{item}</span>
+                        </li>
+                    ))}
+                </ul>
+            </BlobCard>
+        </Section>
+
+        {/* 8. SLOT */}
+        <Section id="slot" label="8. Slot">
+            <BlobCard variant="yellow">
+                 <ul className="space-y-4 mb-6">
+                    {project.sections.slot.bullets.map((item, i) => (
+                        <li key={i} className="flex gap-3 font-medium">
+                            <Check className="h-5 w-5 mt-0.5 text-[hsl(var(--deep-blue))]" />
+                            <span className="flex-1">{item}</span>
+                        </li>
+                    ))}
+                </ul>
+                <p className="font-medium leading-relaxed">{project.sections.slot.closing}</p>
+            </BlobCard>
+        </Section>
+
+        {/* CONTACT FOOTER */}
+        <BlobCard variant="blue" className="text-center">
+            <div className="max-w-xl mx-auto">
+                <h3 className="text-2xl text-white font-bold">Vragen of aanmelden?</h3>
+                <p className="mt-2 mb-6 text-white/80">Neem gerust contact op voor meer informatie.</p>
+                <div className="inline-block text-left bg-white/10 rounded-xl p-4 text-white/90 font-medium mb-6">
+                    <p>{project.contact.name} ({project.contact.role})</p>
+                    <p><a href={`tel:${project.contact.phone.replace(/-/g, '')}`} className="hover:underline">{project.contact.phone}</a></p>
+                    <p><a href={`mailto:${project.contact.email}`} className="hover:underline">{project.contact.email}</a></p>
+                </div>
+                 <div>
+                    <a
+                      href={`mailto:${project.contact.email}?subject=Aanmelding%20zwemles`}
+                      className="rounded-full px-6 py-3 font-semibold bg-white text-[hsl(var(--ink))] hover:bg-white/90"
+                    >
+                      Stuur een e-mail
+                    </a>
+                </div>
+            </div>
+        </BlobCard>
+
+      </main>
+    </>
   );
 }
