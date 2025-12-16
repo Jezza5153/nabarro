@@ -19,7 +19,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [locale, setLocale] = useState<Locale>('nl');
 
-  const value = {
+  const value: LanguageContextType = {
     locale,
     setLocale,
     content: getCopy(locale),

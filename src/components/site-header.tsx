@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -26,7 +25,7 @@ function NavLink({ href, label }: { href: string; label: string }) {
       href={href}
       className={cn(
         "whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-semibold",
-        "text-foreground/80 hover:bg-white/70 hover:text-foreground",
+        "text-foreground/80 hover:bg-white/70 hover:text-foreground"
       )}
     >
       {label}
@@ -43,7 +42,7 @@ export function SiteHeader() {
     { href: "/lessons", label: t.lessons },
     { href: "/for-you", label: t.for_you },
     { href: "/info", label: t.info },
-];
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/40 bg-white/55 backdrop-blur">
@@ -58,7 +57,7 @@ export function SiteHeader() {
               Nabarro Coaching
             </div>
             <div className="text-xs text-[hsl(var(--muted-foreground))]">
-              Zwemles voor volwassenen in Engels
+              Zwemles voor volwassenen • Engels & Frans
             </div>
           </div>
         </Link>
@@ -68,8 +67,8 @@ export function SiteHeader() {
           {navLinks.map((l) => (
             <NavLink key={l.href} href={l.href} label={l.label} />
           ))}
-           <div className="h-4 w-px bg-border mx-2" />
-           {projectLinks.map((l) => (
+          <div className="mx-2 h-4 w-px bg-border" />
+          {projectLinks.map((l) => (
             <NavLink key={l.href} href={l.href} label={t[l.labelKey]} />
           ))}
         </nav>
@@ -77,6 +76,7 @@ export function SiteHeader() {
         {/* Right CTA + mobile menu */}
         <div className="ml-auto flex items-center gap-2">
           <LanguageSwitcher />
+
           <Button
             asChild
             className="hidden md:inline-flex rounded-full bg-[hsl(var(--bright-yellow))] text-[hsl(var(--ink))] hover:bg-[hsl(var(--bright-yellow))]/90"
@@ -97,6 +97,7 @@ export function SiteHeader() {
             </SheetTrigger>
 
             <SheetContent side="right" className="w-[320px]">
+              {/* Mobile brand */}
               <div className="flex items-center gap-2">
                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-[hsl(var(--deep-blue))] text-white">
                   <Waves className="h-5 w-5" />
@@ -104,7 +105,7 @@ export function SiteHeader() {
                 <div>
                   <div className="font-semibold">Nabarro Coaching</div>
                   <div className="text-sm text-muted-foreground">
-                    Zwemles in het Engels
+                    Zwemles voor volwassenen
                   </div>
                 </div>
               </div>
@@ -112,7 +113,9 @@ export function SiteHeader() {
               <Separator className="my-5" />
 
               <div className="grid gap-2">
-                <p className="px-3 text-xs font-semibold text-muted-foreground">MENU</p>
+                <p className="px-3 text-xs font-semibold text-muted-foreground">
+                  MENU
+                </p>
                 {navLinks.map((l) => (
                   <Link
                     key={l.href}
@@ -124,10 +127,12 @@ export function SiteHeader() {
                 ))}
               </div>
 
-               <Separator className="my-5" />
+              <Separator className="my-5" />
 
-                 <div className="grid gap-2">
-                <p className="px-3 text-xs font-semibold text-muted-foreground">{t.project_plan}</p>
+              <div className="grid gap-2">
+                <p className="px-3 text-xs font-semibold text-muted-foreground">
+                  {t.project_plan}
+                </p>
                 {projectLinks.map((l) => (
                   <Link
                     key={l.href}
