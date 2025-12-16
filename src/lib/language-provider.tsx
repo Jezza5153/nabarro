@@ -6,10 +6,12 @@ import { project, Locale } from '@/content/project';
 import { getCopy } from './i18n';
 
 // Define the shape of the context
+type ContentType = typeof project.i18n[Locale];
+
 interface LanguageContextType {
   locale: Locale;
   setLocale: (locale: Locale) => void;
-  content: typeof project.i18n.nl; // Use one language as the shape for the content type
+  content: ContentType;
 }
 
 // Create the context with a default value
