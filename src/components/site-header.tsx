@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Menu, Waves } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/language-provider";
@@ -47,11 +48,19 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/40 bg-white/55 backdrop-blur">
       <div className="container flex h-16 items-center gap-3">
-        {/* Brand */}
-        <Link href="/" className="flex items-center gap-2">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-[hsl(var(--deep-blue))] text-white shadow-sm">
-            <Waves className="h-5 w-5" />
-          </span>
+        {/* BRAND */}
+        <Link href="/" className="flex items-center gap-3">
+          <div className="relative h-10 w-10 overflow-hidden rounded-2xl bg-white shadow-sm">
+            <Image
+              src="/pics/nabarrocoaching.jpg"
+              alt="Nabarro Coaching logo"
+              fill
+              sizes="40px"
+              className="object-cover"
+              priority
+            />
+          </div>
+
           <div className="leading-tight">
             <div className="text-sm font-semibold text-[hsl(var(--foreground))]">
               Nabarro Coaching
@@ -62,7 +71,7 @@ export function SiteHeader() {
           </div>
         </Link>
 
-        {/* Desktop nav */}
+        {/* DESKTOP NAV */}
         <nav className="hidden md:flex flex-1 items-center justify-center gap-1">
           {navLinks.map((l) => (
             <NavLink key={l.href} href={l.href} label={l.label} />
@@ -73,7 +82,7 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        {/* Right CTA + mobile menu */}
+        {/* RIGHT SIDE */}
         <div className="ml-auto flex items-center gap-2">
           <LanguageSwitcher />
 
@@ -84,6 +93,7 @@ export function SiteHeader() {
             <Link href="/aanmelden">{t.apply}</Link>
           </Button>
 
+          {/* MOBILE MENU */}
           <Sheet>
             <SheetTrigger asChild>
               <Button
@@ -97,11 +107,17 @@ export function SiteHeader() {
             </SheetTrigger>
 
             <SheetContent side="right" className="w-[320px]">
-              {/* Mobile brand */}
-              <div className="flex items-center gap-2">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-[hsl(var(--deep-blue))] text-white">
-                  <Waves className="h-5 w-5" />
-                </span>
+              {/* MOBILE BRAND */}
+              <div className="flex items-center gap-3">
+                <div className="relative h-10 w-10 overflow-hidden rounded-2xl bg-white">
+                  <Image
+                    src="/pics/nabarrocoaching.jpg"
+                    alt="Nabarro Coaching logo"
+                    fill
+                    sizes="40px"
+                    className="object-cover"
+                  />
+                </div>
                 <div>
                   <div className="font-semibold">Nabarro Coaching</div>
                   <div className="text-sm text-muted-foreground">

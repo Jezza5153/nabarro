@@ -3,12 +3,25 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, HeartHandshake, ShieldCheck, Waves, MapPin, Languages, Clock } from "lucide-react";
+import {
+  ArrowRight,
+  HeartHandshake,
+  ShieldCheck,
+  Waves,
+  MapPin,
+  Languages,
+  Clock,
+} from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { project } from "@/content/project";
 import { useLanguage } from "@/lib/language-provider";
 import { getCopy } from "@/lib/i18n";
@@ -37,8 +50,7 @@ const features = [
 export default function Home() {
   const { locale } = useLanguage();
   const t = getCopy(locale);
-  const heroImage = PlaceHolderImages.find((img) => img.id === "hero-calm-water");
-  
+
   const firstLesson = t.firstLesson;
   const prices = t.prices;
 
@@ -59,7 +71,7 @@ export default function Home() {
             {t.hero.subtitle}
           </p>
 
-          {/* “Trust strip” */}
+          {/* Trust strip */}
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <Languages className="h-4 w-4" />
@@ -87,31 +99,31 @@ export default function Home() {
             </Button>
           </div>
 
-          {/* First lesson highlight (soft, non-salesy) */}
+          {/* First lesson highlight */}
           <div className="mt-2 w-full rounded-xl border bg-background/70 p-4">
             <div className="text-sm">
               <div className="font-medium">{firstLesson.title}</div>
               <div className="text-muted-foreground">
                 {firstLesson.date} • {firstLesson.time}
               </div>
-              <div className="text-muted-foreground">{firstLesson.location}</div>
+              <div className="text-muted-foreground">
+                {firstLesson.location}
+              </div>
               <div className="text-muted-foreground">{firstLesson.note}</div>
             </div>
           </div>
         </div>
 
+        {/* HERO IMAGE */}
         <div className="flex items-center justify-center">
-          {heroImage && (
-            <Image
-              src={heroImage.imageUrl}
-              alt={heroImage.description}
-              width={1200}
-              height={800}
-              priority
-              className="rounded-2xl object-cover shadow-lg"
-              data-ai-hint={heroImage.imageHint}
-            />
-          )}
+          <Image
+            src="/pics/home1.jpg"
+            alt="Rustige zwemles voor volwassenen in Zeeland – leren zwemmen met vertrouwen, veiligheid en geduld"
+            width={1200}
+            height={800}
+            priority
+            className="rounded-2xl object-cover shadow-lg"
+          />
         </div>
       </section>
 
@@ -128,8 +140,8 @@ export default function Home() {
             </h2>
 
             <p className="max-w-[760px] text-muted-foreground md:text-xl/relaxed">
-              Leren zwemmen hoeft niet hard of spannend te zijn. We bouwen rustig op, met duidelijke uitleg
-              en aandacht voor veiligheid — zodat u stap voor stap vertrouwen krijgt.
+              Leren zwemmen hoeft niet hard of spannend te zijn. We bouwen rustig
+              op, met duidelijke uitleg en aandacht voor veiligheid.
             </p>
           </div>
 
@@ -142,36 +154,23 @@ export default function Home() {
                     <div className="bg-primary/10 p-3 rounded-full">
                       <Icon className="h-6 w-6 text-primary" />
                     </div>
-                    <CardTitle className="text-lg">{feature.title}</CardTitle>
+                    <CardTitle className="text-lg">
+                      {feature.title}
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">{feature.description}</p>
+                    <p className="text-muted-foreground">
+                      {feature.description}
+                    </p>
                   </CardContent>
                 </Card>
               );
             })}
           </div>
-
-          {/* Quick “who it’s for” */}
-          <div className="mx-auto max-w-5xl pt-10">
-            <Card className="rounded-2xl bg-background/80">
-              <CardHeader>
-                <CardTitle>Voor wie is dit?</CardTitle>
-                <CardDescription>
-                  Internationale studenten, expats, arbeidsmigranten en nieuwe inwoners in Zeeland — en iedereen die liever
-                  in het Engels (of Frans) leert.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">
-                U hoeft niet eerst perfect Nederlands te spreken om te leren zwemmen. Integreren kost tijd — het helpt als
-                u ook iets kunt doen in een taal die u al beheerst.
-              </CardContent>
-            </Card>
-          </div>
         </div>
       </section>
 
-      {/* PRICES (quiet, transparent) */}
+      {/* PRICES */}
       <section id="prijzen" className="py-12 md:py-24 lg:py-28">
         <div className="container">
           <div className="mx-auto max-w-4xl text-center space-y-4">
@@ -181,9 +180,6 @@ export default function Home() {
             <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
               Simpel en transparant
             </h2>
-            <p className="text-muted-foreground md:text-lg">
-              Start klein, voel of het bij u past, en bouw daarna rustig verder.
-            </p>
           </div>
 
           <div className="mx-auto grid max-w-5xl gap-6 pt-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -191,47 +187,12 @@ export default function Home() {
               <Card key={p.product} className="rounded-2xl bg-background/80">
                 <CardHeader>
                   <CardTitle className="text-base">{p.product}</CardTitle>
-                  <CardDescription>{p.validity ? `Geldigheid: ${p.validity}` : " "}</CardDescription>
+                  <CardDescription>
+                    {p.validity ? `Geldigheid: ${p.validity}` : " "}
+                  </CardDescription>
                 </CardHeader>
-                <CardContent className="text-2xl font-semibold">{p.price}</CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <div className="pt-10 flex justify-center gap-4">
-            <Button asChild size="lg">
-              <Link href="/aanmelden">Aanmelden</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link href="/contact">Eerst een vraag stellen</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ (high intent + AI friendly) */}
-      <section id="faq" className="py-12 md:py-24 lg:py-28 bg-white/40">
-        <div className="container">
-          <div className="mx-auto max-w-4xl text-center space-y-4">
-            <Badge variant="secondary" className="rounded-full px-4 py-1">
-              Veelgestelde vragen
-            </Badge>
-            <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
-              Duidelijkheid geeft rust
-            </h2>
-            <p className="text-muted-foreground md:text-lg">
-              Hieronder staan de vragen die we het vaakst krijgen.
-            </p>
-          </div>
-
-          <div className="mx-auto max-w-5xl grid gap-6 pt-10 md:grid-cols-2">
-            {project.sections.doelen.slice(0, 4).map((item, i) => ( // Using doelen for mock FAQ
-              <Card key={i} className="rounded-2xl bg-background/80">
-                <CardHeader>
-                  <CardTitle className="text-base">Vraag {i+1}?</CardTitle>
-                </CardHeader>
-                <CardContent className="text-sm text-muted-foreground leading-relaxed">
-                  {item}
+                <CardContent className="text-2xl font-semibold">
+                  {p.price}
                 </CardContent>
               </Card>
             ))}
@@ -247,11 +208,11 @@ export default function Home() {
               Klaar om de eerste stap te zetten?
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-primary-foreground/80">
-              Heeft u vragen of wilt u zich aanmelden? Neem vrijblijvend contact op. Ik help u graag op weg naar meer
-              vertrouwen en waterveiligheid.
+              Heeft u vragen of wilt u zich aanmelden? Neem vrijblijvend contact
+              op.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-              <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
+              <Button asChild size="lg" className="bg-white text-primary">
                 <Link href="/contact">Stel een vraag</Link>
               </Button>
               <Button asChild size="lg" variant="secondary">
