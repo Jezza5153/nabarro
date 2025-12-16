@@ -15,7 +15,6 @@ const projectLinks = [
   { href: "/doelstellingen", labelKey: "objectives" },
   { href: "/werkwijze", labelKey: "method" },
   { href: "/doelgroep", labelKey: "audience" },
-  { href: "/organisaties", labelKey: "partners" },
   { href: "/gsb", labelKey: "gsb" },
   { href: "/slot", labelKey: "closing" },
 ] as const;
