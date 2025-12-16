@@ -49,7 +49,7 @@ export function SiteHeader() {
         <Link href="/" className="flex items-center gap-3">
           <div className="relative h-10 w-10 overflow-hidden rounded-2xl bg-white shadow-sm">
             <Image
-              src="/pics/nabarrocoaching.jpg"
+              src="/pics/nabarrocoaching.png"
               alt="Nabarro Coaching logo"
               fill
               sizes="40px"
