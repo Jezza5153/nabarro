@@ -15,8 +15,6 @@ const projectLinks = [
   { href: "/doelstellingen", labelKey: "objectives" },
   { href: "/werkwijze", labelKey: "method" },
   { href: "/doelgroep", labelKey: "audience" },
-  { href: "/gsb", labelKey: "gsb" },
-  { href: "/slot", labelKey: "closing" },
 ] as const;
 
 function NavLink({ href, label }: { href: string; label: string }) {
