@@ -5,7 +5,10 @@ import * as z from "zod";
 const formSchema = z.object({
   name: z.string().min(2),
   email: z.string().email(),
+  phone: z.string().optional(),
+  subject: z.enum(["lessons", "catering", "consulting", "other"]),
   message: z.string().min(10),
+  consent: z.boolean().refine((val) => val === true),
 });
 
 export async function submitContactForm(values: z.infer<typeof formSchema>) {

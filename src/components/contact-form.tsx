@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -22,16 +23,19 @@ import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { useLanguage } from "@/lib/language-provider";
 import { getCopy } from "@/lib/i18n";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
+import { Checkbox } from "./ui/checkbox";
 
 const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Please enter your name.",
+  name: z.string().min(2, { message: "Please enter your name." }),
+  email: z.string().email({ message: "Please enter a valid email address." }),
+  phone: z.string().optional(),
+  subject: z.enum(["lessons", "catering", "consulting", "other"], {
+    required_error: "Please select a subject.",
   }),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-  message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
+  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+  consent: z.boolean().refine((val) => val === true, {
+    message: "You must agree to be contacted.",
   }),
 });
 
@@ -47,7 +51,9 @@ export default function ContactForm() {
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
       message: "",
+      consent: false,
     },
   });
 
@@ -113,6 +119,29 @@ export default function ContactForm() {
             </FormItem>
           )}
         />
+         <FormField
+          control={form.control}
+          name="subject"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Subject</FormLabel>
+               <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a subject" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="lessons">Lessons</SelectItem>
+                  <SelectItem value="catering">Catering</SelectItem>
+                  <SelectItem value="consulting">Consulting</SelectItem>
+                  <SelectItem value="other">Other</SelectItem>
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <FormField
           control={form.control}
           name="message"
@@ -127,6 +156,29 @@ export default function ContactForm() {
                 />
               </FormControl>
               <FormMessage />
+            </FormItem>
+          )}
+        />
+         <FormField
+          control={form.control}
+          name="consent"
+          render={({ field }) => (
+            <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4 shadow">
+              <FormControl>
+                <Checkbox
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
+              </FormControl>
+              <div className="space-y-1 leading-none">
+                <FormLabel>
+                  Consent to be contacted
+                </FormLabel>
+                <FormDescription>
+                  I agree to be contacted regarding my inquiry.
+                </FormDescription>
+                 <FormMessage />
+              </div>
             </FormItem>
           )}
         />
