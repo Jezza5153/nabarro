@@ -32,9 +32,7 @@ export const metadata: Metadata = {
   },
   description:
     "Calm, private swimming coaching for adults in Zeeland. English-speaking coach focused on confidence, water safety, and technique.",
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   openGraph: {
     title: `${BRAND} — Adult Swimming Coaching in English (Zeeland)`,
     description:
@@ -42,12 +40,7 @@ export const metadata: Metadata = {
     url: "https://nabarro.vercel.app",
     siteName: BRAND,
     images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: BRAND,
-      },
+      { url: "/og-image.png", width: 1200, height: 630, alt: BRAND },
     ],
     locale: "en_US",
     type: "website",
@@ -59,10 +52,7 @@ export const metadata: Metadata = {
       "Calm, private adult swimming coaching in Zeeland. Confidence, water safety, and technique — step-by-step.",
     images: ["/og-image.png"],
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
@@ -79,7 +69,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
       className={cn("scroll-smooth", inter.variable, lexendDeca.variable)}
     >
-      <body className={cn("min-h-screen font-sans antialiased")}>
+      {/* IMPORTANT: apply the font class here so Inter is реально used */}
+      <body className={cn(inter.className, "min-h-screen antialiased watery-bg")}>
         <LanguageProvider>
           <LocaleMetadata />
 
@@ -90,10 +81,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             Skip to content
           </a>
 
-          <Shell>
-            <SiteHeader />
-            <main id="main-content">{children}</main>
-          </Shell>
+          {/* Layout rhythm wrapper */}
+          <div className="min-h-screen flex flex-col">
+            <Shell>
+              <SiteHeader />
+              <main id="main-content" className="flex-1">
+                {children}
+              </main>
+            </Shell>
+          </div>
 
           <Toaster />
         </LanguageProvider>

@@ -77,7 +77,7 @@ export function SiteHeader() {
           )}
         >
           <Image
-            src="/pics/nabarrocoaching.png"
+            src="/pics/nabarrocoaching.png?v=2"
             alt={`${brand} logo`}
             width={40}
             height={40}
@@ -138,7 +138,7 @@ export function SiteHeader() {
               {/* MOBILE HEADER */}
               <div className="flex items-center gap-3">
                 <Image
-                  src="/pics/nabarrocoaching.png"
+                  src="/pics/nabarrocoaching.png?v=2"
                   alt={`${brand} logo`}
                   width={40}
                   height={40}
