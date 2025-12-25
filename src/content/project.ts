@@ -9,14 +9,12 @@ const content = {
       description:
         "Privé- en kleinschalige zwemlessen voor volwassenen in Zeeland. Engelssprekende coach, gericht op zelfvertrouwen en waterveiligheid. Voor beginners, watervrees en techniekverbetering.",
     },
-
     header: {
       menu_label: "Menu",
       subtitle: "Zwemcoaching voor volwassenen — rustig en privé",
       cta_hint: "Proefles €20 • 45 min • Vooraf aanmelden verplicht",
       home_label: "Home",
     },
-
     hero: {
       kicker: "Zwemles voor volwassenen in het Engels",
       title: "Eindelijk vrij en vol vertrouwen in het water.",
@@ -24,33 +22,15 @@ const content = {
       cta_main: "Aanmelden",
       cta_secondary: "Over de lessen",
     },
-
     homeFacts: {
       languages: "Talen mogelijk: Engels, Nederlands, Frans, Spaans",
       location: "Locatie: Zeeland (exacte zwembadlocatie na aanmelding)",
       format: "Kleine groepen • Rustig tempo • 45 min per les",
     },
-
     firstLesson: {
       title: "Proefles — €20 (45 min)",
       note: "Vooraf aanmelden is verplicht.",
     },
-
-    signup: {
-      title: "Aanmelden",
-      heading: "Neem contact op",
-      subheading: "U kunt direct een e-mail sturen met onderstaande gegevens.",
-      body:
-        "Wilt u zich aanmelden of heeft u vragen? Stuur een e-mail met uw naam, contactgegevens en uw vraag. U krijgt een duidelijke reactie terug.",
-      button: "Open e-mailprogramma",
-      back_link: "Terug naar de homepagina",
-      mailto_subject: "Aanmelding zwemles",
-      mailto_template: `Naam:
-E-mail:
-Telefoon (optioneel):
-Bericht:`,
-    },
-
     about: {
       kicker: "Over de instructeur",
       title: "Maak kennis met Nathalie",
@@ -68,7 +48,6 @@ Zwemmen gaat niet om prestaties. Het gaat erom je veilig, ontspannen en vrij te 
       ask_title: "Stel een vraag",
       ask_subtitle: "Twijfelt u of dit bij u past? Stuur gerust een bericht.",
     },
-
     contact: {
       kicker: "Contact",
       title: "Neem contact op",
@@ -85,7 +64,6 @@ Zwemmen gaat niet om prestaties. Het gaat erom je veilig, ontspannen en vrij te 
       success_title: "Bericht ontvangen!",
       success_message: "Bedankt! We nemen spoedig contact met u op.",
     },
-
     info: {
       kicker: "Praktische info",
       title: "Praktische informatie",
@@ -94,7 +72,6 @@ Zwemmen gaat niet om prestaties. Het gaat erom je veilig, ontspannen en vrij te 
       trust_45: "45 minuten per les",
       trust_safe: "Rustig, privé, zonder oordeel",
       trust_location: "Zeeland (exacte locatie na aanmelding)",
-
       pricing_title: "Prijzen",
       pricing_desc: "Simpel en helder.",
       pricing_note:
@@ -103,24 +80,55 @@ Zwemmen gaat niet om prestaties. Het gaat erom je veilig, ontspannen en vrij te 
       pricing_smallprint: "De proefles is een rustige kennismaking. Vooraf aanmelden is verplicht.",
       table_service: "Dienst",
       table_price: "Prijs",
-
       location_title: "Locatie",
       location_desc: "Zeeland, rustig en privé.",
       location_body:
         "Lessen vinden plaats in een rustige zwemlocatie in Zeeland. De exacte details delen we na aanmelding om privacy en rust te waarborgen.",
       location_cta: "Vraag naar de dichtstbijzijnde optie",
-
       scheduling_title: "Planning",
       scheduling_desc: "Doordeweeks + flexibele tijden.",
       scheduling_body:
         "Lessen zijn meestal doordeweeks mogelijk, met opties in de ochtend of avond. Stuur uw voorkeuren, dan bevestigen we wat er kan.",
       scheduling_cta: "Beschikbaarheid checken",
-
       price_tryout: "Proefles (45 min, één keer)",
       price_private: "Privéles (45 min)",
       price_group: "Kleine groep (45 min)",
     },
-
+    for_you: {
+      kicker: "Een Plek Voor U",
+      title: "Is dit de juiste plek voor u?",
+      subtitle: "Deze lessen zijn gemaakt voor volwassenen van alle achtergronden die comfort en veiligheid in het water willen vinden. Kijk of iets hiervan bekend klinkt.",
+      who_title: "Deze lessen zijn voor...",
+      who_list: [
+        "Volledige beginners die nog nooit zwemles hebben gehad.",
+        "Volwassenen die zich angstig of bang voelen in het water.",
+        "Expats, studenten of nieuwkomers in Nederland.",
+        "Iedereen die wil leren in een privé, niet-oordelende omgeving.",
+        "Zwemmers die hun ademhaling en techniek willen verbeteren."
+      ],
+      reassurance_title: "U denkt misschien...",
+      reassurances: [
+        {
+            title: "U heeft geen ervaring nodig.",
+            description: "Onze lessen beginnen helemaal bij het begin. We gaan nergens van uit en leren alles."
+        },
+        {
+            title: "Nerveus zijn is oké.",
+            description: "Veel volwassenen voelen hetzelfde. Ons eerste doel is om u te helpen zich veilig en comfortabel te voelen."
+        },
+        {
+            title: "Taal is geen barrière.",
+            description: "De lessen zijn in eenvoudig Engels. De nadruk ligt op duidelijke, rustige instructie."
+        },
+        {
+            title: "Er is geen 'juiste' tijdlijn.",
+            description: "U zult vooruitgang boeken op uw eigen tempo. Er is geen druk om te presteren."
+        }
+      ],
+      cta_title: "Uw reis begint met een eenvoudig gesprek.",
+      cta_subtitle: "Als u vragen heeft, of gewoon wilt weten of dit iets voor u is, neem dan contact op. Er is geen enkele verplichting.",
+      cta_button: "Stel een vraag"
+    },
     nav: {
       home: "Home",
       lessons: "Lessen",
@@ -138,14 +146,12 @@ Zwemmen gaat niet om prestaties. Het gaat erom je veilig, ontspannen en vrij te 
       description:
         "Private and small-group swimming lessons for adults in Zeeland. English-speaking coach focused on confidence, water safety, and stroke improvement.",
     },
-
     header: {
       menu_label: "Menu",
       subtitle: "Adult swim coaching — calm and private",
       cta_hint: "Try-out €20 • 45 min • Pre-registration required",
       home_label: "Home",
     },
-
     hero: {
       kicker: "Adult swimming lessons in English",
       title: "Finally free and confident in the water.",
@@ -153,33 +159,15 @@ Zwemmen gaat niet om prestaties. Het gaat erom je veilig, ontspannen en vrij te 
       cta_main: "Sign up",
       cta_secondary: "About the lessons",
     },
-
     homeFacts: {
       languages: "Languages possible: English, Dutch, French, Spanish",
       location: "Location: Zeeland (exact pool location shared after registration)",
       format: "Small groups • Calm pace • 45 min per class",
     },
-
     firstLesson: {
       title: "Try-out lesson — €20 (45 min)",
       note: "Pre-registration is required.",
     },
-
-    signup: {
-      title: "Sign up",
-      heading: "Get in touch",
-      subheading: "You can email directly with the details below.",
-      body:
-        "Want to sign up or ask a question? Send an email with your name, contact details, and your request. You’ll get a clear reply.",
-      button: "Open email client",
-      back_link: "Back to homepage",
-      mailto_subject: "Swimming lesson registration",
-      mailto_template: `Name:
-Email:
-Phone (optional):
-Message:`,
-    },
-
     about: {
       kicker: "About the instructor",
       title: "Meet Nathalie",
@@ -197,7 +185,6 @@ Swimming is not about performance. It’s about feeling safe, relaxed, and free 
       ask_title: "Ask a question",
       ask_subtitle: "Not sure if this is right for you? Feel free to send a message.",
     },
-
     contact: {
       kicker: "Contact",
       title: "Get in touch",
@@ -214,7 +201,6 @@ Swimming is not about performance. It’s about feeling safe, relaxed, and free 
       success_title: "Message received!",
       success_message: "Thank you! We’ll be in touch shortly.",
     },
-
     info: {
       kicker: "Practical info",
       title: "Practical Information",
@@ -223,7 +209,6 @@ Swimming is not about performance. It’s about feeling safe, relaxed, and free 
       trust_45: "45 minutes per lesson",
       trust_safe: "Calm, private, judgement-free",
       trust_location: "Zeeland (exact location after registration)",
-
       pricing_title: "Pricing",
       pricing_desc: "Simple and upfront.",
       pricing_note:
@@ -232,24 +217,55 @@ Swimming is not about performance. It’s about feeling safe, relaxed, and free 
       pricing_smallprint: "The try-out is a gentle introduction. Pre-registration is required.",
       table_service: "Service",
       table_price: "Price",
-
       location_title: "Location",
       location_desc: "Zeeland, calm and private.",
       location_body:
         "Lessons take place in a quiet swimming facility in Zeeland. Exact details are shared after registration to protect privacy and keep the environment calm.",
       location_cta: "Ask about the nearest option",
-
       scheduling_title: "Scheduling",
       scheduling_desc: "Weekdays + flexible slots.",
       scheduling_body:
         "Lessons are typically available on weekdays, with options in the morning or evening. Send your preferred days/times and we’ll confirm what’s possible.",
       scheduling_cta: "Check availability",
-
       price_tryout: "Try-out lesson (45 min, one time)",
       price_private: "Private lesson (45 min)",
       price_group: "Small group class (45 min)",
     },
-
+    for_you: {
+      kicker: "A Place For You",
+      title: "Is this the right place for you?",
+      subtitle: "These lessons are designed for adults of all backgrounds who want to find comfort and safety in the water. See if any of this sounds familiar.",
+      who_title: "These lessons are for...",
+      who_list: [
+        "Complete beginners who have never had a swimming lesson.",
+        "Adults who feel anxious or afraid in the water.",
+        "Expats, students, or newcomers to the Netherlands.",
+        "Anyone who wants to learn in a private, non-judgmental setting.",
+        "Swimmers looking to improve their breathing and technique."
+      ],
+      reassurance_title: "You might be thinking...",
+      reassurances: [
+        {
+            title: "You don't need any experience.",
+            description: "Our lessons start from the very beginning. We assume nothing and teach everything."
+        },
+        {
+            title: "It's okay to be nervous.",
+            description: "Many adults feel the same way. Our first goal is to help you feel safe and comfortable."
+        },
+        {
+            title: "Language is not a barrier.",
+            description: "The lessons are in simple English. The focus is on clear, calm instruction."
+        },
+        {
+            title: "There is no 'right' timeline.",
+            description: "You will progress at your own pace. There is no pressure to perform."
+        }
+      ],
+      cta_title: "Your journey starts with a simple conversation.",
+      cta_subtitle: "If you have any questions, or just want to see if this is for you, please reach out. There's no commitment whatsoever.",
+      cta_button: "Ask a question"
+    },
     nav: {
       home: "Home",
       lessons: "Lessons",
@@ -258,7 +274,7 @@ Swimming is not about performance. It’s about feeling safe, relaxed, and free 
       about: "About me",
       apply: "Sign up",
     },
-  },
+},
 
   fr: {
     meta: {
@@ -267,14 +283,12 @@ Swimming is not about performance. It’s about feeling safe, relaxed, and free 
       description:
         "Cours de natation privés et en petits groupes pour adultes en Zélande. Coach anglophone, axé sur la confiance, la sécurité et l’amélioration technique.",
     },
-
     header: {
       menu_label: "Menu",
       subtitle: "Coaching de natation pour adultes — calme et privé",
       cta_hint: "Leçon d’essai 20€ • 45 min • Pré-inscription obligatoire",
       home_label: "Accueil",
     },
-
     hero: {
       kicker: "Cours de natation pour adultes en anglais",
       title: "Enfin libre et en confiance dans l’eau.",
@@ -282,33 +296,15 @@ Swimming is not about performance. It’s about feeling safe, relaxed, and free 
       cta_main: "S’inscrire",
       cta_secondary: "À propos des cours",
     },
-
     homeFacts: {
       languages: "Langues possibles : anglais, néerlandais, français, espagnol",
       location: "Lieu : Zélande (lieu exact communiqué après inscription)",
       format: "Petits groupes • Rythme calme • 45 min par cours",
     },
-
     firstLesson: {
       title: "Leçon d’essai — 20 € (45 min)",
       note: "Pré-inscription obligatoire.",
     },
-
-    signup: {
-      title: "S’inscrire",
-      heading: "Contactez-nous",
-      subheading: "Vous pouvez envoyer un e-mail directement avec les informations ci-dessous.",
-      body:
-        "Vous souhaitez vous inscrire ou poser une question ? Envoyez un e-mail avec vos coordonnées et votre demande. Vous recevrez une réponse claire.",
-      button: "Ouvrir la messagerie",
-      back_link: "Retour à l’accueil",
-      mailto_subject: "Inscription cours de natation",
-      mailto_template: `Nom :
-E-mail :
-Téléphone (facultatif) :
-Message :`,
-    },
-
     about: {
       kicker: "À propos de l’instructrice",
       title: "Rencontrez Nathalie",
@@ -326,7 +322,6 @@ La natation n’est pas une question de performance. Il s’agit de se sentir en
       ask_title: "Poser une question",
       ask_subtitle: "Vous ne savez pas si cela vous convient ? Envoyez un message.",
     },
-
     contact: {
       kicker: "Contact",
       title: "Contactez-nous",
@@ -343,12 +338,11 @@ La natation n’est pas une question de performance. Il s’agit de se sentir en
       success_title: "Message reçu !",
       success_message: "Merci ! Nous vous recontacterons rapidement.",
     },
-
     info: {
       kicker: "Infos pratiques",
       title: "Informations pratiques",
       subtitle:
-        "Des prix clairs, un cadre calme et une planification flexible — pour savoir exactement à quoi vous attendre.",
+        "Des prix clairs, un cadre calme et une planification flexible — pour savoir exactly à quoi vous attendre.",
       trust_45: "45 minutes par cours",
       trust_safe: "Calme, privé, sans jugement",
       trust_location: "Zélande (lieu exact après inscription)",
@@ -378,7 +372,41 @@ La natation n’est pas une question de performance. Il s’agit de se sentir en
       price_private: "Cours privé (45 min)",
       price_group: "Petit groupe (45 min)",
     },
-
+    for_you: {
+      kicker: "Une Place Pour Vous",
+      title: "Est-ce le bon endroit pour vous ?",
+      subtitle: "Ces leçons sont conçues pour les adultes de tous horizons qui veulent trouver confort et sécurité dans l'eau. Voyez si cela vous parle.",
+      who_title: "Ces leçons sont pour...",
+      who_list: [
+        "Les débutants complets qui n'ont jamais eu de leçon de natation.",
+        "Les adultes qui se sentent anxieux ou effrayés dans l'eau.",
+        "Les expatriés, étudiants ou nouveaux arrivants aux Pays-Bas.",
+        "Toute personne qui veut apprendre dans un cadre privé et sans jugement.",
+        "Les nageurs qui cherchent à améliorer leur respiration et leur technique."
+      ],
+      reassurance_title: "Vous pensez peut-être...",
+      reassurances: [
+        {
+            title: "Vous n'avez besoin d'aucune expérience.",
+            description: "Nos leçons partent de zéro. Nous ne supposons rien et enseignons tout."
+        },
+        {
+            title: "C'est normal d'être nerveux.",
+            description: "Beaucoup d'adultes ressentent la même chose. Notre premier objectif est de vous aider à vous sentir en sécurité et à l'aise."
+        },
+        {
+            title: "La langue n'est pas une barrière.",
+            description: "Les leçons sont en anglais simple. L'accent est mis sur des instructions claires et calmes."
+        },
+        {
+            title: "Il n'y a pas de 'bon' calendrier.",
+            description: "Vous progresserez à votre propre rythme. Il n'y a aucune pression de performance."
+        }
+      ],
+      cta_title: "Votre parcours commence par une simple conversation.",
+      cta_subtitle: "Si vous avez des questions, ou si vous voulez simplement savoir si c'est pour vous, n'hésitez pas à nous contacter. Il n'y a aucun engagement.",
+      cta_button: "Poser une question"
+    },
     nav: {
       home: "Accueil",
       lessons: "Les cours",
@@ -396,14 +424,12 @@ La natation n’est pas une question de performance. Il s’agit de se sentir en
       description:
         "Clases privadas y en grupos pequeños para adultos en Zelanda. Entrenadora angloparlante, enfocada en confianza, seguridad y mejora técnica.",
     },
-
     header: {
       menu_label: "Menú",
       subtitle: "Coaching de natación para adultos — tranquilo y privado",
       cta_hint: "Clase de prueba 20€ • 45 min • Se requiere inscripción previa",
       home_label: "Inicio",
     },
-
     hero: {
       kicker: "Clases de natación para adultos en inglés",
       title: "Finalmente libre y con confianza en el agua.",
@@ -411,33 +437,15 @@ La natation n’est pas une question de performance. Il s’agit de se sentir en
       cta_main: "Inscríbete",
       cta_secondary: "Sobre las clases",
     },
-
     homeFacts: {
       languages: "Idiomas: inglés, neerlandés, francés, español",
       location: "Ubicación: Zelanda (se comparte la piscina exacta tras la inscripción)",
       format: "Grupos pequeños • Ritmo tranquilo • 45 min por clase",
     },
-
     firstLesson: {
       title: "Clase de prueba — 20 € (45 min)",
       note: "Se requiere inscripción previa.",
     },
-
-    signup: {
-      title: "Inscríbete",
-      heading: "Ponte en contacto",
-      subheading: "Puedes enviar un email directamente con los datos a continuación.",
-      body:
-        "¿Quieres inscribirte o hacer una pregunta? Envía un email con tus datos y tu solicitud. Recibirás una respuesta clara.",
-      button: "Abrir correo",
-      back_link: "Volver a inicio",
-      mailto_subject: "Inscripción clases de natación",
-      mailto_template: `Nombre:
-Email:
-Teléfono (opcional):
-Mensaje:`,
-    },
-
     about: {
       kicker: "Sobre la instructora",
       title: "Conoce a Nathalie",
@@ -455,7 +463,6 @@ Nadar no se trata de rendimiento. Se trata de sentirse seguro, relajado y libre 
       ask_title: "Haz una pregunta",
       ask_subtitle: "¿No estás seguro/a de si esto es para ti? Envíanos un mensaje.",
     },
-
     contact: {
       kicker: "Contacto",
       title: "Ponte en contacto",
@@ -472,7 +479,6 @@ Nadar no se trata de rendimiento. Se trata de sentirse seguro, relajado y libre 
       success_title: "¡Mensaje recibido!",
       success_message: "¡Gracias! Nos pondremos en contacto pronto.",
     },
-
     info: {
       kicker: "Info práctica",
       title: "Información práctica",
@@ -507,7 +513,41 @@ Nadar no se trata de rendimiento. Se trata de sentirse seguro, relajado y libre 
       price_private: "Clase privada (45 min)",
       price_group: "Grupo pequeño (45 min)",
     },
-
+    for_you: {
+      kicker: "Un Lugar Para Ti",
+      title: "¿Es este el lugar adecuado para ti?",
+      subtitle: "Estas clases están diseñadas para adultos de todos los orígenes que quieren encontrar comodidad y seguridad en el agua. Comprueba si algo de esto te resulta familiar.",
+      who_title: "Estas clases son para...",
+      who_list: [
+        "Principiantes completos que nunca han tenido una clase de natación.",
+        "Adultos que se sienten ansiosos o con miedo en el agua.",
+        "Expatriados, estudiantes o recién llegados a los Países Bajos.",
+        "Cualquiera que quiera aprender en un entorno privado y sin juicios.",
+        "Nadadores que buscan mejorar su respiración y técnica."
+      ],
+      reassurance_title: "Podrías estar pensando...",
+      reassurances: [
+        {
+            title: "No necesitas ninguna experiencia.",
+            description: "Nuestras clases empiezan desde el principio. No asumimos nada y lo enseñamos todo."
+        },
+        {
+            title: "Está bien estar nervioso.",
+            description: "Muchos adultos sienten lo mismo. Nuestro primer objetivo es ayudarte a sentirte seguro y cómodo."
+        },
+        {
+            title: "El idioma no es una barrera.",
+            description: "Las clases son en inglés sencillo. El enfoque está en una instrucción clara y tranquila."
+        },
+        {
+            title: "No hay un plazo 'correcto'.",
+            description: "Progresarás a tu propio ritmo. No hay presión para rendir."
+        }
+      ],
+      cta_title: "Tu viaje comienza con una simple conversación.",
+      cta_subtitle: "Si tienes alguna pregunta, o simplemente quieres saber si esto es para ti, por favor, ponte en contacto. No hay ningún compromiso.",
+      cta_button: "Haz una pregunta"
+    },
     nav: {
       home: "Inicio",
       lessons: "Clases",
