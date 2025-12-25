@@ -6,7 +6,7 @@ import { project, Locale } from '@/content/project';
 import { getCopy } from './i18n';
 
 // Define the shape of the context
-type ContentType = typeof project.i18n[Locale];
+type ContentType = (typeof project.i18n)[Locale];
 
 interface LanguageContextType {
   locale: Locale;
@@ -19,7 +19,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 // Create the provider component
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocale] = useState<Locale>('nl');
+  const [locale, setLocale] = useState<Locale>('en');
 
   const value: LanguageContextType = {
     locale,

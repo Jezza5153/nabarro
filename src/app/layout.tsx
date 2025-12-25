@@ -49,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="nl" className={cn("scroll-smooth", inter.variable, lexendDeca.variable)}>
+    <html lang="en" className={cn("scroll-smooth", inter.variable, lexendDeca.variable)}>
       <body>
         <LanguageProvider>
           <LocaleMetadata />
