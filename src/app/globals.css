@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* =========================================================
+   GLOBAL THEME — calm, premium, adult coaching vibe
+   ========================================================= */
 @layer base {
   :root {
     /* ===== Brand palette (raw HSL triples) ===== */
@@ -12,36 +15,47 @@
     --muted-ink: 220 12% 40%;
     --white: 0 0% 100%;
 
-    /* ===== App theme tokens (HSL triples, shadcn-compatible) ===== */
+    /* ===== App theme tokens (shadcn-compatible; allow / alpha) ===== */
     --background: var(--bg-aqua);
     --foreground: var(--ink);
 
-    --card: var(--white);
+    /* Surfaces (NOT pure white — this is what makes it premium) */
+    --card: 0 0% 100% / 0.78;
     --card-foreground: var(--ink);
 
-    --popover: var(--white);
+    --popover: 0 0% 100% / 0.92;
     --popover-foreground: var(--ink);
 
+    /* Primary actions (deep calm blue) */
     --primary: var(--deep-blue);
     --primary-foreground: var(--white);
 
+    /* Secondary should NOT scream. Use yellow sparingly via components.
+       Keep the token but don't make it visually loud with poor contrast usage. */
     --secondary: var(--bright-yellow);
     --secondary-foreground: var(--ink);
 
-    --muted: 0 0% 100%;
+    /* Muted / Accent panels (soft glass) */
+    --muted: 0 0% 100% / 0.58;
     --muted-foreground: var(--muted-ink);
 
-    --accent: 0 0% 100%;
+    --accent: 0 0% 100% / 0.66;
     --accent-foreground: var(--ink);
 
+    /* System */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 100%;
-    --input: 0 0% 100%;
-    --ring: var(--deep-blue);
+    /* Structure (THIS is what your current file is missing) */
+    --border: 236 86% 35% / 0.12;
+    --input: 236 86% 35% / 0.10;
 
-    --radius: 1.25rem; /* matches the rounded blob vibe */
+    /* Focus ring: softer but clear */
+    --ring: 236 86% 35%;
+
+    --radius: 1.25rem;
+
+    color-scheme: light;
   }
 
   html,
@@ -54,35 +68,68 @@
     color: hsl(var(--foreground));
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
-  /* Nice default focus ring */
+  /* Default text selection (small detail = premium) */
+  ::selection {
+    background: hsl(var(--ring) / 0.18);
+  }
+
+  /* Soft, modern focus. No harsh outline everywhere. */
   :focus-visible {
-    outline: 2px solid hsl(var(--ring));
-    outline-offset: 3px;
+    outline: none;
+    box-shadow: 0 0 0 3px hsl(var(--ring) / 0.28);
+  }
+
+  /* Ensure border tokens actually show up consistently */
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  /* Reduced effects fallback (performance + user preference) */
+  @media (prefers-reduced-motion: reduce) {
+    :focus-visible {
+      box-shadow: 0 0 0 2px hsl(var(--ring) / 0.35);
+    }
   }
 }
 
+/* =========================================================
+   COMPONENT UTILITIES
+   ========================================================= */
 @layer components {
-  /* Watery background like your screenshots */
+  /* Watery background wrapper
+     Use this on hero/sections, not necessarily the entire body. */
   .watery-bg {
+    position: relative;
+    overflow: hidden;
     background:
-      radial-gradient(1200px 700px at 30% 10%, hsla(0, 0%, 100%, 0.28), transparent 60%),
-      radial-gradient(900px 600px at 70% 30%, hsla(236, 86%, 35%, 0.14), transparent 55%),
+      radial-gradient(1100px 650px at 25% 10%, hsl(0 0% 100% / 0.30), transparent 60%),
+      radial-gradient(900px 550px at 75% 25%, hsl(236 86% 35% / 0.14), transparent 55%),
       linear-gradient(
         180deg,
         hsl(var(--bg-aqua)) 0%,
-        hsla(195, 85%, 82%, 0.92) 55%,
+        hsl(195 85% 82% / 0.92) 55%,
         hsl(var(--bg-aqua)) 100%
       );
   }
 
-  /* Subtle grain overlay */
-  .noise-overlay {
+  /* Grain baked in (no extra markup) */
+  .watery-bg::after {
+    content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.08;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+    opacity: 0.055; /* subtle: adult premium, not “dirty” */
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+  }
+
+  /* If user prefers reduced motion/effects, kill the grain (performance + comfort) */
+  @media (prefers-reduced-motion: reduce) {
+    .watery-bg::after {
+      opacity: 0;
+    }
   }
 }
