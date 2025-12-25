@@ -3,7 +3,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Lexend_Deca } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
-import { Shell } from "@/components/shell";
 import { SiteHeader } from "@/components/site-header";
 import { LanguageProvider } from "@/lib/language-provider";
 import { LocaleMetadata } from "@/components/locale-metadata";
@@ -69,26 +68,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
       className={cn("scroll-smooth", inter.variable, lexendDeca.variable)}
     >
-      {/* IMPORTANT: apply the font class here so Inter is реально used */}
-      <body className={cn(inter.className, "min-h-screen antialiased watery-bg")}>
+      <body className={cn(inter.className, "min-h-screen antialiased")}>
         <LanguageProvider>
           <LocaleMetadata />
+          
+          <div className="relative flex min-h-screen flex-col bg-background watery-bg">
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-xl focus:bg-primary focus:px-4 focus:py-3 focus:text-primary-foreground focus:shadow-lg"
+            >
+              Skip to content
+            </a>
 
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-xl focus:bg-primary focus:px-4 focus:py-3 focus:text-primary-foreground focus:shadow-lg"
-          >
-            Skip to content
-          </a>
-
-          {/* Layout rhythm wrapper */}
-          <div className="min-h-screen flex flex-col">
-            <Shell>
-              <SiteHeader />
-              <main id="main-content" className="flex-1">
-                {children}
-              </main>
-            </Shell>
+            <SiteHeader />
+            <main id="main-content" className="flex-1">
+              {children}
+            </main>
           </div>
 
           <Toaster />
