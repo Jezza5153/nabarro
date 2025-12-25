@@ -7,6 +7,7 @@ import { Shell } from "@/components/shell";
 import { SiteHeader } from "@/components/site-header";
 import { LanguageProvider } from "@/lib/language-provider";
 import { LocaleMetadata } from "@/components/locale-metadata";
+import { project } from "@/content/project";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,40 +22,42 @@ const lexendDeca = Lexend_Deca({
   display: "swap",
 });
 
+const BRAND = project.meta.brand;
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://nabarro.vercel.app"),
   title: {
-    default: "Nabarro Coaching — Adult Swimming Lessons in English",
-    template: "%s — Nabarro Coaching",
+    default: `${BRAND} — Adult Swimming Coaching in English (Zeeland)`,
+    template: `%s — ${BRAND}`,
   },
   description:
-    "Private and small-group swimming lessons for adults in Zeeland. English-speaking coach focused on confidence, water safety, and stroke improvement.",
+    "Calm, private swimming coaching for adults in Zeeland. English-speaking coach focused on confidence, water safety, and technique.",
   alternates: {
     canonical: "/",
-    // If you support locales, wire these to real routes.
-    // If you DON'T have locale routes, remove this.
-    languages: {
-      "en": "/",
-      "nl": "/nl",
-      "fr": "/fr",
-      "es": "/es",
-    },
   },
   openGraph: {
-    title: "Nabarro Coaching — Adult Swimming Lessons in English",
-    description: "Calm, private, and pressure-free swimming lessons for adults in Zeeland.",
+    title: `${BRAND} — Adult Swimming Coaching in English (Zeeland)`,
+    description:
+      "Calm, private, judgement-free adult swimming lessons in Zeeland. Build confidence, safety, and technique step-by-step.",
     url: "https://nabarro.vercel.app",
-    siteName: "Nabarro Coaching",
+    siteName: BRAND,
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Nabarro Coaching",
+        alt: BRAND,
       },
     ],
     locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${BRAND} — Adult Swimming Coaching in English (Zeeland)`,
+    description:
+      "Calm, private adult swimming coaching in Zeeland. Confidence, water safety, and technique — step-by-step.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -66,7 +69,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#0B1022", // use your deep-blue equivalent if you want browser chrome to match
+  themeColor: "#0B1022",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,3 +1,4 @@
+
 // content/project.ts
 
 const content = {
@@ -7,6 +8,13 @@ const content = {
       pageTitle: "Zwemles voor volwassenen in het Engels | Zeeland",
       description:
         "Privé- en kleinschalige zwemlessen voor volwassenen in Zeeland. Engelssprekende coach, gericht op zelfvertrouwen en waterveiligheid. Voor beginners, watervrees en techniekverbetering.",
+    },
+
+    header: {
+      menu_label: "Menu",
+      subtitle: "Zwemcoaching voor volwassenen — rustig en privé",
+      cta_hint: "Proefles €20 • 45 min • Vooraf aanmelden verplicht",
+      home_label: "Home",
     },
 
     hero: {
@@ -131,6 +139,13 @@ Zwemmen gaat niet om prestaties. Het gaat erom je veilig, ontspannen en vrij te 
         "Private and small-group swimming lessons for adults in Zeeland. English-speaking coach focused on confidence, water safety, and stroke improvement.",
     },
 
+    header: {
+      menu_label: "Menu",
+      subtitle: "Adult swim coaching — calm and private",
+      cta_hint: "Try-out €20 • 45 min • Pre-registration required",
+      home_label: "Home",
+    },
+
     hero: {
       kicker: "Adult swimming lessons in English",
       title: "Finally free and confident in the water.",
@@ -253,6 +268,13 @@ Swimming is not about performance. It’s about feeling safe, relaxed, and free 
         "Cours de natation privés et en petits groupes pour adultes en Zélande. Coach anglophone, axé sur la confiance, la sécurité et l’amélioration technique.",
     },
 
+    header: {
+      menu_label: "Menu",
+      subtitle: "Coaching de natation pour adultes — calme et privé",
+      cta_hint: "Leçon d’essai 20€ • 45 min • Pré-inscription obligatoire",
+      home_label: "Accueil",
+    },
+
     hero: {
       kicker: "Cours de natation pour adultes en anglais",
       title: "Enfin libre et en confiance dans l’eau.",
@@ -373,6 +395,13 @@ La natation n’est pas une question de performance. Il s’agit de se sentir en
       pageTitle: "Clases de natación para adultos en inglés | Zelanda",
       description:
         "Clases privadas y en grupos pequeños para adultos en Zelanda. Entrenadora angloparlante, enfocada en confianza, seguridad y mejora técnica.",
+    },
+
+    header: {
+      menu_label: "Menú",
+      subtitle: "Coaching de natación para adultos — tranquilo y privado",
+      cta_hint: "Clase de prueba 20€ • 45 min • Se requiere inscripción previa",
+      home_label: "Inicio",
     },
 
     hero: {
