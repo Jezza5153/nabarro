@@ -1,36 +1,25 @@
-
 // content/project.ts
 
 const content = {
   nl: {
     meta: {
       brand: "Nabarro Coaching",
-      pageTitle: "Zwemles voor volwassenen in het Engels (en Frans) | Middelburg & Zeeland",
+      pageTitle: "Zwemles voor volwassenen in het Engels | Zeeland",
       description:
-        "Rustige zwemlessen voor volwassenen in Zeeland — volledig in het Engels, Frans mogelijk. Kleine groepen, focus op waterveiligheid, vertrouwen en plezier. Middelburg, Vlissingen, Walcheren.",
+        "Privé- en kleinschalige zwemlessen voor volwassenen in Zeeland. Engelssprekende coach, gericht op zelfvertrouwen en waterveiligheid. Voor beginners, angstige zwemmers en techniekverbetering.",
     },
     hero: {
-      kicker: "Zwemles voor volwassenen in Engels",
-      title: "Rustig leren zwemmen — met vertrouwen, humor en veiligheid",
+      kicker: "Zwemles voor volwassenen in het Engels",
+      title: "Eindelijk vrij en vol vertrouwen in het water.",
       subtitle:
-        "Voor internationale studenten, expats, arbeidsmigranten en nieuwe inwoners in Zeeland die (nog) niet comfortabel zijn in het Nederlands.",
+        "Personal coaching voor volwassenen — rustig, privé en zonder druk.",
       cta_main: "Aanmelden",
-      cta_secondary: "Meer over de lessen",
-      cta_pdf: "Download PDF",
+      cta_secondary: "Over de lessen",
     },
     firstLesson: {
-      title: "Eerstvolgende startles",
-      date: "Dinsdag 2 december 2025",
-      time: "10.15 – 11.00 uur",
-      location: "De Zeeuwse Zwemschool, Stroomweg 22, Vlissingen",
-      note: "Aanmelden van tevoren is wel nodig.",
+      title: "Proefles — €20 (45 min)",
+      note: "Vooraf aanmelden is verplicht.",
     },
-    prices: [
-      { product: "Introductieles (eenmalig)", price: "€20", validity: "1 keer" },
-      { product: "Losse les", price: "€25", validity: "" },
-      { product: "Proefpakket – 3 lessen", price: "€70", validity: "1 maand" },
-      { product: "7 Class Pass", price: "€154", validity: "10 weken" },
-    ],
     aanmelden: {
       title: "Aanmelden",
       heading: "Neem contact op",
@@ -43,88 +32,63 @@ const content = {
     },
     about: {
       kicker: "Over de instructeur",
-      title: "Maak kennis met Nathalie Nabarro",
-      story: `Ik ben Nathalie Nabarro Koene (60) en woon sinds tien maanden met veel plezier in Middelburg, dichtbij mijn schoonfamilie op Walcheren. Na een lange carrière bij internationale bedrijven bracht de coronaperiode mij terug bij mijn eerste liefde: zwemmen.
+      title: "Maak kennis met Nathalie",
+      story: `Mijn naam is Nathalie en ik werk met volwassenen die zich veilig en zelfverzekerd willen voelen in het water.
 
-Ik ontdekte hoe groot de behoefte is aan goede zweminstructeurs en besloot opnieuw te studeren. Inmiddels ben ik gediplomeerd zweminstructeur via de NRZ en is het snel gegaan: ik gaf met veel plezier zwemlessen aan volwassenen in het Engels op een internationale privéschool in Amsterdam/Utrecht, maar ook kinderlessen, lessen voor mensen met beperkingen en schoolzwemmen.
+Veel van mijn zwemmers komen bij me met een gevoel van nervositeit, schaamte of frustratie, omdat ze het gevoel hebben dat ze "dit al jaren geleden hadden moeten leren", of omdat ze een waterervaring uit hun jeugd meedragen die nog steeds in hun lichaam zit. Met rust en tijd leren ze het water te vertrouwen, hun ademhaling te beheersen en met meer gemak te bewegen — stap voor stap, met het juiste niveau van uitdaging.
 
-Wat mij telkens raakt: leren zwemmen kan spannend zijn — en tegelijkertijd levensveranderend. Je helpt mensen niet alleen met techniek, maar ook met vertrouwen en veiligheid.
+Ik geloof oprecht dat er niet zoiets bestaat als 'te laat', alleen je eigen timing.
 
-Nu ik als zzp’er zweminstructeur in Zeeland werk, viel mij op dat volledig Engelstalige zwemlessen voor volwassenen nauwelijks bestaan. Terwijl je niet eerst perfect Nederlands hoeft te spreken om veilig te leren zwemmen. Integreren kost tijd en energie, en het is fijn als je óók iets kunt doen in een taal die je al beheerst — zeker hier in Zeeland, waar water overal om ons heen is.
+Ik bied privé- en kleine groepslessen voor volwassenen: beginners, mensen met watervrees, mensen die na jaren weer beginnen, of zwemmers die hun techniek willen verbeteren of een nieuwe slag willen leren.
 
-Daarom is mijn motivatie uitgegroeid tot een missie: volwassenen rustig, positief en toegankelijk leren zwemmen, zonder schaamte en zonder druk — in het Engels, en desgewenst ook in het Frans (mijn moedertaal). Met humor als gereedschap, geduld als methode en vertrouwen als basis.`,
-      highlights_title: "In het kort",
-      highlights: [
-        { label: "Diploma:", value: "NRZ-gediplomeerd zweminstructeur" },
-        { label: "Talen:", value: "Engels (volledig), Frans (mogelijk), Nederlands" },
-        { label: "Doelgroep:", value: "volwassenen (beginners & heropfrissers)" },
-        { label: "Stijl:", value: "rustig, positief, veilig — zonder druk of schaamte" },
-        { label: "Regio:", value: "Middelburg, Vlissingen, Walcheren, Zeeland" },
-      ],
-      cta_ask: "Stel een vraag",
-      cta_apply: "Aanmelden",
+Mijn aanpak is rustig, persoonlijk en zonder druk. We gaan stap voor stap, altijd in jouw tempo. Geen geschreeuw, geen dwang, geen oordeel — alleen geduld, duidelijkheid en vertrouwen.
+
+Zwemmen gaat niet om prestaties. Het gaat erom je veilig, ontspannen en vrij te voelen in het water. En ja, zelfs volwassenen kunnen ervan leren genieten.`,
     },
     contact: {
       kicker: "Contact",
       title: "Neem contact op",
       subtitle:
-        "Heeft u een vraag? Benieuwd of dit iets voor u is? Stuur gerust een bericht. Er is geen druk om iets te boeken.",
-      form_name: "Naam",
+        "Heeft u een vraag of wilt u zich aanmelden? Stuur gerust een bericht. Er is geen druk om iets te boeken.",
+      form_name: "Volledige naam",
       form_name_placeholder: "Uw naam",
       form_email: "E-mail",
       form_email_placeholder: "uw@email.com",
-      form_message: "Uw bericht of vraag",
-      form_message_placeholder: "Vraag gerust alles...",
+      form_message: "Uw bericht",
+      form_message_placeholder: "Vertel ons iets meer over uw verzoek...",
       form_button_sending: "Verzenden...",
       form_button: "Bericht verzenden",
-      success_title: "Dank u!",
-      success_message: "Uw bericht is verzonden. Nathalie neemt spoedig contact met u op.",
+      success_title: "Bericht ontvangen!",
+      success_message: "Bedankt! We nemen spoedig contact met u op.",
     },
     nav: {
       about: "Over mij",
-      lessons: "De lessen",
-      for_you: "Voor wie?",
+      lessons: "Lessen",
+      for_you: "Voor jou?",
       info: "Praktische info",
       apply: "Aanmelden",
-      project_plan: "PROJECTPLAN",
-      objectives: "Doelstellingen",
-      method: "Werkwijze",
-      audience: "Doelgroep",
-      partners: "Partners",
-      gsb: "GSB",
-      closing: "Slot",
     },
   },
 
   en: {
     meta: {
       brand: "Nabarro Coaching",
-      pageTitle: "Adult Swimming Lessons in English (and French) | Middelburg & Zeeland",
+      pageTitle: "Adult Swimming Lessons in English | Zeeland",
       description:
-        "Calm adult swimming lessons in Zeeland — fully in English (French possible). Small groups with a focus on water safety, confidence, and enjoyment. Middelburg, Vlissingen, Walcheren.",
+        "Private and small-group swimming lessons for adults in Zeeland. English-speaking coach, focused on confidence and water safety. For beginners, fearful swimmers, and technique improvement.",
     },
     hero: {
       kicker: "Adult swimming lessons in English",
-      title: "Learn calmly — with confidence, humor, and safety",
+      title: "Finally free and confident in the water.",
       subtitle:
-        "For international students, expats, migrant workers, and new residents in Zeeland who are not yet comfortable in Dutch.",
-      cta_main: "Sign Up",
+        "Personal coaching for adults — calm, private, and pressure-free.",
+      cta_main: "Sign up",
       cta_secondary: "About the lessons",
-      cta_pdf: "Download PDF",
     },
     firstLesson: {
-      title: "Next introductory lesson",
-      date: "Tuesday, December 2, 2025",
-      time: "10:15 AM – 11:00 AM",
-      location: "De Zeeuwse Zwemschool, Stroomweg 22, Vlissingen",
+      title: "Try-out lesson — €20 (45 min)",
       note: "Pre-registration is required.",
     },
-    prices: [
-      { product: "Introductory lesson (one-time)", price: "€20", validity: "1 time" },
-      { product: "Single lesson", price: "€25", validity: "" },
-      { product: "Trial package — 3 lessons", price: "€70", validity: "1 month" },
-      { product: "7-class pass", price: "€154", validity: "10 weeks" },
-    ],
     aanmelden: {
       title: "Sign Up",
       heading: "Get in touch",
@@ -137,91 +101,66 @@ Daarom is mijn motivatie uitgegroeid tot een missie: volwassenen rustig, positie
     },
     about: {
       kicker: "About the instructor",
-      title: "Meet Nathalie Nabarro",
-      story: `I'm Nathalie Nabarro Koene (60). I’ve been living in Middelburg for the past ten months, close to my family on Walcheren. After a long career in international companies, the COVID period brought me back to my first love: swimming.
+      title: "Meet Nathalie",
+      story: `My name is Nathalie, and I work with adults who want to feel safe and confident in the water.
 
-I noticed how strong the demand is for qualified swimming instructors, and I decided to study again. I’m now NRZ-certified, and things moved quickly: I taught adult swimming lessons in English at a private international school in Amsterdam/Utrecht, as well as children’s lessons, lessons for people with disabilities, and school swimming.
+Many of my swimmers come to me feeling nervous, ashamed, or frustrated because they feel they "should have learned this years ago," or they carry a childhood water experience that still sits in their body. With calm and time, they learn to trust the water, control their breathing, and move with more ease—step by step, with the right level of challenge.
 
-What stays with me every time: learning to swim can feel scary — and life-changing at the same time. It’s not only technique; it’s confidence and safety too.
+I truly believe there is no such thing as 'too late,' only your own timing.
 
-Now that I work as a freelance instructor in Zeeland, I noticed fully English-language adult lessons are rare. But you don’t need perfect Dutch to learn water safety. Integration takes time and energy, and it helps when you can do something in a language you already speak — especially in Zeeland, where water is all around us.
+I offer private and small-group swimming lessons for adults: beginners, people with fear of water, those returning after years, or swimmers who want to improve their technique or learn a new stroke.
 
-That’s why my motivation has become a mission: to teach adults in a calm, positive and accessible way, without shame or pressure — in English, and in French if desired (my native language). Humor as a tool, patience as a method, and trust as the foundation.`,
-      highlights_title: "In short",
-      highlights: [
-        { label: "Certification:", value: "NRZ-certified swimming instructor" },
-        { label: "Languages:", value: "English (full), French (possible), Dutch" },
-        { label: "For:", value: "adults (beginners & refreshers)" },
-        { label: "Approach:", value: "calm, positive, safe — no pressure, no shame" },
-        { label: "Region:", value: "Middelburg, Vlissingen, Walcheren, Zeeland" },
-      ],
-      cta_ask: "Ask a question",
-      cta_apply: "Sign Up",
+My approach is calm, personal, and pressure-free. We move step by step, always at your pace. No shouting, no forcing, no judgment—just patience, clarity, and trust.
+
+Swimming is not about performance. It’s about feeling safe, relaxed, and free in the water. And yes, even adults can learn to enjoy it.`,
     },
     contact: {
       kicker: "Contact",
       title: "Get in touch",
       subtitle:
-        "Have a question? Wondering if this is right for you? Send a message — there’s no pressure to book anything.",
-      form_name: "Name",
+        "Have a question or want to sign up? Feel free to send a message. There’s no pressure to book anything.",
+      form_name: "Full name",
       form_name_placeholder: "Your name",
       form_email: "Email",
       form_email_placeholder: "your@email.com",
-      form_message: "Your message or question",
-      form_message_placeholder: "Feel free to ask anything...",
+      form_message: "Your message",
+      form_message_placeholder: "Tell us a bit more about your request...",
       form_button_sending: "Sending...",
       form_button: "Send message",
-      success_title: "Thank you!",
-      success_message: "Your message has been sent. Nathalie will get back to you shortly.",
+      success_title: "Message received!",
+      success_message: "Thank you! We'll be in touch shortly.",
     },
     nav: {
       about: "About me",
       lessons: "Lessons",
-      for_you: "For you?",
+      for_you: "For you",
       info: "Practical info",
       apply: "Sign up",
-      project_plan: "PROJECT PLAN",
-      objectives: "Objectives",
-      method: "Method",
-      audience: "Audience",
-      partners: "Partners",
-      gsb: "GSB",
-      closing: "Closing",
     },
   },
 
   fr: {
     meta: {
       brand: "Nabarro Coaching",
-      pageTitle: "Cours de natation pour adultes en anglais (et français) | Middelburg & Zélande",
+      pageTitle: "Cours de natation pour adultes en anglais | Zélande",
       description:
-        "Cours de natation calmes pour adultes en Zélande — entièrement en anglais (français possible). Petits groupes, axés sur la sécurité aquatique, la confiance et le plaisir. Middelburg, Vlissingen, Walcheren.",
+        "Cours de natation privés et en petits groupes pour adultes en Zélande. Coach anglophone, axé sur la confiance et la sécurité aquatique. Pour débutants, nageurs craintifs et perfectionnement technique.",
     },
     hero: {
       kicker: "Cours de natation pour adultes en anglais",
-      title: "Apprendre à nager sereinement — avec confiance, humour et sécurité",
+      title: "Enfin libre et en confiance dans l'eau.",
       subtitle:
-        "Pour les étudiants internationaux, les expatriés, les travailleurs migrants et les nouveaux résidents en Zélande qui ne sont pas encore à l’aise en néerlandais.",
-      cta_main: "S’inscrire",
+        "Coaching personnel pour adultes — calme, privé et sans pression.",
+      cta_main: "S'inscrire",
       cta_secondary: "À propos des cours",
-      cta_pdf: "Télécharger le PDF",
     },
     firstLesson: {
-      title: "Prochain cours d’introduction",
-      date: "Mardi 2 décembre 2025",
-      time: "10h15 – 11h00",
-      location: "De Zeeuwse Zwemschool, Stroomweg 22, Vlissingen",
-      note: "Une pré-inscription est nécessaire.",
+      title: "Leçon d'essai — 20 € (45 min)",
+      note: "Une pré-inscription est requise.",
     },
-    prices: [
-      { product: "Cours d’introduction (unique)", price: "€20", validity: "1 fois" },
-      { product: "Cours à l’unité", price: "€25", validity: "" },
-      { product: "Forfait d’essai — 3 cours", price: "€70", validity: "1 mois" },
-      { product: "Carte 7 cours", price: "€154", validity: "10 semaines" },
-    ],
     aanmelden: {
-      title: "S’inscrire",
-      heading: "Nous contacter",
+      title: "S'inscrire",
+      heading: "Contactez-nous",
       subheading: "Veuillez compléter les informations ci-dessous dans votre messagerie.",
       body: "Pour vous inscrire, envoyez un e-mail avec votre nom, vos coordonnées et vos questions éventuelles.",
       button: "Ouvrir la messagerie",
@@ -230,66 +169,121 @@ That’s why my motivation has become a mission: to teach adults in a calm, posi
       mailto_body: "Nom:%0A%0AE-mail:%0A%0ATéléphone (facultatif):%0A%0AMessage:%0A",
     },
     about: {
-      kicker: "À propos de l’instructrice",
-      title: "Rencontrez Nathalie Nabarro",
-      story: `Je suis Nathalie Nabarro Koene (60 ans) et depuis dix mois, je vis avec grand plaisir à Middelburg, près de ma belle-famille sur Walcheren. Après une longue carrière dans des entreprises internationales, la période du COVID-19 m’a ramenée à mon premier amour : la natation.
+      kicker: "À propos de l'instructrice",
+      title: "Rencontrez Nathalie",
+      story: `Je m'appelle Nathalie, et je travaille avec des adultes qui veulent se sentir en sécurité et en confiance dans l'eau.
 
-J’ai découvert la forte demande d’instructeurs qualifiés et j’ai décidé de reprendre mes études. Je suis aujourd’hui instructrice certifiée (NRZ). J’ai donné avec plaisir des cours de natation à des adultes en anglais dans une école internationale privée à Amsterdam/Utrecht, mais aussi des cours pour enfants, pour personnes en situation de handicap, et des programmes de natation scolaire.
+Beaucoup de mes nageurs viennent me voir en se sentant nerveux, honteux ou frustrés parce qu'ils estiment qu'ils "auraient dû apprendre cela il y a des années", ou parce qu'ils portent en eux une expérience aquatique de leur enfance qui reste présente dans leur corps. Avec calme et temps, ils apprennent à faire confiance à l'eau, à contrôler leur respiration et à bouger avec plus d'aisance — pas à pas, avec le bon niveau de défi.
 
-Ce qui me touche à chaque fois : apprendre à nager peut être stressant — et en même temps changer une vie. On ne travaille pas seulement la technique, mais aussi la confiance et la sécurité.
+Je crois sincèrement qu'il n'y a pas de 'trop tard', seulement votre propre rythme.
 
-En travaillant maintenant comme instructrice indépendante en Zélande, j’ai remarqué que les cours pour adultes entièrement en anglais sont rares. Pourtant, il n’est pas nécessaire de parler parfaitement néerlandais pour apprendre la sécurité aquatique. S’intégrer prend du temps et de l’énergie, et c’est précieux de pouvoir faire aussi quelque chose dans une langue que l’on maîtrise déjà — surtout ici, en Zélande, où l’eau est partout.
+Je propose des cours de natation privés et en petits groupes pour adultes : débutants, personnes ayant peur de l'eau, ceux qui reprennent après des années, ou des nageurs qui veulent améliorer leur technique ou apprendre une nouvelle nage.
 
-C’est pourquoi ma motivation est devenue une mission : aider les adultes à apprendre à nager de manière calme, positive et accessible, sans honte ni pression — en anglais, et en français si souhaité (ma langue maternelle). L’humour comme outil, la patience comme méthode, et la confiance comme base.`,
-      highlights_title: "En bref",
-      highlights: [
-        { label: "Diplôme :", value: "Instructrice de natation certifiée NRZ" },
-        { label: "Langues :", value: "Anglais (complet), Français (possible), Néerlandais" },
-        { label: "Public :", value: "adultes (débutants & remise à niveau)" },
-        { label: "Approche :", value: "calme, positive, sûre — sans pression ni honte" },
-        { label: "Région :", value: "Middelburg, Vlissingen, Walcheren, Zélande" },
-      ],
-      cta_ask: "Poser une question",
-      cta_apply: "S’inscrire",
+Mon approche est calme, personnelle et sans pression. Nous avançons pas à pas, toujours à votre rythme. Pas de cris, pas de contrainte, pas de jugement — juste de la patience, de la clarté et de la confiance.
+
+La natation n'est pas une question de performance. Il s'agit de se sentir en sécurité, détendu et libre dans l'eau. Et oui, même les adultes peuvent apprendre à l'apprécier.`,
     },
     contact: {
       kicker: "Contact",
-      title: "Nous contacter",
+      title: "Contactez-nous",
       subtitle:
-        "Vous avez une question ? Vous vous demandez si c’est fait pour vous ? Envoyez un message — aucune pression pour réserver quoi que ce soit.",
-      form_name: "Nom",
+        "Vous avez une question ou souhaitez vous inscrire ? N'hésitez pas à envoyer un message. Il n'y a aucune pression pour réserver.",
+      form_name: "Nom complet",
       form_name_placeholder: "Votre nom",
       form_email: "E-mail",
       form_email_placeholder: "votre@email.com",
-      form_message: "Votre message ou question",
-      form_message_placeholder: "N’hésitez pas à tout demander...",
-      form_button_sending: "Envoi...",
+      form_message: "Votre message",
+      form_message_placeholder: "Dites-nous en un peu plus sur votre demande...",
+      form_button_sending: "Envoi en cours...",
       form_button: "Envoyer le message",
-      success_title: "Merci !",
-      success_message: "Votre message a été envoyé. Nathalie vous répondra sous peu.",
+      success_title: "Message reçu !",
+      success_message: "Merci ! Nous vous contacterons sous peu.",
     },
     nav: {
       about: "À propos",
-      lessons: "Cours",
-      for_you: "Pour vous ?",
+      lessons: "Les cours",
+      for_you: "Pour vous",
       info: "Infos pratiques",
-      apply: "S’inscrire",
-      project_plan: "PLAN DE PROJET",
-      objectives: "Objectifs",
-      method: "Méthode",
-      audience: "Public",
-      partners: "Partenaires",
-      gsb: "GSB",
-      closing: "Clôture",
+      apply: "S'inscrire",
+    },
+  },
+
+  es: {
+    meta: {
+      brand: "Nabarro Coaching",
+      pageTitle: "Clases de natación para adultos en inglés | Zelanda",
+      description:
+        "Clases de natación privadas y en grupos pequeños para adultos en Zelanda. Entrenadora de habla inglesa, centrada en la confianza y la seguridad en el agua. Para principiantes, nadadores con miedo y mejora de la técnica.",
+    },
+    hero: {
+      kicker: "Clases de natación para adultos en inglés",
+      title: "Finalmente libre y con confianza en el agua.",
+      subtitle:
+        "Entrenamiento personal para adultos — tranquilo, privado y sin presiones.",
+      cta_main: "Inscríbete",
+      cta_secondary: "Sobre las clases",
+    },
+    firstLesson: {
+      title: "Clase de prueba — 20 € (45 min)",
+      note: "Se requiere inscripción previa.",
+    },
+     aanmelden: {
+      title: "Inscríbete",
+      heading: "Ponte en contacto",
+      subheading: "Por favor, completa la información a continuación en tu cliente de correo.",
+      body: "Para inscribirte, envía un correo electrónico con tu nombre, datos de contacto y cualquier pregunta que tengas.",
+      button: "Abrir cliente de correo",
+      back_link: "Volver a la página principal",
+      mailto_subject: "Inscripción para clases de natación",
+      mailto_body: "Nombre:%0A%0AEmail:%0A%0ATeléfono (opcional):%0A%0AMensaje:%0A",
+    },
+    about: {
+      kicker: "Sobre la instructora",
+      title: "Conoce a Nathalie",
+      story: `Me llamo Nathalie y trabajo con adultos que quieren sentirse seguros y con confianza en el agua.
+
+Muchos de mis nadadores acuden a mí sintiéndose nerviosos, avergonzados o frustrados porque sienten que "deberían haber aprendido esto hace años", o arrastran una experiencia acuática de la infancia que todavía reside en su cuerpo. Con calma y tiempo, aprenden a confiar en el agua, a controlar su respiración y a moverse con más soltura, paso a paso, con el nivel de desafío adecuado.
+
+Realmente creo que no existe el "demasiado tarde", solo tu propio ritmo.
+
+Ofrezco clases de natación privadas y en grupos pequeños para adultos: principiantes, personas con miedo al agua, aquellos que regresan después de años o nadadores que quieren mejorar su técnica o aprender un nuevo estilo.
+
+Mi enfoque es tranquilo, personal y sin presiones. Avanzamos paso a paso, siempre a tu ritmo. Sin gritos, sin forzar, sin juicios; solo paciencia, claridad y confianza.
+
+Nadar no se trata de rendimiento. Se trata de sentirse seguro, relajado y libre en el agua. Y sí, incluso los adultos pueden aprender a disfrutarlo.`,
+    },
+    contact: {
+      kicker: "Contacto",
+      title: "Ponte en contacto",
+      subtitle:
+        "¿Tienes alguna pregunta o quieres inscribirte? No dudes en enviar un mensaje. No hay ninguna presión para reservar.",
+      form_name: "Nombre completo",
+      form_name_placeholder: "Tu nombre",
+      form_email: "Email",
+      form_email_placeholder: "tu@email.com",
+      form_message: "Tu mensaje",
+      form_message_placeholder: "Cuéntanos un poco más sobre tu solicitud...",
+      form_button_sending: "Enviando...",
+      form_button: "Enviar mensaje",
+      success_title: "¡Mensaje recibido!",
+      success_message: "¡Gracias! Nos pondremos en contacto contigo en breve.",
+    },
+    nav: {
+      about: "Sobre mí",
+      lessons: "Clases",
+      for_you: "Para ti",
+      info: "Info práctica",
+      apply: "Inscríbete",
     },
   },
 } as const;
 
 export type Locale = keyof typeof content;
+export type Content = (typeof content)[Locale];
 
 export const project = {
   // Default export for existing non-i18n pages
-  ...content.nl,
+  ...content.en,
 
   // i18n dictionary
   i18n: content,
@@ -305,149 +299,8 @@ export const project = {
   // universal meta (not translated; safe for structured data later)
   meta: {
     brand: "Nabarro Coaching",
-    languagesOffered: ["English", "French", "Dutch"],
+    languagesOffered: ["English", "French", "Dutch", "Spanish"],
     primaryRegion: "Zeeland",
     locations: ["Middelburg", "Vlissingen", "Walcheren", "Zeeland"],
   },
-
-  // Not fully translated yet — fallback to Dutch for these long “project plan” sections
-  sections: {
-    inleiding: {
-      who: `Ik ben Nathalie Nabarro Koene (60) en woon sinds tien maanden met veel plezier in Middelburg, dichtbij mijn schoonfamilie op Walcheren. Na een lange carrière bij internationale bedrijven bracht de coronaperiode mij terug bij mijn eerste liefde: zwemmen.
-
-Ik ontdekte hoe groot de behoefte is aan goede zweminstructeurs en besloot opnieuw te studeren. Inmiddels ben ik gediplomeerd zweminstructeur via de NRZ en is het snel gegaan: ik gaf met veel plezier zwemlessen aan volwassenen in het Engels op een internationale privéschool in Amsterdam/Utrecht, maar ook kinderlessen, lessen voor mensen met beperkingen en schoolzwemmen.
-
-Wat mij telkens raakt: leren zwemmen kan spannend zijn — en tegelijkertijd levensveranderend. Je helpt mensen niet alleen met techniek, maar ook met vertrouwen en veiligheid.
-
-Nu ik als zzp’er zweminstructeur in Zeeland werk, viel mij op dat volledig Engelstalige zwemlessen voor volwassenen nauwelijks bestaan. Terwijl je niet eerst perfect Nederlands hoeft te spreken om veilig te leren zwemmen. Integreren kost tijd en energie, en het is fijn als je óók iets kunt doen in een taal die je al beheerst — zeker hier in Zeeland, waar water overal om ons heen is.
-
-Daarom is mijn motivatie uitgegroeid tot een missie: volwassenen rustig, positief en toegankelijk leren zwemmen, zonder schaamte en zonder druk — in het Engels, en desgewenst ook in het Frans (mijn moedertaal). Met humor als gereedschap, geduld als methode en vertrouwen als basis.`,
-      idee: `Met dit project wil ik volwassenen die de Nederlandse taal nog onvoldoende beheersen — zoals internationale studenten, arbeidsmigranten, expats en nieuwe inwoners — de kans geven om zwemlessen te volgen in een veilige en toegankelijke omgeving, volledig in het Engels.
-
-Voor de startfase vraag ik de gemeente Middelburg om ondersteuning via een GSB (Gun & Support Budget). Dit hoeft niet per se een financiële bijdrage te zijn: ik zoek vooral hulp in zichtbaarheid, verbinding en bereik. In paragraaf 7 licht ik toe wat dit concreet kan betekenen.
-
-Ik “spring alvast in het diepe” met een eerste lesmoment op:
-Dinsdag 2 december 2025 van 10.15–11.00 uur bij De Zeeuwse Zwemschool (Stroomweg 22, Vlissingen).
-Aanmelden vooraf is nodig.
-
-Bij voldoende aanmeldingen kan ik daarna extra uren openen. Ik sta ook open voor samenwerking met zwembaden in Middelburg/Vlissingen en omliggende gemeenten, met gezamenlijke doelen: waterveiligheid, verbinding, gezondheid en gemeenschapsvorming.
-
-Om kosten te kunnen dekken start elke lesgroep met minimaal twee tot drie deelnemers (afhankelijk van de badhuur). Het project begint zonder winstoogmerk, maar heeft de ambitie om later winstgevend en zelfstandig te worden.`,
-      firstLesson: {
-        date: "Dinsdag 2 december 2025",
-        time: "10.15 – 11.00 uur",
-        location: "De Zeeuwse Zwemschool, Stroomweg 22, Vlissingen",
-        note: "Aanmelden van tevoren is wel nodig.",
-      },
-      prices: [
-        { product: "Introductieles (eenmalig)", price: "€20", validity: "1 keer" },
-        { product: "Losse les", price: "€25", validity: "" },
-        { product: "Proefpakket – 3 lessen", price: "€70", validity: "1 maand" },
-        { product: "7 Class Pass", price: "€154", validity: "10 weken" },
-      ],
-    },
-
-    doelen: [
-      "Verbeteren van waterveiligheid onder volwassenen die de Nederlandse taal nog niet of onvoldoende beheersen, met aandacht voor zwemvaardigheid, inclusie en gezondheid.",
-      "Creëren van een veilige leeromgeving waarin angst en schaamte worden verminderd.",
-      "Versterken van zelfvertrouwen in en rondom het water én in het dagelijks leven. Want: als je dit kunt overwinnen, kun je alles!",
-      "Bijdragen aan integratie, door taalbarrières te verlagen, ontspanning te bieden en verbinding te stimuleren binnen de lokale gemeenschap.",
-      "Het mogelijk aanwakkeren van nieuw talent en werkgelegenheid richting zwemonderwijs, bijvoorbeeld voor studenten of nieuwkomers die in hun land van herkomst al ervaring hebben met zwemles of sport.",
-      "De lessen worden verzorgd door een gediplomeerd NRZ-zweminstructeur, met ervaring in diverse doelgroepen en een aanpak gebaseerd op humor, inlevingsvermogen en respect.",
-    ],
-
-    werkwijze: [
-      "Kleine groepen van maximaal vijf volwassenen, ingedeeld op niveau.",
-      "Lessen van 45 minuten in een gehuurde zwemruimte, startend in het ondiepe bad en geleidelijk uitbreidend naar dieper water.",
-      "Volledig Engelstalig, zodat deelnemers direct kunnen deelnemen zonder eerst Nederlands te moeten beheersen.",
-      "Een methodiek gericht op spel, veiligheid, vertrouwen en plezier, speciaal ontworpen voor volwassen beginners.",
-      "Mogelijke toekomstige uitbreidingen, zoals nieuwe niveaus en lessen in andere talen.",
-    ],
-
-    doelgroepRows: [
-      { doelgroep: "Internationale studenten", toelichting: "Studenten die tijdelijk of langdurig in Zeeland studeren." },
-      { doelgroep: "Arbeidsmigranten", toelichting: "Personen die voor werk in de regio verblijven en beperkte zwem- of taalvaardigheden hebben." },
-      { doelgroep: "Expats", toelichting: "Internationale werknemers en hun partners die structureel in Zeeland wonen." },
-      { doelgroep: "Nieuwe inwoners met beperkte zwem- en taalvaardigheid", toelichting: "Personen die niet kunnen zwemmen en moeite hebben met de Nederlandse taal." },
-      { doelgroep: "(Seizoens)toeristen die langere tijd verblijven", toelichting: "Toeristen die meerdere maanden in Zeeland wonen en zwemvaardigheid willen opbouwen." },
-    ],
-
-    planning: [
-      { onderdeel: "Startdatum", details: "Dinsdag 2 december 2025" },
-      { onderdeel: "Tijd", details: "10.15 – 11.00 uur" },
-      { onderdeel: "Locatie", details: "Zeeuwse Zwemschool" },
-      { onderdeel: "Frequentie", details: "Wekelijks" },
-      { onderdeel: "Groepsgrootte", details: "Maximaal 5 deelnemers per les" },
-      { onderdeel: "Capaciteit", details: "Jaarlijkse capaciteit wordt nog uitgewerkt" },
-    ],
-
-    betrokkenheidRows: [
-      { wijze: "Directe aanmeldingen", toelichting: "Via e-mail, sociale media en doorverwijzingen van organisaties of particulieren." },
-      { wijze: "Bereiken van internationale gemeenschappen", toelichting: "Promotie binnen expatnetwerken, internationale groepen en lokale initiatieven waar nieuwkomers samenkomen." },
-      { wijze: "Samenwerking met sport- en welzijnsorganisaties", toelichting: "Partnerschappen met organisaties die werken aan gezondheid, integratie en participatie." },
-      { wijze: "Een veilige en warme ontmoetingsplek creëren", toelichting: "Een omgeving bieden waar nieuwe én bestaande inwoners elkaar kunnen ontmoeten en zich welkom voelen." },
-    ],
-
-    betrokkenOrganisaties: [
-      { organisatie: "Zwembad Arnemuiden / Bestuur Julianabad", status: "Interesse voor lente/zomer. Afspraak volgt." },
-      { organisatie: "Optisport Kapelle", status: "Mogelijkheden voor verhuur van badwater: €56 per 45 min (momenteel niet haalbaar)." },
-      { organisatie: "Zeeuwse Zwemschool (Vlissingen)", status: "Mogelijkheid tot verhuur van badwater. Per direct beschikbaar. €35 per 45 min." },
-      { organisatie: "Zwembad De Goudvijver (Gemeente Veere)", status: "Contactpersoon is met vakantie. Wordt vervolgd voor verhuur van badwater in lente/zomer." },
-      { organisatie: "SportZeeland", status: "Interesse in het initiatief. Wacht op regionale besluitvorming over doelgroepen. Wordt vervolgd." },
-      { organisatie: "University College Roosevelt (Middelburg)", status: "Interesse. Wordt besproken binnen het bestuur van de sportcommissie en met studenten." },
-      { organisatie: "Rode Kruis – Studentendesk", status: "Contact met Madieke Kleinhans (secretaris) en Lou Riemersma (PR). Ook connecties met HZ." },
-      { organisatie: "Volksuniversiteiten van Zeeland", status: "Voorstel om de cursus in 2026 aan te bieden, tweetalig." },
-      { organisatie: "Vizita", status: "Afspraken gemaakt met Ilona de Groote (buurt-/sportcoach) en Marjan Ouwerkerk (opbouwwerker)." },
-      { organisatie: "AquaHappy", status: "Vragen over mogelijke samenwerking in begeleiding. Reactie verwacht na de feestdagen." },
-    ],
-
-    partners: {
-      intro:
-        "De onderstaande organisaties zijn nog niet gecontacteerd. Hiervoor wil ik eerst mijn marketing versterken, bijvoorbeeld door betere e-mails te sturen en folders te verspreiden. De planning is om hiermee na de feestdagen te starten, wanneer bedrijven en organisaties doorgaans weer meer aandacht hebben voor nieuwe initiatieven. Een uitzondering is gemeente Middelburg, waar ik al steun heb ontvangen om mijn project op papier te zetten. Ik hoop op vervolgsamenwerking via een GSB (Gun Support Budget). Hiermee kan ik mijn missie op een rustige, duurzame manier verder ontwikkelen: mensen watervrij maken, zwemplezier vergroten en meer verbinden, zowel sociaal als sportief, voor fysieke én mentale gezondheid.",
-      items: [
-        {
-          title: "Gemeente Middelburg",
-          description:
-            "Al gecontacteerd en eerste steun ontvangen. Mogelijkheid tot GSB-aanvraag voor verdere ontwikkeling van het project.",
-        },
-        {
-          title: "Taalcentra en onderwijsinstellingen",
-          description: "Nog niet gecontacteerd. Na de feestdagen starten met gerichte marketing en informatiemateriaal.",
-        },
-        {
-          title: "Regionale media (De Bode, PZC, Omroep Zeeland, …)",
-          description: "Nog niet benaderd. Geschikt voor promotie na de feestdagen.",
-        },
-        {
-          title: "Integratie- en participatieprojecten",
-          description: "Nog niet gecontacteerd. Kansrijke partners voor regionale samenwerking en doorverwijzing.",
-        },
-        {
-          title:
-            "Internationale bedrijven (DOW, YARA, Lineage Logistics, Katoen Natie, Ravago, Sligro, Vopak, Lamb Weston, Limagrain, Damen Shipbuilding)",
-          description:
-            "Nog niet benaderd. Interessant voor interne communicatie, welzijnsprogramma’s en expat-ondersteuning.",
-        },
-      ],
-    },
-
-    gsb: [
-      "Bekendheid: het project delen via nieuwsbrieven, wijkplatforms en regionale of lokale media.",
-      "Verbinding: introducties naar relevante partners, internationale groepen en gemeentelijke netwerken.",
-      "Praktische steun: toestemming om flyers via gemeentelijke kanalen zichtbaar te maken voor internationale inwoners.",
-      "Daarnaast laat ik de gemeente volledig vrij om een bijdrage te leveren aan de marketing, zoals het ontwerp en drukwerk van flyers. Dit zou enorm gewaardeerd worden.",
-      "Mijn vraag richt zich volledig op gunfactor, samenwerking en versterking van de gemeenschap. Ik bespreek dit graag in een persoonlijk gesprek om te onderzoeken welke vormen van ondersteuning passend en haalbaar zijn.",
-    ],
-
-    slot: {
-      bullets: [
-        "Integratie en participatie van nieuwe inwoners",
-        "Waterveiligheid voor volwassenen die nog niet zwemvaardig zijn",
-        "Gezondheid, ontspanning en welzijn",
-        "Verbinding binnen de gemeenschap van Middelburg en breder binnen Walcheren en Zeeland",
-      ],
-      closing:
-        "Het biedt een veilige, laagdrempelige en warme leeromgeving waarin volwassenen, ongeacht achtergrond, taal of eerdere ervaringen kunnen deelnemen aan een essentieel onderdeel van de Nederlandse cultuur en zeker in Zeeland: waterveiligheid. Ik hoop dat de gemeente Middelburg dit initiatief project wil ondersteunen, zodat we samen kunnen investeren in een inclusieve, gezonde en veilige samenleving waarin iedereen de mogelijkheid krijgt om te leren zwemmen en zich thuis te voelen in onze regio.",
-    },
-  },
-} as const;
+};

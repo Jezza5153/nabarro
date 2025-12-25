@@ -7,6 +7,11 @@ import Link from "next/link";
 
 
 export default function InfoPage() {
+    const prices = [
+        { product: "Try-out (45 min, one time)", price: "€20" },
+        { product: "Private lesson (45 min)", price: "€80" },
+        { product: "Small group class", price: "€30" },
+    ];
     return (
         <div className="py-12 md:py-24 lg:py-32">
             <div className="container px-4 md:px-6">
@@ -15,10 +20,10 @@ export default function InfoPage() {
                         Details
                     </div>
                     <h1 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                        Praktische Informatie
+                        Practical Information
                     </h1>
                     <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-                        Hier vindt u alle details over prijzen, locatie en planning. Alles wordt duidelijk en transparant gepresenteerd.
+                       All the details on pricing, location, and scheduling, presented clearly and transparently.
                     </p>
                 </div>
 
@@ -26,41 +31,44 @@ export default function InfoPage() {
                     <Card>
                         <CardHeader className="flex flex-row items-center gap-4">
                             <Euro className="h-8 w-8" />
-                            <CardTitle className="font-headline text-2xl">Prijzen</CardTitle>
+                            <CardTitle className="font-headline text-2xl">Pricing</CardTitle>
                         </CardHeader>
                         <CardContent>
                            <CardDescription>
-                            Prijzen zijn inclusief BTW en toegang tot het zwembad. Pakketten zijn een beperkte tijd geldig.
+                            Prices include VAT and pool access.
                            </CardDescription>
                            <Table className="mt-4">
                             <TableHeader>
                                 <TableRow>
-                                    <TableHead>Product</TableHead>
-                                    <TableHead>Geldigheid</TableHead>
-                                    <TableHead className="text-right">Prijs</TableHead>
+                                    <TableHead>Service</TableHead>
+                                    <TableHead className="text-right">Price</TableHead>
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
-                                {project.sections.inleiding.prices.map(p => (
+                                {prices.map(p => (
                                     <TableRow key={p.product}>
                                         <TableCell className="font-medium">{p.product}</TableCell>
-                                        <TableCell>{p.validity}</TableCell>
                                         <TableCell className="text-right font-medium">{p.price}</TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>
                            </Table>
+                           <div className="pt-4">
+                                <Button asChild>
+                                    <Link href="/contact">Book a try-out</Link>
+                                </Button>
+                           </div>
                         </CardContent>
                     </Card>
 
                     <Card>
                         <CardHeader className="flex flex-row items-center gap-4">
                             <MapPin className="h-8 w-8" />
-                            <CardTitle className="font-headline text-2xl">Locatie</CardTitle>
+                            <CardTitle className="font-headline text-2xl">Location</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-2">
                            <CardDescription>
-                             De lessen worden gegeven in een rustige en moderne zwemfaciliteit in de regio Zeeland, gemakkelijk bereikbaar vanuit Middelburg en Vlissingen. De exacte locatie wordt bij boeking verstrekt om de privacy te waarborgen.
+                             Lessons are held at a calm, modern swimming facility in Zeeland. The location is easy to reach, and exact details are shared after registration to ensure privacy.
                            </CardDescription>
                         </CardContent>
                     </Card>
@@ -68,15 +76,15 @@ export default function InfoPage() {
                      <Card>
                         <CardHeader className="flex flex-row items-center gap-4">
                             <Clock className="h-8 w-8" />
-                            <CardTitle className="font-headline text-2xl">Planning</CardTitle>
+                            <CardTitle className="font-headline text-2xl">Scheduling</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-2">
                            <CardDescription>
-                            De lessen zijn beschikbaar op weekdagen, met flexibele tijdslots in de ochtend en avond om aan verschillende schema's te voldoen. Neem contact op om een tijd te vinden die voor u werkt.
+                            Lessons are available on weekdays, with flexible time slots in the morning and evening to accommodate different schedules. Contact us to find a time that works for you.
                            </CardDescription>
                              <div className="pt-4">
                                 <Button asChild>
-                                    <Link href="/contact">Informeer naar beschikbaarheid</Link>
+                                    <Link href="/contact">Check availability</Link>
                                 </Button>
                            </div>
                         </CardContent>

@@ -13,9 +13,10 @@ import {
 import type { Locale } from "@/content/project";
 
 const languageOptions: { value: Locale; label: string }[] = [
-  { value: "nl", label: "Nederlands" },
   { value: "en", label: "English" },
+  { value: "nl", label: "Nederlands" },
   { value: "fr", label: "Français" },
+  { value: "es", label: "Español" },
 ];
 
 export function LanguageSwitcher() {

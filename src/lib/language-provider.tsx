@@ -2,16 +2,14 @@
 "use client";
 
 import React, { createContext, useState, useContext, ReactNode } from 'react';
-import { project, Locale } from '@/content/project';
+import { type Locale, type Content } from '@/content/project';
 import { getCopy } from './i18n';
 
 // Define the shape of the context
-type ContentType = (typeof project.i18n)[Locale];
-
 interface LanguageContextType {
   locale: Locale;
   setLocale: (locale: Locale) => void;
-  content: ContentType;
+  content: Content;
 }
 
 // Create the context with a default value

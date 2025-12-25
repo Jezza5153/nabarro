@@ -21,14 +21,14 @@ const lexendDeca = Lexend_Deca({
 })
 
 export const metadata: Metadata = {
-  title: "Nabarro Coaching — Zwemles voor volwassenen in Engels",
+  title: "Nabarro Coaching — Adult Swimming Lessons in English",
   description:
-    "Veilige, rustige en toegankelijke zwemlessen voor volwassenen in het Engels (en Frans) in Zeeland.",
+    "Private and small-group swimming lessons for adults in Zeeland. English-speaking coach, focused on confidence and water safety. For beginners, fearful swimmers, and technique improvement.",
   openGraph: {
-    title: "Nabarro Coaching — Zwemles voor volwassenen in Engels",
+    title: "Nabarro Coaching — Adult Swimming Lessons in English",
     description:
-      "Veilige, rustige en toegankelijke zwemlessen voor volwassenen in Zeeland.",
-    url: "https://nabarrocoaching.com",
+      "Calm, private, and pressure-free swimming lessons for adults in Zeeland.",
+    url: "https://nabarro.vercel.app",
     siteName: "Nabarro Coaching",
     images: [
       {
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         alt: "Nabarro Coaching",
       },
     ],
-    locale: "nl_NL",
+    locale: "en_US",
     type: "website",
   },
 };
@@ -57,7 +57,7 @@ export default function RootLayout({
             href="#main-content"
             className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:text-black focus:shadow-lg"
           >
-            Ga naar inhoud
+            Skip to content
           </a>
 
           <Shell>

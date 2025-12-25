@@ -30,36 +30,28 @@ export function SiteHeader() {
   const t = getCopy(locale).nav;
 
   const navLinks = [
-    { href: "/about", label: t.about },
     { href: "/lessons", label: t.lessons },
     { href: "/for-you", label: t.for_you },
     { href: "/info", label: t.info },
+    { href: "/about", label: t.about },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/40 bg-white/55 backdrop-blur">
       <div className="container flex h-16 items-center gap-3">
         {/* BRAND */}
-        <Link href="/" className="flex items-center gap-3">
-          <div className="relative h-10 w-10 overflow-hidden rounded-2xl bg-white shadow-sm">
+        <Link href="/" className="flex items-center gap-2 mr-4">
             <Image
               src="/pics/nabarrocoaching.png"
               alt="Nabarro Coaching logo"
-              fill
-              sizes="40px"
-              className="object-cover"
+              width={40}
+              height={40}
+              className="h-10 w-10"
               priority
             />
-          </div>
-
-          <div className="leading-tight">
-            <div className="text-sm font-semibold text-[hsl(var(--foreground))]">
-              Nabarro Coaching
-            </div>
-            <div className="text-xs text-[hsl(var(--muted-foreground))]">
-              Zwemles voor volwassenen • Engels & Frans
-            </div>
-          </div>
+          <span className="text-sm font-semibold text-[hsl(var(--foreground))]">
+            Nabarro Coaching
+          </span>
         </Link>
 
         {/* DESKTOP NAV */}
@@ -96,19 +88,17 @@ export function SiteHeader() {
             <SheetContent side="right" className="w-[320px]">
               {/* MOBILE BRAND */}
               <div className="flex items-center gap-3">
-                <div className="relative h-10 w-10 overflow-hidden rounded-2xl bg-white">
-                  <Image
-                    src="/pics/nabarrocoaching.jpg"
+                <Image
+                    src="/pics/nabarrocoaching.png"
                     alt="Nabarro Coaching logo"
-                    fill
-                    sizes="40px"
-                    className="object-cover"
-                  />
-                </div>
+                    width={40}
+                    height={40}
+                    className="h-10 w-10"
+                />
                 <div>
                   <div className="font-semibold">Nabarro Coaching</div>
                   <div className="text-sm text-muted-foreground">
-                    Zwemles voor volwassenen
+                    Adult Swimming Lessons
                   </div>
                 </div>
               </div>
@@ -119,6 +109,12 @@ export function SiteHeader() {
                 <p className="px-3 text-xs font-semibold text-muted-foreground">
                   MENU
                 </p>
+                <Link
+                    href="/"
+                    className="rounded-xl px-3 py-2 text-base font-semibold hover:bg-muted"
+                  >
+                    Home
+                </Link>
                 {navLinks.map((l) => (
                   <Link
                     key={l.href}

@@ -2,16 +2,16 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import ContactForm from "@/components/contact-form";
 import { project } from "@/content/project";
 import { useLanguage } from "@/lib/language-provider";
 import { getCopy } from "@/lib/i18n";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function AboutPage() {
   const { locale } = useLanguage();
   const t = getCopy(locale).about;
-  const contact = project.contact;
+  const profileImage = PlaceHolderImages.find((img) => img.id === 'nathalie-profile');
 
   return (
     <div className="py-12 md:py-24 lg:py-28">
@@ -32,71 +32,39 @@ export default function AboutPage() {
             <div className="space-y-4 text-muted-foreground md:text-lg whitespace-pre-line max-w-prose">
               {t.story}
             </div>
-
-            {/* Highlights */}
-            <div className="w-full rounded-xl border bg-card p-5">
-              <h2 className="font-headline text-lg font-semibold">
-                {t.highlights_title}
-              </h2>
-              <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                {t.highlights.map((item) => (
-                  <li key={item.label}>
-                    <span className="font-medium text-foreground">
-                      {item.label}
-                    </span>{" "}
-                    {item.value}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* CTA */}
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center pt-2">
-              <Button asChild size="lg">
-                <Link href="/contact">{t.cta_ask}</Link>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link href="/aanmelden">{t.cta_apply}</Link>
-              </Button>
-            </div>
-
-            {/* Contact micro */}
-            <div className="pt-3 text-sm text-muted-foreground">
-              <p>
-                <span className="font-medium text-foreground">
-                  {contact.name}
-                </span>{" "}
-                • {contact.role}
-              </p>
-              <p>
-                <a className="underline" href={`mailto:${contact.email}`}>
-                  {contact.email}
-                </a>{" "}
-                •{" "}
-                <a className="underline" href={`tel:${contact.phone}`}>
-                  {contact.phone}
-                </a>
-              </p>
-            </div>
           </div>
 
           {/* RIGHT — IMAGE */}
           <div className="flex justify-center md:justify-end">
-            <div className="relative w-full max-w-[420px]">
-              <Image
-                src="/pics/nathalie.jpg"
-                alt="Nathalie Nabarro – zweminstructeur voor volwassenen in Zeeland"
-                width={600}
-                height={750}
-                priority
-                className="rounded-2xl object-cover shadow-lg"
-              />
-            </div>
+             {profileImage && (
+              <div className="relative w-full max-w-[420px]">
+                <Image
+                  src={profileImage.imageUrl}
+                  alt={profileImage.description}
+                  data-ai-hint={profileImage.imageHint}
+                  width={600}
+                  height={750}
+                  priority
+                  className="rounded-2xl object-cover shadow-lg"
+                />
+              </div>
+            )}
           </div>
-
         </div>
+
+        <div className="mt-16 md:mt-24">
+            <div className="mx-auto max-w-xl text-center">
+                <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">Ask a question</h2>
+                 <p className="mt-4 text-muted-foreground md:text-lg">
+                    Curious if this is right for you? Feel free to send a message.
+                </p>
+            </div>
+            <div className="mx-auto mt-10 w-full max-w-lg space-y-8">
+                <ContactForm />
+            </div>
+        </div>
+
       </div>
     </div>
   );
 }
-// 
