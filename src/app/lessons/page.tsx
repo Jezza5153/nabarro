@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Accordion,
   AccordionContent,
@@ -158,7 +160,6 @@ export default function LessonsPage() {
             onSubmit={(e) => {
               e.preventDefault();
               // TODO: wire to backend / email routing
-              // For now, do nothing (or trigger a toast in your app later).
             }}
           >
             <div className="grid gap-4 sm:grid-cols-2">
