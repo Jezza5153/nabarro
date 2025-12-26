@@ -13,6 +13,7 @@ import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
 
 const lessonDetails = [
   {
@@ -55,189 +56,282 @@ const notForYou = [
   "Drop-in classes without prior registration",
 ];
 
+function Chip({
+  icon,
+  text,
+}: {
+  icon: React.ReactNode;
+  text: string;
+}) {
+  return (
+    <div className="flex items-center gap-2 rounded-full border border-white/40 bg-white/35 px-3 py-1 text-sm text-foreground/85 backdrop-blur">
+      {icon}
+      <span className="leading-none">{text}</span>
+    </div>
+  );
+}
+
 export default function LessonsPage() {
   const detailImage = PlaceHolderImages.find((img) => img.id === "lessons-detail");
 
   return (
-    <div className="py-12 md:py-24 lg:py-32">
+    <div className="py-10 md:py-16 lg:py-20">
       <div className="container px-4 md:px-6">
-        {/* TOP SECTION */}
-        <div className="grid gap-10 md:grid-cols-2 md:gap-16">
-          <div className="flex flex-col items-start justify-center space-y-4">
-            <div className="inline-block rounded-lg bg-accent px-3 py-1 text-sm font-medium text-accent-foreground">
-              Our Method
-            </div>
+        {/* HERO STAGE (this is what was missing) */}
+        <section className="relative overflow-hidden rounded-3xl border border-white/35 bg-white/18 p-8 backdrop-blur md:p-12">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-transparent" />
+          <div className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(70%_60%_at_30%_0%,black,transparent)] bg-white/25" />
 
-            <h1 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              How The Lessons Work
-            </h1>
+          <div className="relative grid gap-10 md:grid-cols-2 md:gap-12 items-center">
+            {/* LEFT */}
+            <div className="space-y-5">
+              <Badge
+                variant="outline"
+                className="w-fit rounded-full bg-white/35 px-4 py-1 border-white/40"
+              >
+                Our Method
+              </Badge>
 
-            <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
-              Calm, clear, and supportive — built for adults. We start with safety and comfort,
-              then build confidence and skills step-by-step.
-            </p>
+              <h1 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+                How the lessons work
+              </h1>
 
-            <Accordion type="single" collapsible className="w-full">
-              {lessonDetails.map((item) => (
-                <AccordionItem key={item.value} value={item.value}>
-                  <AccordionTrigger className="text-lg">
-                    {item.trigger}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-base text-muted-foreground">
-                    {item.content}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-
-          <div className="flex items-center justify-center">
-            {detailImage && (
-              <Image
-                src={detailImage.imageUrl}
-                alt={detailImage.description}
-                data-ai-hint={detailImage.imageHint}
-                width={1200}
-                height={800}
-                className="rounded-2xl object-cover shadow-lg"
-              />
-            )}
-          </div>
-        </div>
-
-        {/* FOR YOU / NOT FOR YOU */}
-        <div className="mt-20 grid gap-10 md:grid-cols-2 md:gap-16">
-          <div>
-            <h2 className="font-headline text-2xl font-bold">Is this for you?</h2>
-            <p className="mt-2 text-muted-foreground">
-              These lessons are a good fit if you are:
-            </p>
-            <ul className="mt-4 space-y-3">
-              {forYou.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 mt-0.5 text-primary flex-shrink-0" />
-                  <span className="text-muted-foreground">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="font-headline text-2xl font-bold">
-              This might not be for you if…
-            </h2>
-            <p className="mt-2 text-muted-foreground">
-              This program may not be the best fit if you are looking for:
-            </p>
-            <ul className="mt-4 space-y-3">
-              {notForYou.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <XCircle className="h-5 w-5 mt-0.5 text-muted-foreground flex-shrink-0" />
-                  <span className="text-muted-foreground">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* CTA FORM */}
-        <div className="mt-20 rounded-2xl border bg-card p-8 md:p-10">
-          <div className="mx-auto max-w-2xl text-center">
-            <h3 className="font-headline text-2xl font-bold sm:text-3xl">
-              Not sure yet? Let’s talk.
-            </h3>
-            <p className="mt-2 text-muted-foreground">
-              Leave your details and I’ll suggest a few options for a free 15-minute call.
-              Calm, no pressure.
-            </p>
-            <p className="mt-2 text-xs text-muted-foreground">
-              Calendly integration coming soon — for now, I’ll confirm by email.
-            </p>
-          </div>
-
-          <form
-            className="mx-auto mt-8 max-w-2xl space-y-6"
-            onSubmit={(e) => {
-              e.preventDefault();
-              // TODO: wire to backend / email routing
-            }}
-          >
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="space-y-2">
-                <Label htmlFor="cta-name">Full name</Label>
-                <Input id="cta-name" name="name" placeholder="Your name" required />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="cta-email">Email</Label>
-                <Input
-                  id="cta-email"
-                  name="email"
-                  type="email"
-                  placeholder="you@email.com"
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="space-y-2">
-                <Label htmlFor="cta-goal">What do you want help with?</Label>
-                <select
-                  id="cta-goal"
-                  name="goal"
-                  defaultValue="beginner"
-                  className="h-10 w-full rounded-md border border-input bg-background px-3 text-sm text-foreground"
-                >
-                  <option value="beginner">Learning from zero</option>
-                  <option value="fear">Fear of water / anxiety</option>
-                  <option value="returning">Returning after years</option>
-                  <option value="technique">Technique / improve stroke</option>
-                  <option value="diploma">Dutch A/B/C diploma</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="cta-availability">Best time to call</Label>
-                <select
-                  id="cta-availability"
-                  name="availability"
-                  defaultValue="evening"
-                  className="h-10 w-full rounded-md border border-input bg-background px-3 text-sm text-foreground"
-                >
-                  <option value="morning">Morning</option>
-                  <option value="afternoon">Afternoon</option>
-                  <option value="evening">Evening</option>
-                  <option value="flexible">Flexible</option>
-                </select>
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="cta-message">Anything I should know?</Label>
-              <Textarea
-                id="cta-message"
-                name="message"
-                placeholder="Optional: fear level, goals, past experiences, preferred language..."
-                className="min-h-[110px]"
-              />
-              <p className="text-xs text-muted-foreground">
-                Tip: If English feels easier than Dutch, mention it here.
+              <p className="max-w-[620px] text-muted-foreground md:text-lg leading-relaxed">
+                Calm, clear, and adult-focused. We start with safety and comfort first — then build skills
+                step-by-step at your pace.
               </p>
+
+              {/* Accordion inside a glass panel (stops looking like docs) */}
+              <div className="relative overflow-hidden rounded-2xl border border-white/40 bg-white/25 p-4 backdrop-blur">
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-transparent" />
+                <div className="relative">
+                  <Accordion type="single" collapsible className="w-full">
+                    {lessonDetails.map((item) => (
+                      <AccordionItem
+                        key={item.value}
+                        value={item.value}
+                        className="border-white/25"
+                      >
+                        <AccordionTrigger className="text-base md:text-lg">
+                          {item.trigger}
+                        </AccordionTrigger>
+                        <AccordionContent className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                          {item.content}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </div>
+              </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-              <Button type="submit" size="lg" className="rounded-full">
-                <Video className="mr-2 h-5 w-5" />
-                Request a free 15-min call
-              </Button>
-              <p className="text-xs text-muted-foreground">
-                You’ll get a reply by email with 2–3 options.
-              </p>
+            {/* RIGHT IMAGE (framed + controlled) */}
+            <div className="flex items-center justify-center md:justify-end">
+              {detailImage ? (
+                <div className="w-full max-w-[520px]">
+                  <div className="relative overflow-hidden rounded-3xl border border-white/40 bg-white/15 shadow-2xl backdrop-blur">
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/25 via-transparent to-transparent" />
+                    <Image
+                      src={detailImage.imageUrl}
+                      alt={detailImage.description}
+                      data-ai-hint={detailImage.imageHint}
+                      width={1400}
+                      height={1000}
+                      className="w-full aspect-[4/3] object-cover"
+                    />
+                  </div>
+
+                  <div className="mt-3 text-xs text-muted-foreground">
+                    Calm environment • Private & small-group options • Zeeland
+                  </div>
+                </div>
+              ) : (
+                <div className="w-full max-w-[520px] rounded-3xl border border-white/40 bg-white/15 p-12 text-center text-sm text-muted-foreground backdrop-blur">
+                  Add your real pool image here to complete this section.
+                </div>
+              )}
             </div>
-          </form>
-        </div>
+          </div>
+        </section>
+
+        {/* FOR YOU / NOT FOR YOU — chips (more premium + scannable) */}
+        <section className="mt-10 md:mt-14 grid gap-6 md:grid-cols-2">
+          <div className="relative overflow-hidden rounded-3xl border border-white/35 bg-white/18 p-7 backdrop-blur">
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/18 via-transparent to-transparent" />
+            <div className="relative">
+              <h2 className="font-headline text-xl md:text-2xl font-bold">A good fit if you are…</h2>
+              <p className="mt-2 text-muted-foreground">
+                These lessons are designed for adults who want calm progress.
+              </p>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {forYou.map((item) => (
+                  <Chip
+                    key={item}
+                    icon={<Check className="h-4 w-4 text-primary" />}
+                    text={item}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="relative overflow-hidden rounded-3xl border border-white/35 bg-white/18 p-7 backdrop-blur">
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/18 via-transparent to-transparent" />
+            <div className="relative">
+              <h2 className="font-headline text-xl md:text-2xl font-bold">Not the best fit if you want…</h2>
+              <p className="mt-2 text-muted-foreground">
+                This is not performance training — it’s calm coaching.
+              </p>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {notForYou.map((item) => (
+                  <Chip
+                    key={item}
+                    icon={<XCircle className="h-4 w-4 text-muted-foreground" />}
+                    text={item}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA MODULE — designed layout (left reassurance, right form) */}
+        <section className="mt-10 md:mt-14">
+          <div className="relative overflow-hidden rounded-3xl border border-white/35 bg-white/18 p-8 shadow-2xl backdrop-blur md:p-12">
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-transparent" />
+            <div className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(60%_60%_at_70%_0%,black,transparent)] bg-white/25" />
+
+            <div className="relative grid gap-10 lg:grid-cols-2 lg:gap-12 items-start">
+              {/* LEFT */}
+              <div className="space-y-4">
+                <Badge
+                  variant="outline"
+                  className="w-fit rounded-full bg-white/35 px-4 py-1 border-white/40"
+                >
+                  Free 15-min call
+                </Badge>
+
+                <h3 className="font-headline text-2xl font-bold sm:text-3xl">
+                  Not sure yet? Let’s talk.
+                </h3>
+
+                <p className="text-muted-foreground md:text-lg leading-relaxed">
+                  Leave your details and I’ll suggest 2–3 options for a short call.
+                  Calm, clear, no pressure.
+                </p>
+
+                <div className="mt-4 space-y-2 text-sm text-muted-foreground">
+                  <div className="flex items-start gap-2">
+                    <Check className="h-4 w-4 mt-0.5 text-primary" />
+                    <span>We’ll confirm by email (Calendly coming soon).</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Check className="h-4 w-4 mt-0.5 text-primary" />
+                    <span>We’ll focus on your goal: comfort, safety, or technique.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Check className="h-4 w-4 mt-0.5 text-primary" />
+                    <span>You can mention if English feels easier than Dutch.</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* RIGHT — form card */}
+              <div className="relative overflow-hidden rounded-2xl border border-white/40 bg-white/25 p-6 backdrop-blur">
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/22 via-transparent to-transparent" />
+
+                <form
+                  className="relative space-y-5"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    // TODO: wire to backend / email routing
+                  }}
+                >
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="space-y-2">
+                      <Label htmlFor="cta-name">Full name</Label>
+                      <Input
+                        id="cta-name"
+                        name="name"
+                        placeholder="Your name"
+                        required
+                        className="bg-white/70 backdrop-blur border-white/40 focus-visible:ring-2 focus-visible:ring-primary/30"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="cta-email">Email</Label>
+                      <Input
+                        id="cta-email"
+                        name="email"
+                        type="email"
+                        placeholder="you@email.com"
+                        required
+                        className="bg-white/70 backdrop-blur border-white/40 focus-visible:ring-2 focus-visible:ring-primary/30"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="space-y-2">
+                      <Label htmlFor="cta-goal">What do you want help with?</Label>
+                      <select
+                        id="cta-goal"
+                        name="goal"
+                        defaultValue="beginner"
+                        className="h-10 w-full rounded-md border border-white/40 bg-white/70 px-3 text-sm text-foreground backdrop-blur focus:outline-none focus:ring-2 focus:ring-primary/30"
+                      >
+                        <option value="beginner">Learning from zero</option>
+                        <option value="fear">Fear of water / anxiety</option>
+                        <option value="returning">Returning after years</option>
+                        <option value="technique">Technique / improve stroke</option>
+                        <option value="diploma">Dutch A/B/C diploma</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="cta-availability">Best time to call</Label>
+                      <select
+                        id="cta-availability"
+                        name="availability"
+                        defaultValue="evening"
+                        className="h-10 w-full rounded-md border border-white/40 bg-white/70 px-3 text-sm text-foreground backdrop-blur focus:outline-none focus:ring-2 focus:ring-primary/30"
+                      >
+                        <option value="morning">Morning</option>
+                        <option value="afternoon">Afternoon</option>
+                        <option value="evening">Evening</option>
+                        <option value="flexible">Flexible</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="cta-message">Anything I should know?</Label>
+                    <Textarea
+                      id="cta-message"
+                      name="message"
+                      placeholder="Optional: fear level, goals, past experiences, preferred language..."
+                      className="min-h-[110px] bg-white/70 backdrop-blur border-white/40 focus-visible:ring-2 focus-visible:ring-primary/30"
+                    />
+                  </div>
+
+                  <div className="pt-1">
+                    <Button type="submit" size="lg" className="w-full rounded-full">
+                      <Video className="mr-2 h-5 w-5" />
+                      Request a free 15-min call
+                    </Button>
+                    <p className="mt-3 text-center text-xs text-muted-foreground">
+                      You’ll get a reply by email with 2–3 options.
+                    </p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );

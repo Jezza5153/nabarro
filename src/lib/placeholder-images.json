@@ -3,19 +3,19 @@
     {
       "id": "hero-calm-water",
       "description": "Calm, clear water in a swimming pool, with gentle ripples on the surface.",
-      "imageUrl": "/pics/hero-calm-water.jpg",
+      "imageUrl": "/pics/hero-calm-water.jpg?v=2",
       "imageHint": "calm water"
     },
     {
       "id": "nathalie-profile",
       "description": "A friendly and professional portrait of Nathalie, the swimming instructor, smiling warmly.",
-      "imageUrl": "/pics/nathalie-profile.jpg",
+      "imageUrl": "/pics/nathalie.jpg?v=2",
       "imageHint": "woman smiling"
     },
     {
       "id": "lessons-detail",
       "description": "A person gently floating in calm pool water, representing safety and trust.",
-      "imageUrl": "/pics/lessons-detail.jpg",
+      "imageUrl": "/pics/lessons-detail.jpg?v=2",
       "imageHint": "person swimming"
     }
   ]

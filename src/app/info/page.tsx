@@ -1,155 +1,333 @@
+// app/info/page.tsx
+
 import Link from "next/link";
-import { Clock, MapPin, Euro, ShieldCheck } from "lucide-react";
+import {
+  Clock,
+  MapPin,
+  Euro,
+  ShieldCheck,
+  Check,
+  CalendarDays,
+  MessageCircle,
+} from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 type PriceRow = {
   id: "tryout" | "private" | "group";
-  service: string;
+  title: string;
+  duration: string;
   price: string;
+  note?: string;
+  highlight?: boolean;
 };
+
+function Surface({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div
+      className={[
+        "relative overflow-hidden rounded-3xl border border-white/35 bg-white/18 shadow-2xl backdrop-blur",
+        className,
+      ].join(" ")}
+    >
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/18 via-transparent to-transparent" />
+      {children}
+    </div>
+  );
+}
+
+function InfoRow({
+  icon: Icon,
+  title,
+  body,
+}: {
+  icon: any;
+  title: string;
+  body: string;
+}) {
+  return (
+    <div className="flex items-start gap-3">
+      <div className="mt-0.5 rounded-full border border-white/35 bg-white/20 p-2 backdrop-blur">
+        <Icon className="h-4 w-4 text-primary" />
+      </div>
+      <div>
+        <div className="font-semibold">{title}</div>
+        <div className="mt-1 text-sm leading-relaxed text-muted-foreground">{body}</div>
+      </div>
+    </div>
+  );
+}
+
+function PriceItem({ row }: { row: PriceRow }) {
+  return (
+    <div
+      className={[
+        "relative overflow-hidden rounded-2xl border border-white/35 bg-white/18 p-5 backdrop-blur",
+        row.highlight ? "ring-1 ring-primary/25 bg-white/24" : "",
+      ].join(" ")}
+    >
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/14 via-transparent to-transparent" />
+      <div className="relative flex items-start justify-between gap-4">
+        <div>
+          <div className="flex items-center gap-2">
+            <div className="font-semibold">{row.title}</div>
+            {row.highlight ? (
+              <span className="inline-flex items-center rounded-full border border-white/35 bg-white/20 px-2.5 py-0.5 text-[11px] font-semibold text-foreground/80">
+                Best first step
+              </span>
+            ) : null}
+          </div>
+          <div className="mt-1 text-sm text-muted-foreground">{row.duration}</div>
+          {row.note ? (
+            <div className="mt-2 text-sm text-muted-foreground">{row.note}</div>
+          ) : null}
+        </div>
+
+        <div className="text-right">
+          <div className="text-2xl font-bold tracking-tight">{row.price}</div>
+          <div className="mt-0.5 text-xs text-muted-foreground">per person</div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function InfoPage() {
   const prices: PriceRow[] = [
-    { id: "tryout", service: "Try-out lesson (45 min, one time)", price: "€20" },
-    { id: "private", service: "Private lesson (45 min)", price: "€80" },
-    { id: "group", service: "Small group class (45 min)", price: "€30" },
+    {
+      id: "tryout",
+      title: "Try-out lesson",
+      duration: "45 minutes • one time",
+      price: "€20",
+      note: "A calm introduction. We start with comfort, breathing, and safety.",
+      highlight: true,
+    },
+    {
+      id: "private",
+      title: "Private lesson",
+      duration: "45 minutes • 1-to-1 coaching",
+      price: "€80",
+      note: "Personal pace, maximum focus. Ideal for fear of water or fast progress.",
+    },
+    {
+      id: "group",
+      title: "Small group class",
+      duration: "45 minutes • small group",
+      price: "€30",
+      note: "Supportive and calm. Great if you prefer learning with others.",
+    },
   ];
 
   return (
-    <div className="py-12 md:py-24 lg:py-28">
-      <div className="container px-4 md:px-6">
-        {/* HEADER */}
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <Badge variant="outline" className="rounded-full bg-white/55 backdrop-blur px-4 py-1">
-            Practical info
-          </Badge>
+    <div className="pb-16">
+      {/* STAGE / HERO */}
+      <section className="relative">
+        <div className="watery-bg relative">
+          {/* Caustics overlay */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-[0.16] mix-blend-soft-light"
+            style={{
+              backgroundImage: "url(/pics/water-caustics.jpg)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-white/35 to-transparent"
+          />
 
-          <h1 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Practical Information
-          </h1>
+          <div className="container relative px-4 py-10 md:px-6 md:py-14">
+            <Surface className="p-8 md:p-12">
+              <div className="relative">
+                <Badge
+                  variant="outline"
+                  className="rounded-full border-white/40 bg-white/30 px-4 py-1"
+                >
+                  Practical info
+                </Badge>
 
-          <p className="max-w-[720px] text-muted-foreground md:text-xl/relaxed">
-            Clear pricing, calm setting, and flexible scheduling — so you know exactly what to expect.
-          </p>
+                <h1 className="mt-5 font-headline text-4xl font-bold tracking-tight sm:text-5xl">
+                  Pricing, location, and scheduling — clearly.
+                </h1>
 
-          {/* Trust strip */}
-          <div className="mt-2 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
-            <span className="inline-flex items-center gap-2">
-              <Clock className="h-4 w-4" />
-              45 minutes per lesson
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <ShieldCheck className="h-4 w-4" />
-              Calm, private, judgement-free
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <MapPin className="h-4 w-4" />
-              Zeeland (exact location after registration)
-            </span>
+                <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                  Calm adult swim coaching in Zeeland. Everything upfront so you know what to expect before you
+                  reach out.
+                </p>
+
+                {/* Trust strip */}
+                <div className="mt-6 flex flex-wrap gap-2">
+                  <span className="inline-flex items-center gap-1 rounded-full border border-white/35 bg-white/18 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
+                    <Clock className="h-3.5 w-3.5" /> 45 minutes per lesson
+                  </span>
+                  <span className="inline-flex items-center gap-1 rounded-full border border-white/35 bg-white/18 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
+                    <ShieldCheck className="h-3.5 w-3.5" /> judgement-free, calm pace
+                  </span>
+                  <span className="inline-flex items-center gap-1 rounded-full border border-white/35 bg-white/18 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
+                    <MapPin className="h-3.5 w-3.5" /> Zeeland (exact pool after registration)
+                  </span>
+                </div>
+
+                {/* CTAs */}
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <Button asChild size="lg" className="rounded-full">
+                    <Link href="/contact">
+                      <CalendarDays className="mr-2 h-5 w-5" />
+                      Book a try-out
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="rounded-full bg-white/25 backdrop-blur border-white/40"
+                  >
+                    <Link href="/contact">
+                      <MessageCircle className="mr-2 h-5 w-5" />
+                      Ask a question
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </Surface>
           </div>
         </div>
+      </section>
 
-        {/* GRID */}
-        <div className="mx-auto grid max-w-5xl gap-8 pt-12 md:pt-16 lg:grid-cols-3">
-          {/* PRICING */}
-          <Card className="rounded-2xl bg-white/55 backdrop-blur border">
-            <CardHeader className="flex flex-row items-center gap-4">
-              <div className="rounded-full bg-primary/10 p-3">
-                <Euro className="h-6 w-6 text-primary" />
-              </div>
-              <div>
-                <CardTitle className="font-headline text-2xl">Pricing</CardTitle>
-                <CardDescription>Simple, upfront prices.</CardDescription>
+      {/* CONTENT GRID */}
+      <section className="container px-4 pt-10 md:px-6 md:pt-14">
+        <div className="grid gap-8 lg:grid-cols-3">
+          {/* PRICING (featured) */}
+          <Card className="relative overflow-hidden rounded-3xl border border-white/35 bg-white/18 shadow-2xl backdrop-blur lg:col-span-2">
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/16 via-transparent to-transparent" />
+            <CardHeader className="relative pb-0">
+              <div className="flex items-center gap-3">
+                <div className="rounded-full border border-white/35 bg-white/20 p-2.5 backdrop-blur">
+                  <Euro className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <CardTitle className="font-headline text-2xl">Pricing</CardTitle>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Start with a try-out. Then choose private or small group.
+                  </p>
+                </div>
               </div>
             </CardHeader>
 
-            <CardContent>
-              <div className="text-sm text-muted-foreground">
-                Prices are per person. Pool access and VAT may vary by facility — confirmed when you book.
+            <CardContent className="relative pt-6">
+              <div className="grid gap-4">
+                {prices.map((row) => (
+                  <PriceItem key={row.id} row={row} />
+                ))}
               </div>
 
-              <Table className="mt-4">
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Service</TableHead>
-                    <TableHead className="text-right">Price</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {prices.map((p) => (
-                    <TableRow key={p.id}>
-                      <TableCell className="font-medium">{p.service}</TableCell>
-                      <TableCell className="text-right font-medium">{p.price}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+              {/* Included / notes */}
+              <div className="mt-8 grid gap-4 rounded-2xl border border-white/35 bg-white/14 p-6 backdrop-blur">
+                <div className="font-semibold">What’s included</div>
+                <ul className="grid gap-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <Check className="mt-0.5 h-4 w-4 text-primary" />
+                    Calm, step-by-step coaching for adults (beginner → technique)
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="mt-0.5 h-4 w-4 text-primary" />
+                    Clear guidance on breathing, balance, and safety
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="mt-0.5 h-4 w-4 text-primary" />
+                    Confirmation by email with location + time options
+                  </li>
+                </ul>
 
-              <div className="pt-4">
-                <Button asChild size="lg" className="w-full">
+                <p className="text-xs text-muted-foreground">
+                  Pool access & facility fees depend on the chosen location — confirmed clearly when you book.
+                </p>
+              </div>
+
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <Button asChild size="lg" className="rounded-full sm:flex-1">
                   <Link href="/contact">Book a try-out</Link>
                 </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full bg-white/25 backdrop-blur border-white/40 sm:flex-1"
+                >
+                  <Link href="/contact">Help me choose</Link>
+                </Button>
               </div>
-
-              <p className="mt-3 text-xs text-muted-foreground">
-                Try-out lesson is a gentle introduction. Pre-registration is required.
-              </p>
             </CardContent>
           </Card>
 
-          {/* LOCATION */}
-          <Card className="rounded-2xl bg-white/55 backdrop-blur border">
-            <CardHeader className="flex flex-row items-center gap-4">
-              <div className="rounded-full bg-primary/10 p-3">
-                <MapPin className="h-6 w-6 text-primary" />
-              </div>
-              <div>
+          {/* RIGHT COLUMN: LOCATION + SCHEDULING */}
+          <div className="grid gap-8">
+            <Card className="relative overflow-hidden rounded-3xl border border-white/35 bg-white/18 shadow-2xl backdrop-blur">
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/16 via-transparent to-transparent" />
+              <CardHeader className="relative pb-0">
                 <CardTitle className="font-headline text-2xl">Location</CardTitle>
-                <CardDescription>Zeeland, calm and private.</CardDescription>
-              </div>
-            </CardHeader>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Zeeland — calm facility, details shared after registration.
+                </p>
+              </CardHeader>
+              <CardContent className="relative pt-6 space-y-5">
+                <InfoRow
+                  icon={MapPin}
+                  title="Privacy-first"
+                  body="Exact pool location is confirmed after registration to keep the environment calm and private."
+                />
+                <InfoRow
+                  icon={ShieldCheck}
+                  title="Quiet setting"
+                  body="We choose time slots and locations that reduce stress, distractions, and crowded lanes."
+                />
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-full rounded-full bg-white/25 backdrop-blur border-white/40"
+                >
+                  <Link href="/contact">Ask what’s nearest</Link>
+                </Button>
+              </CardContent>
+            </Card>
 
-            <CardContent className="space-y-3">
-              <p className="text-muted-foreground">
-                Lessons take place in a quiet swimming facility in Zeeland. Exact details are shared after registration
-                to protect privacy and keep the environment calm.
-              </p>
-
-              <Button asChild variant="outline" className="bg-white/40 backdrop-blur w-full">
-                <Link href="/contact">Ask about your nearest option</Link>
-              </Button>
-            </CardContent>
-          </Card>
-
-          {/* SCHEDULING */}
-          <Card className="rounded-2xl bg-white/55 backdrop-blur border">
-            <CardHeader className="flex flex-row items-center gap-4">
-              <div className="rounded-full bg-primary/10 p-3">
-                <Clock className="h-6 w-6 text-primary" />
-              </div>
-              <div>
+            <Card className="relative overflow-hidden rounded-3xl border border-white/35 bg-white/18 shadow-2xl backdrop-blur">
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/16 via-transparent to-transparent" />
+              <CardHeader className="relative pb-0">
                 <CardTitle className="font-headline text-2xl">Scheduling</CardTitle>
-                <CardDescription>Weekdays + flexible slots.</CardDescription>
-              </div>
-            </CardHeader>
-
-            <CardContent className="space-y-3">
-              <p className="text-muted-foreground">
-                Lessons are typically available on weekdays, with options in the morning and evening. Send your
-                preferred days/times and we’ll confirm what’s possible.
-              </p>
-
-              <Button asChild size="lg" className="w-full">
-                <Link href="/contact">Check availability</Link>
-              </Button>
-            </CardContent>
-          </Card>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Weekdays + flexible slots (morning/evening).
+                </p>
+              </CardHeader>
+              <CardContent className="relative pt-6 space-y-5">
+                <InfoRow
+                  icon={Clock}
+                  title="Flexible times"
+                  body="Send 2–3 preferred options and we’ll reply with what’s possible."
+                />
+                <InfoRow
+                  icon={CalendarDays}
+                  title="Simple booking"
+                  body="For now, bookings are confirmed by email. Calendly is coming soon."
+                />
+                <Button asChild size="lg" className="w-full rounded-full">
+                  <Link href="/contact">Check availability</Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
