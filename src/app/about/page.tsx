@@ -14,7 +14,13 @@ import { Check, ShieldCheck, Waves, HeartHandshake } from "lucide-react";
 const PORTRAIT_POSITION = "50% 35%"; // tweak later once real photo is in
 const PORTRAIT_ASPECT = "1088/992"; // your current image ratio (almost square)
 
-function Surface({ children, className = "" }: { children: ReactNode; className?: string }) {
+function Surface({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return (
     <div
       className={[
@@ -145,8 +151,8 @@ export default function AboutPage() {
                     <div className="relative overflow-hidden rounded-3xl border border-white/40 bg-white/15 shadow-2xl backdrop-blur">
                       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-transparent" />
 
-                      {/* IMPORTANT: frame aspect matches your real image ratio */}
-                      <div className={["relative w-full", `aspect-[${PORTRAIT_ASPECT}]`].join(" ")}>
+                      {/* IMPORTANT: use inline aspectRatio (Tailwind can't compile dynamic aspect-[...]) */}
+                      <div className="relative w-full" style={{ aspectRatio: PORTRAIT_ASPECT }}>
                         {profileImage ? (
                           <>
                             {/* MELT LAYER (blurred cover behind) */}
@@ -160,7 +166,7 @@ export default function AboutPage() {
                               aria-hidden
                             />
 
-                            {/* MAIN LAYER (full image visible) */}
+                            {/* MAIN LAYER (shows full instructor image) */}
                             <Image
                               src={profileImage.imageUrl}
                               alt={
@@ -171,7 +177,8 @@ export default function AboutPage() {
                               fill
                               priority
                               sizes="(min-width: 768px) 420px, 100vw"
-                              className="object-cover"
+                              className="object-contain p-6"
+                              style={{ objectPosition: "50% 50%" }}
                             />
                           </>
                         ) : (
