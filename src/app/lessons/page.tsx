@@ -1,3 +1,4 @@
+
 "use client";
 
 import {
@@ -131,14 +132,16 @@ export default function LessonsPage() {
                 <div className="w-full max-w-[520px]">
                   <div className="relative overflow-hidden rounded-3xl border border-white/40 bg-white/15 shadow-2xl backdrop-blur">
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/25 via-transparent to-transparent" />
-                    <Image
-                      src={detailImage.imageUrl}
-                      alt={detailImage.description}
-                      data-ai-hint={detailImage.imageHint}
-                      width={1400}
-                      height={1000}
-                      className="w-full aspect-[4/3] object-cover"
-                    />
+                    <div className="relative aspect-[4/3] w-full">
+                      <Image
+                        src={detailImage.imageUrl}
+                        alt={detailImage.description}
+                        data-ai-hint={detailImage.imageHint}
+                        fill
+                        sizes="(min-width: 768px) 520px, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
                   </div>
 
                   <div className="mt-3 text-xs text-muted-foreground">
