@@ -171,7 +171,7 @@ export default function AboutPage() {
                               fill
                               priority
                               sizes="(min-width: 768px) 420px, 100vw"
-                              className="object-contain p-6"
+                              className="object-cover"
                             />
                           </>
                         ) : (
