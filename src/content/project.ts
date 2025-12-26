@@ -97,7 +97,7 @@ Zwemmen gaat niet om prestaties. Het gaat erom je veilig, ontspannen en vrij te 
     for_you: {
       kicker: "Een Plek Voor U",
       title: "Is dit de juiste plek voor u?",
-      subtitle: "Deze lessen zijn gemaakt voor volwassenen van alle achtergronden die comfort en veiligheid in het water willen vinden. Kijk of iets hiervan bekend klinkt.",
+      subtitle: "Deze lessen zijn gemaakt for volwassenen van alle achtergronden die comfort en veiligheid in het water willen vinden. Kijk of iets hiervan bekend klinkt.",
       who_title: "Deze lessen zijn voor...",
       who_list: [
         "Volledige beginners die nog nooit zwemles hebben gehad.",
@@ -416,7 +416,6 @@ La natation n’est pas une question de performance. Il s’agit de se sentir en
       apply: "S’inscrire",
     },
   },
-
   es: {
     meta: {
       brand: "Nabarro Coaching",
@@ -582,3 +581,5 @@ export const project = {
     locations: ["Zeeland", "Middelburg", "Vlissingen", "Walcheren"],
   },
 };
+
+    
