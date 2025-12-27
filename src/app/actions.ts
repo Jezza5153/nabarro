@@ -15,9 +15,7 @@ const formSchema = z.object({
     "abc-diploma",
     "other",
   ]),
-  message: z
-    .string()
-    .min(10, { message: "Please tell us a bit more in your message." }),
+  message: z.string().min(10, { message: "Please tell us a bit more in your message." }),
   consent: z.boolean().refine((val) => val === true, {
     message: "You must agree to be contacted about your request.",
   }),
@@ -27,49 +25,62 @@ const formSchema = z.object({
 type ActionResult = {
   success: boolean;
   message: string;
-  // dev-only hint you can display if you want (or just read logs)
-  debugId?: string;
+  debugId?: string; // show only in dev if you want
 };
+
+function getDebugId() {
+  try {
+    return crypto.randomUUID();
+  } catch {
+    return String(Date.now());
+  }
+}
 
 export async function submitContactForm(
   values: z.infer<typeof formSchema>
 ): Promise<ActionResult> {
-  const parsed = formSchema.safeParse(values);
+  const debugId = getDebugId();
 
+  const parsed = formSchema.safeParse(values);
   if (!parsed.success) {
-    return { success: false, message: "Invalid data provided." };
+    console.warn(`[contact:${debugId}] Invalid form payload`, parsed.error?.flatten?.());
+    return { success: false, message: "Invalid data provided.", debugId };
   }
 
   // Honeypot: silently accept
   if (parsed.data.honeypot) {
+    console.log(`[contact:${debugId}] Honeypot triggered (likely bot).`);
     return { success: true, message: "Message received — we’ll reply by email." };
   }
 
   const resendKey = process.env.RESEND_API_KEY;
+  const toEmail = process.env.CONTACT_FORM_RECIPIENT_EMAIL || "nabarrocoaching@gmail.com";
+
+  // IMPORTANT:
+  // If you do not have a domain yet, Resend lets you test using onboarding@resend.dev.
+  // For best deliverability later, you’ll want a real domain sender.
+  const fromEmail = process.env.CONTACT_FORM_FROM_EMAIL || "onboarding@resend.dev";
+  const from = `Nabarro Coaching <${fromEmail}>`;
+
   if (!resendKey) {
-    console.warn("RESEND_API_KEY missing — logging submission only.");
-    console.log("Contact submission:", parsed.data);
-    return { success: true, message: "Message received — we’ll reply by email." };
+    console.error(`[contact:${debugId}] Missing RESEND_API_KEY. Check .env.local and hosting env vars.`);
+    console.log(`[contact:${debugId}] Submission (not emailed):`, parsed.data);
+    return {
+      success: false,
+      message: "Email service is not configured yet. Please try again later.",
+      debugId,
+    };
   }
 
   const resend = new Resend(resendKey);
-
-  // Where Nathalie receives it
-  const toEmail = process.env.CONTACT_FORM_RECIPIENT_EMAIL || "nabarrocoaching@gmail.com";
-
   const { name, email, phone, reason, message } = parsed.data;
-
-  // NOTE:
-  // - If you have NOT verified a domain in Resend, sending to arbitrary recipients may fail.
-  // - Once you verify a domain, set `from` to something like: "SwimCoaching <[email protected]>"
-  const from = process.env.CONTACT_FORM_FROM || "onboarding@resend.dev";
 
   try {
     const { data, error } = await resend.emails.send({
-      from: `Nabarro Coaching <${from}>`,
+      from,
       to: [toEmail],
       subject: `New inquiry (${reason}) — ${name}`,
-      reply_to: email, // Nathalie can hit "Reply" straight to the client
+      replyTo: email, // ✅ Resend Node SDK uses replyTo (camelCase)
       text: `New website inquiry
 
 Name: ${name}
@@ -82,30 +93,28 @@ ${message}
 `,
     });
 
-    // ✅ THIS is the “did it actually send?” check
+    // ✅ hard “did it send?” check
     if (error) {
-      console.error("Resend error:", error);
+      console.error(`[contact:${debugId}] Resend error:`, error);
       return {
         success: false,
-        message:
-          "Could not send your message right now. Please try again in a moment.",
-        debugId: process.env.NODE_ENV !== "production" ? (error as any)?.message : undefined,
+        message: "Could not send your message right now. Please try again.",
+        debugId,
       };
     }
 
-    console.log("Resend sent OK:", data);
-
+    console.log(`[contact:${debugId}] Resend sent OK:`, data);
     return {
       success: true,
       message: "Message received — we’ll reply by email.",
-      debugId: process.env.NODE_ENV !== "production" ? (data as any)?.id : undefined,
+      debugId: process.env.NODE_ENV !== "production" ? (data as any)?.id || debugId : undefined,
     };
   } catch (err) {
-    console.error("Resend exception:", err);
+    console.error(`[contact:${debugId}] Resend exception:`, err);
     return {
       success: false,
       message: "Could not send your message. Please try again later.",
-      debugId: process.env.NODE_ENV !== "production" ? String(err) : undefined,
+      debugId,
     };
   }
 }
