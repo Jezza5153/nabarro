@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Check, Video, XCircle, ExternalLink } from "lucide-react";
+import { Check, MessageCircle, XCircle } from "lucide-react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
@@ -211,7 +211,7 @@ export default function LessonsPage() {
                   variant="outline"
                   className="w-fit rounded-full bg-white/35 px-4 py-1 border-white/40"
                 >
-                  Free 15-min call
+                  Questions?
                 </Badge>
 
                 <h3 className="font-headline text-2xl font-bold sm:text-3xl">
@@ -219,7 +219,7 @@ export default function LessonsPage() {
                 </h3>
 
                 <p className="text-muted-foreground md:text-lg leading-relaxed">
-                  Book a short, no-pressure call to discuss your goals. We'll find out if it's a good fit.
+                  Send a message to discuss your goals. We'll find out if it's a good fit. No pressure.
                 </p>
 
                 <div className="mt-4 space-y-2 text-sm text-muted-foreground">
@@ -229,22 +229,21 @@ export default function LessonsPage() {
                   </div>
                   <div className="flex items-start gap-2">
                     <Check className="h-4 w-4 mt-0.5 text-primary" />
-                    <span>You can book a call directly using the link.</span>
+                    <span>You can ask anything, there's no commitment.</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <Check className="h-4 w-4 mt-0.5 text-primary" />
-                    <span>Tip: Tell me what language you prefer for the call.</span>
+                    <span>Tip: Tell me what language you prefer for our conversation.</span>
                   </div>
                 </div>
               </div>
 
-              {/* RIGHT — Calendly link */}
+              {/* RIGHT — Contact button */}
               <div className="flex items-center justify-center">
                  <Button asChild size="lg" className="rounded-full w-full max-w-sm">
-                    <Link href="https://calendly.com/nabarrocoaching-1/30min" target="_blank" rel="noopener noreferrer">
-                      <Video className="mr-2 h-5 w-5" />
-                      Request a free 15-min call
-                      <ExternalLink className="ml-2 h-4 w-4" />
+                    <Link href="/contact">
+                      <MessageCircle className="mr-2 h-5 w-5" />
+                      Contact me
                     </Link>
                   </Button>
               </div>
