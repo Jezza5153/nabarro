@@ -7,7 +7,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { CheckCircle, LoaderCircle } from "lucide-react";
 
-import type { submitContactForm } from "@/app/actions";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -52,11 +51,8 @@ const formSchema = z.object({
   honeypot: z.string().optional(), // Anti-spam honeypot field
 });
 
-type ContactFormProps = {
-  action: typeof submitContactForm;
-};
 
-export default function ContactForm({ action }: ContactFormProps) {
+export default function ContactForm() {
   const [isPending, startTransition] = useTransition();
   const [submitted, setSubmitted] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
@@ -86,15 +82,26 @@ export default function ContactForm({ action }: ContactFormProps) {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(async () => {
-      const result = await action(values);
-      if (result.success) {
-        setSuccessMessage(result.message);
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data?.message || "Failed to send message.");
+        }
+        
+        setSuccessMessage(data.message);
         setSubmitted(true);
-      } else {
+      } catch (error: any) {
         toast({
           variant: "destructive",
           title: "Something went wrong",
-          description: result.message || "Could not send your message. Please try again.",
+          description: error.message || "Could not send your message. Please try again.",
         });
       }
     });

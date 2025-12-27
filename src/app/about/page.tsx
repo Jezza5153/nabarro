@@ -10,7 +10,6 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Badge } from "@/components/ui/badge";
 import type { LucideIcon } from "lucide-react";
 import { Check, ShieldCheck, Waves, HeartHandshake, Star, Languages, MapPin, Users, Activity } from "lucide-react";
-import { submitContactForm } from "../actions";
 
 const PORTRAIT_POSITION = "50% 35%"; // tweak later once real photo is in
 const PORTRAIT_ASPECT = "1088/992"; // your current image ratio (almost square)
@@ -295,7 +294,7 @@ export default function AboutPage() {
           <div className="relative mx-auto mt-10 w-full max-w-lg overflow-hidden rounded-2xl border border-white/40 bg-white/26 p-6 shadow-xl backdrop-blur">
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/16 via-transparent to-transparent" />
             <div className="relative">
-              <ContactForm action={submitContactForm} />
+              <ContactForm />
             </div>
           </div>
         </Surface>

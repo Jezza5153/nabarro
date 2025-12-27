@@ -3,7 +3,6 @@
 
 import ContactForm from "@/components/contact-form";
 import { project } from "@/content/project";
-import { submitContactForm } from "@/app/actions";
 
 export default function ContactPage() {
     const t = project.i18n.en.contact;
@@ -23,7 +22,7 @@ export default function ContactPage() {
                     </p>
                 </div>
                 <div className="mx-auto w-full max-w-lg space-y-8 pt-12">
-                   <ContactForm action={submitContactForm} />
+                   <ContactForm />
                 </div>
             </div>
         </div>
