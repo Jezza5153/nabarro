@@ -45,7 +45,7 @@ I offer 1:1 and small-group swimming lessons for adults: complete beginners, peo
 
 My approach is supportive, personal, and pressure-free. We move step by step, always at your pace. No shouting, no forcing, no judgment, just patience, clarity, and trust.
 
-Humor is a tool, built on a foundation of safety.
+Humor as a tool, patience as a method, and trust as the foundation.
 
 Swimming is not about performance. It’s about feeling safe, relaxed, and free in the water. And yes, even adults can learn to enjoy it.`,
       ask_title: "Ask a question",
