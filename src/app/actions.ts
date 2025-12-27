@@ -80,7 +80,7 @@ export async function submitContactForm(
       from,
       to: [toEmail],
       subject: `New inquiry (${reason}) — ${name}`,
-      replyTo: email, // ✅ Resend Node SDK uses replyTo (camelCase)
+      reply_to: email, // ✅ Corrected from replyTo to reply_to
       text: `New website inquiry
 
 Name: ${name}
