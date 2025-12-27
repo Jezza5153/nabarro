@@ -69,7 +69,7 @@ export async function POST(req: Request) {
       from,
       to: [toEmail],
       subject: `New inquiry (${reason}) — ${name}`,
-      replyTo: email, // correct field name for Resend SDK
+      reply_to: email, // correct field name for Resend SDK
       text: `New website inquiry
 
 Name: ${name}
