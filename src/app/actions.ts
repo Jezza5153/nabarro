@@ -1,4 +1,3 @@
-// src/app/actions.ts (or wherever your server action lives)
 "use server";
 
 import * as z from "zod";
@@ -26,76 +25,73 @@ const formSchema = z.object({
 type ActionResult = {
   success: boolean;
   message: string;
-  debugId?: string; // optional, dev-only
+  debug?: string; // only useful while testing
 };
+
 
 export async function submitContactForm(
   values: z.infer<typeof formSchema>
 ): Promise<ActionResult> {
   const parsed = formSchema.safeParse(values);
-  if (!parsed.success) return { success: false, message: "Invalid data provided." };
+  if (!parsed.success) return { success: false, message: "Invalid data." };
 
-  // Honeypot = bot → pretend success
   if (parsed.data.honeypot) {
+    // bot: pretend success
     return { success: true, message: "Message received — we’ll reply by email." };
   }
 
-  const resendKey = process.env.RESEND_API_KEY;
-  if (!resendKey) {
-    console.warn("RESEND_API_KEY missing — logging submission only.");
-    console.log("Contact submission:", parsed.data);
-    return { success: true, message: "Message received — we’ll reply by email." };
+  const key = process.env.RESEND_API_KEY;
+  if (!key) {
+    return {
+      success: false,
+      message: "Server missing RESEND_API_KEY.",
+      debug: "Add RESEND_API_KEY in your project's environment variables.",
+    };
   }
 
-  // ✅ OPTION A: force deliver to your Hotmail for testing
-  const toEmail = "j.arrascaeta@hotmail.com";
+  const resend = new Resend(key);
 
-  const resend = new Resend(resendKey);
+  const to =
+    process.env.CONTACT_FORM_RECIPIENT_EMAIL || "nabarrocoaching@gmail.com";
+
+  // No-domain “from” address (works for testing, may have limits)
+  const from = "Nabarro Coaching <onboarding@resend.dev>";
+
   const { name, email, phone, reason, message } = parsed.data;
 
-  // Resend “from” when you have no domain verified
-  const fromEmail = process.env.CONTACT_FORM_FROM || "onboarding@resend.dev";
+  const subject = `New inquiry (${reason}) — ${name}`;
 
-  try {
-    const { data, error } = await resend.emails.send({
-      from: `SwimCoaching <${fromEmail}>`,
-      to: [toEmail],
-      subject: `New inquiry (${reason}) — ${name}`,
-      // ✅ IMPORTANT: Resend uses replyTo (camelCase), not reply_to
-      replyTo: email,
-      text: `New website inquiry
+  const text = `New website inquiry
 
 Name: ${name}
 Email: ${email}
-Phone: ${phone || "-" }
+Phone: ${phone || "-"}
 Reason: ${reason}
 
 Message:
 ${message}
-`,
+`;
+
+  try {
+    const result = await resend.emails.send({
+      from,
+      to,
+      subject,
+      reply_to: email, // IMPORTANT: correct field name for Resend SDK
+      text,
     });
+    
+    console.log("RESEND OK:", result.data);
 
-    if (error) {
-      console.error("Resend error:", error);
-      return {
-        success: false,
-        message: "Could not send your message right now. Please try again in a moment.",
-        debugId: process.env.NODE_ENV !== "production" ? String((error as any)?.message ?? error) : undefined,
-      };
-    }
+    return { success: true, message: "Message received — we’ll reply by email." };
 
-    console.log("Resend sent OK:", data);
-    return {
-      success: true,
-      message: "Message received — we’ll reply by email.",
-      debugId: process.env.NODE_ENV !== "production" ? String((data as any)?.id ?? "") : undefined,
-    };
-  } catch (err) {
-    console.error("Resend exception:", err);
+  } catch (error: any) {
+    console.error("RESEND SEND ERROR:", error);
+
     return {
       success: false,
-      message: "Could not send your message. Please try again later.",
-      debugId: process.env.NODE_ENV !== "production" ? String(err) : undefined,
+      message: "Email failed to send. Please try again.",
+      debug: error?.message || JSON.stringify(error),
     };
   }
 }
