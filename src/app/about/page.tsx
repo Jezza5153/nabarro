@@ -212,7 +212,9 @@ export default function AboutPage() {
                     </div>
 
                     <p className="mt-3 text-xs text-muted-foreground">
-                      Gentle, supportive coaching for adults. Step-by-step. Zeeland.
+                      “Progress doesn't come from pushing harder, but from commitment and
+                      consistency. By coming regularly, especially in the beginning, trust grows
+                      and the fundamentals can gently take root.”
                     </p>
                   </div>
                 </div>
