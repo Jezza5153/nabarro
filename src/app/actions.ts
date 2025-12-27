@@ -69,7 +69,7 @@ export async function submitContactForm(
       from: `Nabarro Coaching <${from}>`,
       to: [toEmail],
       subject: `New inquiry (${reason}) — ${name}`,
-      replyTo: email, // Nathalie can hit "Reply" straight to the client
+      reply_to: email, // Nathalie can hit "Reply" straight to the client
       text: `New website inquiry
 
 Name: ${name}
