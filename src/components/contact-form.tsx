@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useTransition } from "react";
@@ -6,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { CheckCircle, LoaderCircle } from "lucide-react";
 
-import { submitContactForm } from "@/app/actions";
+import type { submitContactForm } from "@/app/actions";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -51,8 +52,11 @@ const formSchema = z.object({
   honeypot: z.string().optional(), // Anti-spam honeypot field
 });
 
+type ContactFormProps = {
+  action: typeof submitContactForm;
+};
 
-export default function ContactForm() {
+export default function ContactForm({ action }: ContactFormProps) {
   const [isPending, startTransition] = useTransition();
   const [submitted, setSubmitted] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
@@ -73,7 +77,7 @@ export default function ContactForm() {
 
   const reasonOptions = [
     { value: "try-out", label: "Try-out" },
-    { value: "private-lesson", label: "Private lesson" },
+    { value: "private-lesson", label: "1:1 lesson" },
     { value: "small-group", label: "Small group" },
     { value: "technique-improvement", label: "Technique improvement" },
     { value: "abc-diploma", label: "A/B/C diploma" },
@@ -82,7 +86,7 @@ export default function ContactForm() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(async () => {
-      const result = await submitContactForm(values);
+      const result = await action(values);
       if (result.success) {
         setSuccessMessage(result.message);
         setSubmitted(true);
