@@ -96,7 +96,7 @@ export default function LessonsPage() {
               </h1>
 
               <p className="max-w-[620px] text-muted-foreground md:text-lg leading-relaxed">
-                Clear, patient, and adult-focused. We start with safety and comfort first, then build skills
+                Clear, patient, and adult-focused. We start with safety and comfort, then build skills
                 step-by-step at your pace.
               </p>
 

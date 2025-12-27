@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/componentsui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 type PriceRow = {
@@ -171,7 +171,7 @@ export default function InfoPage() {
                     <Clock className="h-3.5 w-3.5" /> 45 minutes per lesson
                   </span>
                   <span className="inline-flex items-center gap-1 rounded-full border border-white/35 bg-white/18 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
-                    <ShieldCheck className="h-3.5 w-3.5" /> judgement-free, patient pace
+                    <ShieldCheck className="h-3.5 w-3.5" /> no-judgement, patient pace
                   </span>
                   <span className="inline-flex items-center gap-1 rounded-full border border-white/35 bg-white/18 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
                     <MapPin className="h-3.5 w-3.5" /> Zeeland (exact pool after registration)

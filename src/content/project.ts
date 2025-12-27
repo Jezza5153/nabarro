@@ -10,7 +10,7 @@ const content = {
     },
     header: {
       menu_label: "Menu",
-      subtitle: "Zwemcoaching voor volwassenen, rustig en persoonlijk",
+      subtitle: "Zwemcoaching voor volwassenen, rustig en persoonlijk.",
       cta_hint: "Proefles €20, 45 min. Vooraf aanmelden verplicht.",
       home_label: "Home",
     },
@@ -147,7 +147,7 @@ Zwemmen gaat niet om prestaties. Het gaat erom je veilig, ontspannen en vrij te 
     },
     header: {
       menu_label: "Menu",
-      subtitle: "Adult swim coaching, calm and personal.",
+      subtitle: "Adult swim coaching. Calm and personal.",
       cta_hint: "Try-out €20, 45 min. Pre-registration required.",
       home_label: "Home",
     },
@@ -206,7 +206,7 @@ Swimming is not about performance. It’s about feeling safe, relaxed, and free 
       subtitle:
         "Clear pricing, a calm setting, and flexible scheduling, so you know exactly what to expect.",
       trust_45: "45 minutes per lesson",
-      trust_safe: "Gentle, focused, judgement-free",
+      trust_safe: "Gentle, focused, no-judgement",
       trust_location: "Zeeland (exact location after registration)",
       pricing_title: "Pricing",
       pricing_desc: "Simple and upfront.",
