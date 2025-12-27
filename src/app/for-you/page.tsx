@@ -5,13 +5,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/lib/language-provider";
-import { getCopy } from "@/lib/i18n";
+import { project } from "@/content/project";
 import { Badge } from "@/components/ui/badge";
 
 export default function ForYouPage() {
-  const { locale } = useLanguage();
-  const t = getCopy(locale).for_you;
+  const t = project.i18n.en.for_you;
 
   return (
     <div className="py-12 md:py-24 lg:py-32">

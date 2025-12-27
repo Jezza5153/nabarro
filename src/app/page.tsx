@@ -18,8 +18,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { project } from "@/content/project";
-import { useLanguage } from "@/lib/language-provider";
-import { getCopy } from "@/lib/i18n";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const features = [
@@ -68,18 +66,13 @@ function Step({
 }
 
 export default function Home() {
-  const { locale } = useLanguage();
-  const t = getCopy(locale);
+  const t = project.i18n.en;
 
   const heroImage =
     PlaceHolderImages.find((img) => img.id === "hero-calm-water") ??
     PlaceHolderImages[0];
 
-  const homeFacts = (t as any)?.homeFacts ?? {
-    languages: "Languages possible: English, French, Spanish",
-    location: "Location: Zeeland (exact pool location shared after registration)",
-    format: "Small groups • At your own pace • 45 min per class",
-  };
+  const homeFacts = t.homeFacts;
 
   return (
     <div className="flex-1">

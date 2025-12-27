@@ -21,11 +21,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardHeader } from "./ui/card";
-import { useLanguage } from "@/lib/language-provider";
-import { getCopy } from "@/lib/i18n";
+import { project } from "@/content/project";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { Checkbox } from "./ui/checkbox";
-import { cn } from "@/lib/utils";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Please enter your full name." }),
@@ -59,8 +57,7 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const { toast } = useToast();
-  const { locale } = useLanguage();
-  const t = getCopy(locale).contact;
+  const t = project.i18n.en.contact;
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

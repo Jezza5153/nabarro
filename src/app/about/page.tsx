@@ -4,12 +4,11 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
 import ContactForm from "@/components/contact-form";
-import { useLanguage } from "@/lib/language-provider";
-import { getCopy } from "@/lib/i18n";
+import { project } from "@/content/project";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Badge } from "@/components/ui/badge";
 import type { LucideIcon } from "lucide-react";
-import { Check, ShieldCheck, Waves, HeartHandshake } from "lucide-react";
+import { Check, ShieldCheck, Waves, HeartHandshake, Star, Languages, MapPin, Users, Activity } from "lucide-react";
 
 const PORTRAIT_POSITION = "50% 35%"; // tweak later once real photo is in
 const PORTRAIT_ASPECT = "1088/992"; // your current image ratio (almost square)
@@ -68,18 +67,26 @@ function MiniCard({
   );
 }
 
-export default function AboutPage() {
-  const { locale } = useLanguage();
-  const copy = getCopy(locale);
-  const t = copy.about;
+function InfoListItem({ icon: Icon, label, value }: { icon: LucideIcon; label: string; value: string }) {
+  return (
+    <div className="flex items-start gap-3 text-sm">
+      <Icon className="mt-1 h-4 w-4 shrink-0 text-primary" />
+      <div>
+        <span className="font-semibold text-foreground/90">{label}:</span>{" "}
+        <span className="text-muted-foreground">{value}</span>
+      </div>
+    </div>
+  );
+}
 
-  // keep placeholder for now, but DON'T random fallback
+
+export default function AboutPage() {
+  const t = project.i18n.en.about;
+
   const profileImage = PlaceHolderImages.find((img) => img.id === "nathalie-profile");
 
-  const askTitle = (copy as any)?.about?.ask_title ?? "Ask a question";
-  const askSubtitle =
-    (copy as any)?.about?.ask_subtitle ??
-    "Curious if this is right for you? Send a message. You’ll get a clear reply.";
+  const askTitle = t.ask_title;
+  const askSubtitle = t.ask_subtitle;
 
   const story = (t.story ?? "").trim();
   const parts = story.split("\n\n").filter(Boolean);
@@ -211,11 +218,25 @@ export default function AboutPage() {
                       </div>
                     </div>
 
-                    <p className="mt-3 text-xs text-muted-foreground">
+                    <p className="mt-3 text-xs italic text-muted-foreground">
                       “Progress doesn't come from pushing harder, but from commitment and
                       consistency. By coming regularly, especially in the beginning, trust grows
                       and the fundamentals can gently take root.”
                     </p>
+
+                    {/* IN SHORT BLOCK */}
+                    <div className="relative mt-6 overflow-hidden rounded-2xl border border-white/35 bg-white/18 p-5 backdrop-blur">
+                       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/14 via-transparent to-transparent" />
+                       <div className="relative space-y-3">
+                          <h3 className="font-headline text-lg font-semibold">In short</h3>
+                          <InfoListItem icon={Star} label="Certification" value="NRZ-certified swimming instructor" />
+                          <InfoListItem icon={Languages} label="Languages" value="English" />
+                          <InfoListItem icon={Users} label="For" value="Adults (beginners & refreshers)" />
+                          <InfoListItem icon={Activity} label="Approach" value="Supportive, positive, safe. No pressure, no shame." />
+                          <InfoListItem icon={MapPin} label="Region" value="Middelburg, Vlissingen, Walcheren, Zeeland" />
+                       </div>
+                    </div>
+
                   </div>
                 </div>
               </div>

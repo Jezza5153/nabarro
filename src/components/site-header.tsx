@@ -8,9 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Menu, ArrowRight } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import { useLanguage } from "@/lib/language-provider";
-import { LanguageSwitcher } from "./language-switcher";
-import { getCopy } from "@/lib/i18n";
 import { project } from "@/content/project";
 
 function isActivePath(pathname: string, href: string) {
@@ -81,11 +78,9 @@ function MobileNavLink({
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const { locale } = useLanguage();
-  const copy = getCopy(locale);
-
+  const copy = project.i18n.en;
   const nav = copy.nav;
-  const header = (copy as any).header; // swap to copy.header once i18n is typed
+  const header = copy.header;
 
   const brand = 'Swimcoaching';
 
@@ -152,8 +147,6 @@ export function SiteHeader() {
 
         {/* RIGHT */}
         <div className="ml-auto flex items-center gap-2">
-          <LanguageSwitcher />
-
           {/* Desktop CTA */}
           <Button
             asChild

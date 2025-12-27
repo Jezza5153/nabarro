@@ -1,12 +1,10 @@
 "use client";
 
 import ContactForm from "@/components/contact-form";
-import { useLanguage } from "@/lib/language-provider";
-import { getCopy } from "@/lib/i18n";
+import { project } from "@/content/project";
 
 export default function ContactPage() {
-    const { locale } = useLanguage();
-    const t = getCopy(locale).contact;
+    const t = project.i18n.en.contact;
 
     return (
         <div className="py-12 md:py-24 lg:py-32">
