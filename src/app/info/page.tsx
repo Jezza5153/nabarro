@@ -105,24 +105,24 @@ export default function InfoPage() {
     {
       id: "tryout",
       title: "Try-out lesson",
-      duration: "45 minutes • one time",
+      duration: "45 minutes, one time",
       price: "€20",
-      note: "A calm introduction. We start with comfort, breathing, and safety.",
+      note: "A supportive introduction. We start with comfort, breathing, and safety.",
       highlight: true,
     },
     {
       id: "private",
       title: "Private lesson",
-      duration: "45 minutes • 1-to-1 coaching",
+      duration: "45 minutes, 1-to-1 coaching",
       price: "€80",
       note: "Personal pace, maximum focus. Ideal for fear of water or fast progress.",
     },
     {
       id: "group",
       title: "Small group class",
-      duration: "45 minutes • small group",
+      duration: "45 minutes, small group",
       price: "€30",
-      note: "Supportive and calm. Great if you prefer learning with others.",
+      note: "Supportive and relaxed. Great if you prefer learning with others.",
     },
   ];
 
@@ -157,11 +157,11 @@ export default function InfoPage() {
                 </Badge>
 
                 <h1 className="mt-5 font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-                  Pricing, location, and scheduling — clearly.
+                  Pricing, location, and scheduling, clearly.
                 </h1>
 
                 <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                  Calm adult swim coaching in Zeeland. Everything upfront so you know what to expect before you
+                  Supportive adult swim coaching in Zeeland. Everything is upfront so you know what to expect before you
                   reach out.
                 </p>
 
@@ -171,7 +171,7 @@ export default function InfoPage() {
                     <Clock className="h-3.5 w-3.5" /> 45 minutes per lesson
                   </span>
                   <span className="inline-flex items-center gap-1 rounded-full border border-white/35 bg-white/18 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
-                    <ShieldCheck className="h-3.5 w-3.5" /> judgement-free, calm pace
+                    <ShieldCheck className="h-3.5 w-3.5" /> judgement-free, patient pace
                   </span>
                   <span className="inline-flex items-center gap-1 rounded-full border border-white/35 bg-white/18 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
                     <MapPin className="h-3.5 w-3.5" /> Zeeland (exact pool after registration)
@@ -218,7 +218,7 @@ export default function InfoPage() {
                 <div>
                   <CardTitle className="font-headline text-2xl">Pricing</CardTitle>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    Start with a try-out. Then choose private or small group.
+                    Start with a try-out. Then choose a 1:1 or small group format.
                   </p>
                 </div>
               </div>
@@ -237,20 +237,20 @@ export default function InfoPage() {
                 <ul className="grid gap-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <Check className="mt-0.5 h-4 w-4 text-primary" />
-                    Calm, step-by-step coaching for adults (beginner → technique)
+                    Gentle, step-by-step coaching for adults (beginner to technique).
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="mt-0.5 h-4 w-4 text-primary" />
-                    Clear guidance on breathing, balance, and safety
+                    Clear guidance on breathing, balance, and safety.
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="mt-0.5 h-4 w-4 text-primary" />
-                    Confirmation by email with location + time options
+                    Confirmation by email with location and time options.
                   </li>
                 </ul>
 
                 <p className="text-xs text-muted-foreground">
-                  Pool access & facility fees depend on the chosen location — confirmed clearly when you book.
+                  Pool access and facility fees depend on the chosen location, confirmed clearly when you book.
                 </p>
               </div>
 
@@ -277,18 +277,18 @@ export default function InfoPage() {
               <CardHeader className="relative pb-0">
                 <CardTitle className="font-headline text-2xl">Location</CardTitle>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Zeeland — calm facility, details shared after registration.
+                  Zeeland. A discreet facility, details shared after registration.
                 </p>
               </CardHeader>
               <CardContent className="relative pt-6 space-y-5">
                 <InfoRow
                   icon={MapPin}
-                  title="Privacy-first"
-                  body="Exact pool location is confirmed after registration to keep the environment calm and private."
+                  title="Discreet setting"
+                  body="Exact pool location is confirmed after registration to keep the environment relaxed and focused."
                 />
                 <InfoRow
                   icon={ShieldCheck}
-                  title="Quiet setting"
+                  title="Quiet environment"
                   body="We choose time slots and locations that reduce stress, distractions, and crowded lanes."
                 />
                 <Button
@@ -306,7 +306,7 @@ export default function InfoPage() {
               <CardHeader className="relative pb-0">
                 <CardTitle className="font-headline text-2xl">Scheduling</CardTitle>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Weekdays + flexible slots (morning/evening).
+                  Weekdays and flexible slots (morning/evening).
                 </p>
               </CardHeader>
               <CardContent className="relative pt-6 space-y-5">
@@ -318,7 +318,7 @@ export default function InfoPage() {
                 <InfoRow
                   icon={CalendarDays}
                   title="Simple booking"
-                  body="For now, bookings are confirmed by email. Calendly is coming soon."
+                  body="We are currently expanding availability. You can join the no-obligation waitlist and share your preferred days and times."
                 />
                 <Button asChild size="lg" className="w-full rounded-full">
                   <Link href="/contact">Check availability</Link>

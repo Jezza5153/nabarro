@@ -79,7 +79,7 @@ export default function AboutPage() {
   const askTitle = (copy as any)?.about?.ask_title ?? "Ask a question";
   const askSubtitle =
     (copy as any)?.about?.ask_subtitle ??
-    "Curious if this is right for you? Send a message — you’ll get a clear reply.";
+    "Curious if this is right for you? Send a message. You’ll get a clear reply.";
 
   const story = (t.story ?? "").trim();
   const parts = story.split("\n\n").filter(Boolean);
@@ -129,7 +129,7 @@ export default function AboutPage() {
                   </p>
 
                   <div className="mt-6 flex flex-wrap gap-2">
-                    <Chip>Calm, adult-focused</Chip>
+                    <Chip>Patient, adult-focused</Chip>
                     <Chip>No pressure, step-by-step</Chip>
                     <Chip>Zeeland</Chip>
                   </div>
@@ -177,8 +177,7 @@ export default function AboutPage() {
                               fill
                               priority
                               sizes="(min-width: 768px) 420px, 100vw"
-                              className="object-contain p-6"
-                              style={{ objectPosition: "50% 50%" }}
+                              className="object-cover"
                             />
                           </>
                         ) : (
@@ -208,12 +207,12 @@ export default function AboutPage() {
                       </div>
 
                       <div className="pointer-events-none absolute bottom-4 right-4 rounded-full border border-white/35 bg-white/18 px-3 py-1 text-[11px] text-foreground/80 backdrop-blur">
-                        Nabarro Coaching
+                        Swimcoaching
                       </div>
                     </div>
 
                     <p className="mt-3 text-xs text-muted-foreground">
-                      Calm, judgement-free coaching for adults • Step-by-step • Zeeland
+                      Gentle, supportive coaching for adults. Step-by-step. Zeeland.
                     </p>
                   </div>
                 </div>
@@ -229,7 +228,7 @@ export default function AboutPage() {
           <MiniCard
             icon={Waves}
             title="Comfort first"
-            body="We start with breathing, balance, and calm control — so you feel safe before pushing skills."
+            body="We start with breathing, balance, and calm control, so you feel safe before pushing skills."
           />
           <MiniCard
             icon={ShieldCheck}
@@ -239,7 +238,7 @@ export default function AboutPage() {
           <MiniCard
             icon={HeartHandshake}
             title="Personal coaching"
-            body="Private and small groups, focused attention, a quiet setting — built around you."
+            body="1:1 and small groups, focused attention, a quiet setting, all built around you."
           />
         </div>
       </section>

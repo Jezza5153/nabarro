@@ -25,21 +25,21 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 const features = [
   {
     icon: Waves,
-    title: "Calm pace, real progress",
+    title: "Gentle pace, real progress",
     description:
-      "We start with breathing and balance so your body learns to relax in the water — then we build skills.",
+      "We start with breathing and balance so your body learns to relax in the water. Then we build skills.",
   },
   {
     icon: ShieldCheck,
     title: "Safe and judgement-free",
     description:
-      "No forcing, no shouting. Clear steps, supportive coaching, zero embarrassment.",
+      "No forcing, no shouting. Just clear steps, supportive coaching, and zero embarrassment.",
   },
   {
     icon: HeartHandshake,
     title: "Adult-focused and inclusive",
     description:
-      "For anyone who prefers English over Dutch — locals, expats, and visitors. Beginners to technique work.",
+      "For anyone who prefers English, including locals, expats, and visitors. Beginners to technique work.",
   },
 ] as const;
 
@@ -76,9 +76,9 @@ export default function Home() {
     PlaceHolderImages[0];
 
   const homeFacts = (t as any)?.homeFacts ?? {
-    languages: "Languages possible: English, Dutch, French, Spanish",
+    languages: "Languages possible: English, French, Spanish",
     location: "Location: Zeeland (exact pool location shared after registration)",
-    format: "Small groups • Calm pace • 45 min per class",
+    format: "Small groups • At your own pace • 45 min per class",
   };
 
   return (
@@ -165,7 +165,7 @@ export default function Home() {
                   <div className="w-full rounded-2xl border border-white/40 bg-white/22 p-4 backdrop-blur">
                     <div className="text-sm">
                       <div className="font-semibold">
-                        Try-out lesson — €20 (45 min)
+                        Try-out lesson: €20 (45 min)
                       </div>
                       <div className="text-muted-foreground">
                         Pre-registration is required.
@@ -192,7 +192,7 @@ export default function Home() {
                         <div className="relative w-full aspect-[1376/768]">
                           <Image
                             src={heroImage.imageUrl}
-                            alt={heroImage.description ?? "Calm adult swimming coaching"}
+                            alt={heroImage.description ?? "Gentle adult swimming coaching"}
                             data-ai-hint={heroImage.imageHint}
                             fill
                             priority
@@ -226,7 +226,7 @@ export default function Home() {
 
                       <div className="mt-3 flex flex-wrap gap-2 text-xs text-muted-foreground">
                         <span className="inline-flex items-center gap-1 rounded-full border border-white/35 bg-white/18 px-3 py-1 backdrop-blur">
-                          <Check className="h-3.5 w-3.5" /> Calm and private
+                          <Check className="h-3.5 w-3.5" /> Gentle, individual attention
                         </span>
                         <span className="inline-flex items-center gap-1 rounded-full border border-white/35 bg-white/18 px-3 py-1 backdrop-blur">
                           <Check className="h-3.5 w-3.5" /> Adult-focused
@@ -246,17 +246,17 @@ export default function Home() {
               <Step
                 number="01"
                 title="Start with comfort"
-                body="We begin shallow, focus on breathing and calm control. No rush, no pressure."
+                body="We begin shallow, focus on breathing and gentle control. No rush, no pressure."
               />
               <Step
                 number="02"
-                title="Build trust + basics"
-                body="Floating, balance, gentle propulsion — your confidence grows with clarity."
+                title="Build trust & basics"
+                body="Floating, balance, and gentle propulsion. Your confidence grows with clarity."
               />
               <Step
                 number="03"
                 title="Improve technique"
-                body="Once safe and relaxed, we refine strokes and efficiency (at your pace)."
+                body="Once you feel safe and relaxed, we refine strokes and efficiency, at your pace."
               />
             </div>
           </div>
@@ -275,12 +275,12 @@ export default function Home() {
             </Badge>
 
             <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">
-              Calm coaching for adults who want to feel safe in the water
+              Patient coaching for adults who want to feel safe in the water
             </h2>
 
             <p className="max-w-[760px] text-muted-foreground md:text-xl/relaxed">
-              Safety and comfort first — then real progress. Clear steps, steady coaching,
-              and a calm environment.
+              Safety and comfort first, then real progress. Clear steps, steady coaching,
+              and a supportive environment.
             </p>
           </div>
 
@@ -332,8 +332,8 @@ export default function Home() {
             </h2>
 
             <p className="mt-4 max-w-2xl mx-auto text-lg text-primary-foreground/85 leading-relaxed">
-              Try-out lesson €20 (45 min). Pre-registration required. Questions first? Send a message —
-              you’ll get a clear reply.
+              A try-out lesson is €20 (45 min). Pre-registration required. Questions first? Send a message.
+              You’ll get a clear reply.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">

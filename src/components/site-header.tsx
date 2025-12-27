@@ -87,7 +87,7 @@ export function SiteHeader() {
   const nav = copy.nav;
   const header = (copy as any).header; // swap to copy.header once i18n is typed
 
-  const brand = project.meta.brand;
+  const brand = 'Swimcoaching';
 
   const links = [
     { href: "/lessons", label: nav.lessons },
