@@ -306,22 +306,22 @@ export default function InfoPage() {
               <CardHeader className="relative pb-0">
                 <CardTitle className="font-headline text-2xl">Scheduling</CardTitle>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Weekdays and flexible slots (morning/evening).
+                  We are currently expanding availability. You can join the no-obligation waitlist and share your preferred times.
                 </p>
               </CardHeader>
               <CardContent className="relative pt-6 space-y-5">
                 <InfoRow
                   icon={Clock}
-                  title="Flexible times"
-                  body="Send 2–3 preferred options and we’ll reply with what’s possible."
+                  title="Times"
+                  body="Tuesday 10:15 till 11:00, Thursday 20:00 till 20:45."
                 />
                 <InfoRow
                   icon={CalendarDays}
                   title="Simple booking"
-                  body="We are currently expanding availability. You can join the no-obligation waitlist and share your preferred days and times."
+                  body="We are currently expanding availability. You can join the no-obligation waitlist and share your preferred times."
                 />
                 <Button asChild size="lg" className="w-full rounded-full">
-                  <Link href="/contact">Check availability</Link>
+                  <Link href="/contact">Email your preferred times</Link>
                 </Button>
               </CardContent>
             </Card>
