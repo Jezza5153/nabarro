@@ -9,14 +9,14 @@
     {
       "id": "nathalie-profile",
       "description": "A friendly and professional portrait of Nathalie, the swimming instructor, smiling warmly.",
-      "imageUrl": "/pics/nathalie.jpg?v=2",
+      "imageUrl": "/pics/nathalie.jpg",
       "imageHint": "woman smiling"
     },
     {
       "id": "lessons-detail",
-      "description": "A person gently floating in calm pool water, representing safety and trust.",
-      "imageUrl": "/pics/lessons-detail.jpg?v=2",
-      "imageHint": "person swimming"
+      "description": "Swimming coach with adults in a pool, demonstrating calm adult-focused coaching.",
+      "imageUrl": "/pics/coach-hero.jpg",
+      "imageHint": "swimming coach pool"
     }
   ]
 }
